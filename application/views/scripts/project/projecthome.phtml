@@ -1,0 +1,367 @@
+
+<script src="<?php echo $this->baseUrl(); ?>/public/includes/charts/FusionCharts.js" ></script>
+
+
+<script language="javascript">
+
+	function confirmDelate(id){
+	
+		if(confirm("Are you Sure ? "))
+			window.location.href='app/delete.php?type=user&id=' + id 
+	}
+	
+	
+function displaySearch(){
+
+	if(document.getElementById('search').style.display == 'block'){
+		document.getElementById('search').style.display = 'none';
+	}
+	else{
+	
+	document.getElementById('search').style.display = 'block'
+	
+	}
+
+}
+
+function validateSearch()
+{
+	if(document.search.search_text.value == ''){
+		document.search.search_text.focus()
+		alert('Please enter search text ! ')
+		return false;
+	}
+	if(document.search.search_option.selectedIndex == 0){
+		document.search.search_option.focus()
+		alert('Please select option!')
+		return false;
+	}
+
+}
+
+
+</script>
+
+<?php
+
+	$config_id = $this->escape( $this->data[$this->projectId]['config_id']);
+	if($config_id > 0){
+		$config_status_image = 'tick.png'; 
+	}else{
+		$config_status_image = 'publish_r.png'; 
+	}
+	
+	$primeCalcStatus = $this->escape($this->primeCalcStatus);
+	$totalClients = $this->escape($this->totalClients) ; 
+	$aceCalcStatus = $this->escape($this->aceCalcStatus);
+	$totalPrimeRunStatus = $this->escape($this->totalPrimeRunStatus);
+	$totalAceRunStatus  = $this->escape($this->totalAceRunStatus);  
+	$primeStatus = 0 ; 
+	$aceStatus = 0 ;  
+	 
+	if($primeCalcStatus > 0 || $totalClients == 0  || $totalPrimeRunStatus == 0){
+		$prime_calc_status_image = 'publish_r.png'; 
+	}else{
+		$prime_calc_status_image = 'tick.png'; 
+		$primeStatus = 1; 
+	}
+
+	if($aceCalcStatus > 0 || $totalClients == 0 || $totalAceRunStatus == 0){
+		$ace_calc_status_image = 'publish_r.png'; 
+	}else{
+		$ace_calc_status_image = 'tick.png'; 
+		$aceStatus = 1 ; 
+	}
+
+?>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0"  align="center">
+	<tr>
+		<td height="400" valign="top" align="center"  >
+        <div class="message" id="message"   ><?php echo $this->message; ?></div>
+        
+        
+   <div class="breadcrumb" > <a href="<?php echo $this->baseUrl(); ?>/home" > Home </a>  >
+    
+	<a href="<?php echo $this->baseUrl(); ?>/project" >  Projects  </a>  >
+	<?php echo $this->escape( $this->data[$this->projectId]['project_name'])  ; ?>
+    
+    </div>
+
+							
+<table class="tableHeading topheading" border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tr>
+		<td class="big" align="left" >Project Home Page</td>
+		<td class="big" align="right">
+                    <a href="<?php echo $this->baseUrl(); ?>/project/csvexportprime/id/<?php echo  $this->projectId; ?>">Export Prime Project Entries</a>
+                </td>
+                <td class="big" align="right">
+                    <a href="<?php echo $this->baseUrl(); ?>/project/csvexportaces/id/<?php echo  $this->projectId ; ?>">Export Aces Project Entries</a>
+                </td>
+	</tr>
+</table>
+<?php
+    $auth       = Zend_Auth::getInstance();
+    $user       = $auth ->getIdentity();
+    $fullname   = $user ->name;
+	$baseurl    =  $this->baseUrl(); 
+?>											
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Project Name</td>
+		<td class="dvtCellInfo" align="left" colspan="3" ><?php echo $this->escape( $this->data[$this->projectId]['project_name'])  ; ?></td>
+	</tr>
+																			
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Total # of customers</td>
+		<td class="dvtCellInfo" align="left" <?=($user->isadmin ? 'width="25%"' : 'colspan="3"')?>><a href="<?php echo $this->baseUrl(); ?>/client/index/id/<?php echo $this->projectId; ?>" > <?php echo $this->totalClients ; ?></a></td>
+<?php
+	if($user->isadmin) {
+?>		
+		<td class="dvtCellLabel" align="right" width="25%">Configured ? </td>
+		<td class="dvtCellInfo" id="mouseArea_Email" onmouseover="hndMouseOver(104,'Email');" onmouseout="fnhide('crmspanid');" align="left" width="25%">
+        <a  href="<?php echo $this->baseUrl(); ?>/config/newconfig/id/<?php echo $this->projectId; ?>" >
+        	<img src="<?php echo $this->baseUrl(); ?>/public/images/<?php echo $config_status_image; ?>" />
+        </a>
+        </td>
+
+ <?
+ }?>       
+	</tr>
+
+<?php
+	if($this->totalClients  > 0 && $user->isadmin) {
+?>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Run Prime Calculation</td>
+		<td class="dvtCellInfo" align="left" width="25%" >
+        <a href="<?php echo $this->baseUrl(); ?>/project/runprime/id/<?php echo   $this->projectId; ?>" >
+        	<img src="<?php echo $this->baseUrl(); ?>/public/images/<?php echo $prime_calc_status_image; ?>" />
+        </a>
+        </td>
+		<td class="dvtCellLabel" align="right" width="25%">Run Aces Calculation</td>
+		<td width="25%" align="left" class="dvtCellInfo">
+        <a href="<?php echo $this->baseUrl(); ?>/project/runace/id/<?php echo   $this->projectId; ?>" >
+        	<img src="<?php echo $this->baseUrl(); ?>/public/images/<?php echo $ace_calc_status_image; ?>" />
+        </a>        
+        </td>
+	</tr>
+
+
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Total up Prime/Cc {P12} </td>
+		<td class="dvtCellInfo" align="left" width="25%" >
+        <?php 
+		 		if($primeStatus == 1 ){
+					//echo number_format($this->totalPrimeCcSumup,2); 
+				}else{
+					echo "<span class='message' >Please run prime/cc process first</span>"; 
+				}
+		?>
+        </td>
+		<td class="dvtCellLabel" align="right" width="25%">P&L Total from ACES & Prime/CC</td>
+		<td width="25%" align="left" class="dvtCellInfo">
+        <?php 
+				if($aceStatus == 1 || $primeStatus == 1){
+				//echo number_format($this->totalPrimeAceSumup,2); 
+					echo number_format($this->totalProfitLoss,2);
+				}else{
+					echo "<span class='message' >Please run ace process first</span>";
+					echo "<span class='message' >Please run prime/cc process first</span>";
+				}
+		?>     
+        </td>
+	</tr>
+	<tr>
+		<td class="dvtCellLabel" align="right">Small Balance</td>
+		<td class="dvtCellInfo" align="left">
+			<?=number_format($this->ClientsTotals->small_balance,0)?>
+		</td>
+		<td class="dvtCellInfo" align="right">
+			Aces Es1
+		</td>
+		<td><?=number_format($this->ClientsTotals->aces_es1,0)?></td>
+	</tr>	
+	<tr>
+	<td class="dvtCellLabel" align="right">Medium Balance</td>
+		<td class="dvtCellInfo" align="left">
+		<?=number_format($this->ClientsTotals->medium_balance,0)?>
+		</td>
+		<td class="dvtCellInfo" align="right">
+			Aces Es2
+		</td>
+		<td><?=number_format($this->ClientsTotals->aces_es2,0)?></td>
+	</tr>	
+		<tr>
+		<td class="dvtCellLabel" align="right">Large Balance</td>
+		<td class="dvtCellInfo" align="left">
+			<?=number_format($this->ClientsTotals->large_balance,0)?>
+		</td>
+		<td class="dvtCellInfo" align="right">
+			Aces Es3
+		</td>
+		<td><?=number_format($this->ClientsTotals->aces_es3,0)?></td>
+	</tr>	
+	<tr>
+		<td class="dvtCellLabel" align="right">Controlled Cost Accounts</td>
+		<td class="dvtCellInfo" align="left">
+			<?=number_format($this->ClientsTotals->controlled_cost_accounts,0)?>
+		</td>
+		<td class="dvtCellInfo" align="right">
+			Aces Esf
+		</td>
+		<td><?=number_format($this->ClientsTotals->aces_esf,0)?></td>
+	</tr>		    
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Export PUP Prime Report</td>
+		<td class="dvtCellInfo" align="left" width="25%" >
+           <?php 
+				if($primeStatus == 1 ){
+			?>
+            <a href="<?php echo $this->baseUrl(); ?>/project/runpdfprime/id/<?php echo   $this->projectId; ?>" > 
+                <img src="<?php echo $this->baseUrl(); ?>/public/images/pdf.jpg"  />
+            </a>
+        	<?php
+				} else { echo "<span class='message' >Please run prime/cc process first</span>"; }
+			?>
+        </td>
+		<td class="dvtCellLabel" align="right" width="25%">Export Aces Report</td>
+		<td width="25%" align="left" class="dvtCellInfo">
+        
+            <?php 
+				if($aceStatus == 1 ){
+			?>
+            <a href="<?php echo $this->baseUrl(); ?>/project/runpdface/id/<?php echo   $this->projectId; ?>" > 
+                <img src="<?php echo $this->baseUrl(); ?>/public/images/pdf.jpg"  />
+            </a>
+        	<?php
+				} else { echo "<span class='message' >Please run ace process first</span>"; }
+			?>
+
+        </td>
+	</tr>
+    
+<?php
+}
+?>	
+<tr>
+    <td class="dvtCellLabel" align="right" width="25%">Upload Customers</td>
+    <td class="dvtCellInfo" align="left" width="25%" >
+    	<a href="<?php echo $this->baseUrl(); ?>/client/importclient/id/<?php echo  $this->projectId; ?>" ><img src="<?php echo $this->baseUrl(); ?>/public/images/upload.jpg" /></a>
+    </td>
+    <td class="dvtCellLabel" align="right" width="25%">Uploaded Csv Files</td>
+    <td width="25%" align="left" class="dvtCellInfo">
+        <a href="<?php echo $this->baseUrl(); ?>/document/index/id/<?php echo  $this->projectId; ?>" ><img src="<?php echo $this->baseUrl(); ?>/public/images/csv.jpg" /></a>
+    </td>
+</tr>
+
+</table>
+
+<br/>
+<?php
+	if($this->totalClients  > 0 && $user->isadmin) {
+?>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%"></td>
+		<td class="dvtCellInfo" align="left" width="25%">
+			Prime data
+		</td>
+		<td class="dvtCellInfo" align="left" width="25%">
+			Aces data
+		</td>
+		<td width="25%">
+			Total
+		</td>
+	</tr>
+	<tr>
+		<td class="dvtCellLabel" align="right">Total Profit/Loss with Indirect</td>
+		<td class="dvtCellInfo" align="left">
+			<?=$this->PrimeTotals->total_profit_loss_incl_indirect?>
+		</td>
+		<td class="dvtCellInfo" align="left">
+			<?=$this->AcesTotals->total_profit_loss_incl_indirect?>
+		</td>
+		<td><?=($this->AcesTotals->total_profit_loss_incl_indirect + $this->PrimeTotals->total_profit_loss_incl_indirect)?></td>
+	</tr>
+	<tr>
+		<td class="dvtCellLabel" align="right">Total Labor Costs</td>
+		<td class="dvtCellInfo" align="left">
+			<?=$this->PrimeTotals->total_labor_cost?>
+		</td>
+		<td class="dvtCellInfo" align="left">
+			<?=$this->AcesTotals->total_labor_cost?>
+		</td>
+		<td><?=($this->PrimeTotals->total_labor_cost+$this->AcesTotals->total_labor_cost)?></td>
+	</tr>
+	<tr>
+		<td class="dvtCellLabel" align="right">Total Benefit Costs</td>
+		<td class="dvtCellInfo" align="left">
+			<?=$this->PrimeTotals->total_benefit_cost?>
+		</td>
+		<td class="dvtCellInfo" align="left">
+			<?=$this->AcesTotals->total_benefit_cost?>
+		</td>
+		<td><?=($this->PrimeTotals->total_benefit_cost+$this->AcesTotals->total_benefit_cost)?></td>
+	</tr>
+	<tr>
+		<td class="dvtCellLabel" align="right">Total Statement Costs</td>
+		<td class="dvtCellInfo" align="left">
+			<?=$this->PrimeTotals->total_statement_cost?>
+		</td>
+		<td class="dvtCellInfo" align="left">
+			<?=$this->AcesTotals->total_statement_cost?>
+		</td>
+		<td><?=($this->PrimeTotals->total_statement_cost+$this->AcesTotals->total_statement_cost)?></td>
+	</tr>
+	<tr>
+		<td class="dvtCellLabel" align="right">Total Other Direct Costs</td>
+		<td class="dvtCellInfo" align="left">
+			<?=$this->PrimeTotals->total_other_direct_cost?>
+		</td>
+		<td class="dvtCellInfo" align="left">
+			<?=$this->AcesTotals->total_other_direct_cost?>
+		</td>
+		<td><?=($this->PrimeTotals->total_other_direct_cost+$this->AcesTotals->total_other_direct_cost)?></td>
+	</tr>
+	<tr>
+		<td class="dvtCellLabel" align="right"> Total Indirect Costs</td>
+		<td class="dvtCellInfo" align="left">
+			<?=$this->PrimeTotals->total_indirect_cost?>
+		</td>
+		<td class="dvtCellInfo" align="left">
+			<?=$this->AcesTotals->total_indirect_cost?>
+		</td>
+		<td><?=($this->PrimeTotals->total_indirect_cost+$this->AcesTotals->total_indirect_cost)?></td>
+	</tr>			
+</table>	
+<?php
+}
+?>	
+<br />
+
+<table class="tableHeading" border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td align="left" class="big">Top Five Client Dashboard  </td>
+		<td class="small" align="right">&nbsp;</td>	
+	</tr></tbody>
+</table>
+
+<table border="0" cellpadding="5"  class="tableHeading" cellspacing="0" width="100%" style="margin-bottom:20px;border-top:0">
+	<tbody><tr>
+		<td align="center">	
+        
+		<?php 
+            $this->fc2->renderChart();
+         ?>
+        
+        </td>
+	</tr></tbody>
+</table>	
+
+								
+		</td>							
+	</tr>
+</table>

@@ -1,0 +1,64 @@
+
+<script language="javascript" type="text/javascript">
+function validateProject()
+{
+
+	formControl = document.frmNewProject
+	
+	if(!emptycheck(formControl.txtProjectName,'Project Name',""))
+	{
+		return false
+	}
+
+}
+
+</script>
+
+<form id="frmNewProject" name="frmNewProject" action="<?php echo $this->baseUrl(); ?>/project/save" method="post" onsubmit="return validateProject()" >
+					
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr>
+	<td height="200" valign="top"  align="center" >
+
+<div class="breadcrumb" > <a href="<?php echo $this->baseUrl(); ?>/home" > Home </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/project" >  Projects  </a>  >
+Project Info </div>
+
+
+<table class="tableHeading topheading" border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tbody>
+		<tr>
+			<td class="big" align="left" ><strong> Project Info </strong></td>
+			<td class="small" align="right"></td>
+		</tr>
+	</tbody>
+</table>
+
+
+								
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tr>
+		<td width="21%" align="right" valign="top" class="dvtCellLabel"><span style="color:#FF0000" > * </span>  Project Name : </td>
+		<td class="dvtCellInfo" align="left"  colspan="3">
+		<input class="textcontrol1" type="text" value="<?php echo $this->data[$this->projectId][project_name];  ?>" name="txtProjectName" />
+		
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan="4" align="center"  class="comment" height="50px"  >
+		
+			<input class="flatinput" type="submit" name="save" value="Save" /> 
+			<input class="flatinput" type="reset" name="reset" value="Reset" />
+			<input class="flatinput" type="hidden" name="id" value="<?php echo $this->projectId ?>" />
+		
+		</td>
+	</tr>
+</table>
+
+
+	</td>
+</tr>
+</table>
+						
+</form>

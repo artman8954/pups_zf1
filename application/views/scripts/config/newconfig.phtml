@@ -1,0 +1,425 @@
+
+<script language="javascript">
+
+function validateConfig(){
+
+	formControl = document.frmNewConfig
+
+	if(!emptycheck(formControl.txtPrimeAccNo,'# of Prime Accounts',""))
+	{
+		return false
+	}
+	
+	if(!emptycheck(formControl.txtContrCostNo,'# of Controlled Cost',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtPrimeLaborCost,'Labor Costs – Prime',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtCcMedLaborCost,'Labor Costs - CC/Med',""))
+	{
+		return false
+	}
+	
+	if(!emptycheck(formControl.txtPrimeBenCost,'Benefit Costs – Prime',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtCcBenefitCost,'Benefit Costs – CC/Med',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtPrimeStatementCost,'Statement Cost - Prime',""))
+	{
+		return false
+	}
+	
+	if(!emptycheck(formControl.txtPrimeOtherDirectCost,' Other Direct Costs – Prime',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtCcOtherDirectCost,'Other Direct Costs – CC',""))
+	{
+		return false
+	}
+
+
+	if(!emptycheck(formControl.txtIndirectCost,'Indirect Cost',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtTotalCompFee,'Total Company Fees Collected',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtLegalExpense,'Total Legal Expense',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtLegalEarned,'Total Legal Earned',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtNoOfActiveClients,'Number of Active Clients',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtSmallBalanceAccCost,'Small Balance Account Costs',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtFeeIncomeYear,'Total Fee Income for the Year',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtFeeIncomeYear,'Total Fee Income for the Year',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtTotalAcesAccounts,'Total Number of ACES Accounts',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtAcesLaborCost,'Labor Costs – ACES',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtAcesBenefitCost,'Benefit Costs – ACES',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtAcesStatementCost,'Statement Cost – ACES',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtAcesOtherDirectCost,'Other Direct Costs  – ACES',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtAcesIndirectCost,'Indirect Costs  – ACES',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtAcesTotalCompFee,'Total Company Fees Collected',""))
+	{
+		return false
+	}
+
+}
+</script>
+
+<?php
+
+//if(count($this->data[$this->projectId]) > 0 && ($this->data[$this->projectId][prime_account_no] > 0) && ($this->data[$this->projectId][controlled_cost_no] > 0)  ){
+
+
+	$laborCostPrimePerCustomer = round( ($this->data[$this->projectId][prime_labor_cost] / $this->data[$this->projectId][prime_account_no]),2);
+	$ccMedLabodCostPerCustomer = round( ($this->data[$this->projectId][cc_med_labor_cost] / $this->data[$this->projectId][controlled_cost_no]), 2) ; 
+	$primeBenefitCostPerCustomer = round( ($this->data[$this->projectId][prime_benefit_cost] / $this->data[$this->projectId][prime_account_no]),2); 
+	$ccBenefitCostPerCustomer = round( ($this->data[$this->projectId][cc_med_benefit_cost] / $this->data[$this->projectId][controlled_cost_no]), 2); 
+	$primeOtherDirectCostPerCustomer = round( ($this->data[$this->projectId][prime_other_direct_cost] / $this->data[$this->projectId][prime_account_no]), 2); 
+	$ccOtherDirectCostPerCustomer = round( ($this->data[$this->projectId][cc_other_direct_cost] / $this->data[$this->projectId][controlled_cost_no]), 2) ; 
+	$statementCostPrimePerCustomer = round( ($this->data[$this->projectId][prime_statement_cost] / $this->data[$this->projectId][prime_account_no]), 2);
+	
+	$statementCostCCMedPerCustomer = round( ($this->data[$this->projectId][sm_med_cont_aces_stmnt_cost] / $this->data[$this->projectId][controlled_cost_no]), 2);
+
+	$acesLaborCostPerCustomer = round( ($this->data[$this->projectId][aces_labor_cost] / $this->data[$this->projectId][aces_total_acc_no]), 2); 
+	$acesstatementCostPerCustomer = round( ($this->data[$this->projectId][aces_statement_cost] / $this->data[$this->projectId][aces_total_acc_no]), 2); 
+	$acesBenefitCostPerCustomer = round( ($this->data[$this->projectId][aces_benefit_cost] / $this->data[$this->projectId][aces_total_acc_no]), 2); 
+	$acessOtherDirectCostPerCustomer = round( ($this->data[$this->projectId][aces_other_direct_cost] / $this->data[$this->projectId][aces_total_acc_no]), 2);
+	
+
+//}
+?>
+
+<form name="frmNewConfig" action="<?php echo $this->baseUrl(); ?>/config/save" method="post"  onsubmit="return validateConfig()"  > 
+					
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr>
+		<td  valign="top"  align="center"  >
+			
+			<div id="ajaxloading" style="display:none" > <img src="images/ajaxload.gif" /></div>
+            
+            <div class="breadcrumb" > <a href="<?php echo $this->baseUrl(); ?>/home" > Home </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/project" >  Projects  </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/project/projecthome/id/<?php echo $this->projectId ; ?>" > <?php echo $this->projectDetail[$this->projectId][project_name] ; ?> </a>
+>  Configuration </div>
+<?
+	if (isset($this->saved_projectId) && $this->saved_projectId = $this->projectId)
+	{
+		?><div class="success">Data saved successfully</div><?
+	}
+?>
+																		
+<table class="tableHeading topheading" border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td class="big" align="left" ><strong> Configuration - Prime & Controlled Cost</strong></td>
+		<td class="small" align="right"></td>
+	</tr></tbody>
+</table>
+                                            
+											
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+	<td class="dvtCellLabel" align="right"  > <span class="redfont" > * </span>Selected  Project  </td>
+	<td class="dvtCellInfo" align="left" colspan="3" ><?php echo $this->projectDetail[$this->projectId][project_name]; ?> 
+	<input type="hidden" name="id" value="<?php echo  $this->projectId ; ?>" />	</td>    
+</tr>
+
+<tr>
+	<td class="dvtCellLabel" align="right"  width="25%" ><span  class="redfont" > * </span>  # of Prime Accounts  </td>
+	<td class="dvtCellInfo" align="left"  width="25%"  ><input type="text"  name="txtPrimeAccNo" value="<?php echo $this->data[$this->projectId][prime_account_no];  ?>"  id="txtPrimeAccNo" class="textcontrol1" onKeyPress="return numbersonly(this, event,false)"    /></td>
+	<td class="dvtCellLabel label" align="right"  width="25%"  ><span style="color:#FF0000" > * </span>  # of Controlled Cost</td>
+	<td class="dvtCellInfo" align="left"  width="25%"  ><input type="text"  name="txtContrCostNo"  id="txtContrCostNo"  value="<?php echo $this->data[$this->projectId][controlled_cost_no];  ?>" class="textcontrol1" onKeyPress="return numbersonly(this, event,false)"  /> </td>    
+</tr>
+
+
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Labor Costs – Prime </td>
+	<td class="dvtCellInfo" align="left" >&nbsp;<input class="textcontrol1" value="<?php echo $this->data[$this->projectId][prime_labor_cost];  ?>"  type="text" name="txtPrimeLaborCost" id="txtPrimeLaborCost" onKeyPress="return numbersonly(this, event,true)"  /></td>
+	<td class="dvtCellLabel" align="right" >Labor Costs – Prime <BR />(per customer) </td>
+	<td class="dvtCellInfo" align="left" >
+    	<input type="text" readonly="yes" value="<?php echo $laborCostPrimePerCustomer; ?>"  name="txtPrimeLaborCostPer"  id="txtPrimeLaborCostPer" class="textcontrolsmall"   /> 
+        <a href="#"  title="Prime Labor Costs / Number of Prime Accounts"   class="tooltip" >
+        <img src="<?php echo $this->baseUrl(); ?>/public/images/tooltip.jpg" hspace="2"/>
+        </a>	
+        </td>
+</tr>
+
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Labor Costs - CC/Med</td> 
+	<td class="dvtCellInfo" align="left" >&nbsp;<input class="textcontrol1" value="<?php echo $this->data[$this->projectId][cc_med_labor_cost];  ?>"  type="text" name="txtCcMedLaborCost" id="txtCcMedLaborCost" onKeyPress="return numbersonly(this, event,true)"  /></td>
+	<td class="dvtCellLabel" align="right" >Labor Costs – CC/Med <br />  (per customer) </td>
+	<td class="dvtCellInfo" align="left" ><input type="text" readonly="yes" value="<?php echo $ccMedLabodCostPerCustomer; ?> "   class="textcontrolsmall" /> 
+		<a href="#"  title="CC Med Labor Costs / # of Controlled Cost "   class="tooltip" ><img src="<?php echo $this->baseUrl(); ?>/public/images/tooltip.jpg" hspace="2"/></a>	</td>
+</tr>
+
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Benefit Costs – Prime</td>
+	<td class="dvtCellInfo" align="left" >&nbsp;<input class="textcontrol1" type="text" name="txtPrimeBenCost" id="txtPrimeBenCost"  value="<?php echo $this->data[$this->projectId][prime_benefit_cost];  ?>"  onKeyPress="return numbersonly(this, event,true)" /></td>
+	<td class="dvtCellLabel" align="right" >Benefit Costs – Prime <br />(per customer)</td>
+	<td class="dvtCellInfo" align="left" > <input type="text" readonly="yes" value="<?php echo $primeBenefitCostPerCustomer; ?>"  name="txtLeasedFrom"  id="txtLeasedFrom"  class="textcontrolsmall"   /> 
+		<a href="#"  title="Prime Benefit Costs / Number of Accounts"   class="tooltip" ><img src="<?php echo $this->baseUrl(); ?>/public/images/tooltip.jpg" hspace="2" border="0" /> </a>	</td>    
+</tr>
+         
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Benefit Costs – CC/Med</td>
+	<td class="dvtCellInfo" align="left" ><input class="textcontrol1" type="text" name="txtCcBenefitCost" id="txtCcBenefitCost" value="<?php echo $this->data[$this->projectId][cc_med_benefit_cost];  ?>"  onKeyPress="return numbersonly(this, event,true)"  /></td> 
+	<td class="dvtCellLabel" align="right" >Benefit Costs – CC/Med <br /> (per customer)</td>
+	<td class="dvtCellInfo" align="left" ><input type="text" readonly="yes" value="<?php echo $ccBenefitCostPerCustomer; ?>" name="txtLeasedFrom"  id="txtLeasedFrom" class="textcontrolsmall"   /> 
+		<a href="#"  title="CC & Med Benefit Cost / # of Controlled Cost "   class="tooltip" ><img src="<?php echo $this->baseUrl(); ?>/public/images/tooltip.jpg" hspace="2" border="0" /> </a>	</td>
+</tr>
+
+
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Statement Cost - Prime</td>
+	<td class="dvtCellInfo" align="left" ><input class="textcontrol1"  value="<?php echo $this->data[$this->projectId][prime_statement_cost]; ?>" type="text" name="txtPrimeStatementCost" id="txtPrimeStatementCost"  onKeyPress="return numbersonly(this, event,true)"  /></td>
+	<td class="dvtCellLabel" align="right" >Statement Costs – Prime <BR />(per customer)</td>
+	<td class="dvtCellInfo" align="left" >
+        <input type="text" readonly="yes" value="<?php echo $statementCostPrimePerCustomer; ?>"  name="txtPrimeStatementCostPer"  id="txtPrimeStatementCostPer" class="textcontrolsmall"   /> 
+        <a href="#"  title="Statement Cost - Prime / Number of Prime Accounts"   class="tooltip" >
+        <img src="<?php echo $this->baseUrl(); ?>/public/images/tooltip.jpg" hspace="2"/>
+        </a>	
+    </td>
+</tr>
+       
+<tr>
+  <td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Statement Cost – <br /> Sm, Med, Cont, Aces</td>
+  <td class="dvtCellInfo" align="left" ><input class="textcontrol1" value="<?php echo $this->data[$this->projectId][sm_med_cont_aces_stmnt_cost]; ?>" type="text" name="txtSmMedConStetementCost" id="txtSmMedConStetementCost"   onKeyPress="return numbersonly(this, event,true)" /></td>
+  <td class="dvtCellLabel" align="right" >Statement Cost – Sm, Med, Cont, Aces <br /> (per customer)</td>
+  <td class="dvtCellInfo" align="left" >
+  	<input type="text" readonly="yes" value="<?php echo $statementCostCCMedPerCustomer; ?>"  name="txtCostCCMedPerCustomer"  id="txtCostCCMedPerCustomer" class="textcontrolsmall"   /> 
+        <a href="#"  title="Statement Cost – Sm, Med, Cont, Aces / Number of Controlled Cost"   class="tooltip" >
+        <img src="<?php echo $this->baseUrl(); ?>/public/images/tooltip.jpg" hspace="2"/>
+        </a>
+   </td>
+</tr>
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Other Direct Costs – Prime</td>
+	<td class="dvtCellInfo" align="left" >&nbsp;<input class="textcontrol1" value="<?php echo $this->data[$this->projectId][prime_other_direct_cost]; ?>"  type="text" name="txtPrimeOtherDirectCost" id="txtPrimeOtherDirectCost"  onKeyPress="return numbersonly(this, event,true)"  /></td>
+	<td class="dvtCellLabel" align="right" >Other Direct Costs – <br />Prime  (per customer)</td>
+	<td class="dvtCellInfo" align="left" ><input type="text" readonly="yes" value="<?php echo $primeOtherDirectCostPerCustomer; ?>" name="txtLeasedFrom"  id="txtLeasedFrom" class="textcontrolsmall"   /> 
+		<a href="#"  title="Other Direct Costs / Number of PRIME Accounts"   class="tooltip" ><img src="<?php echo $this->baseUrl(); ?>/public/images/tooltip.jpg" hspace="2" border="0" /> </a>	</td>
+</tr>
+ 
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Other Direct Costs – CC</td>
+	<td class="dvtCellInfo" align="left" >&nbsp;<input class="textcontrol1"  value="<?php echo $this->data[$this->projectId][cc_other_direct_cost]; ?>"  type="text" name="txtCcOtherDirectCost" id="txtCcOtherDirectCost"  onKeyPress="return numbersonly(this, event,true)" /></td>
+	<td class="dvtCellLabel" align="right" >Other Direct Costs – <br />CC  (per customer)</td>
+	<td class="dvtCellInfo" align="left" ><input type="text" readonly="yes"  name="txtLeasedFrom" value="<?php echo $ccOtherDirectCostPerCustomer; ?>"   id="txtLeasedFrom" class="textcontrolsmall"   /> 
+		<a href="#"  title="Other Direct Costs CC / Number of Accounts"   class="tooltip" ><img src="<?php echo $this->baseUrl(); ?>/public/images/tooltip.jpg" hspace="2" border="0" /> </a>	</td>
+</tr>
+                                        
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Indirect Costs</td>
+	<td class="dvtCellInfo" align="left" ><input value="<?php echo $this->data[$this->projectId][indirect_cost]; ?>"  class="textcontrol1"  type="text"  name="txtIndirectCost" id="txtIndirectCost"  onKeyPress="return numbersonly(this, event,true)"  /></td>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Total Company <br /> Fees Collected</td>
+	<td class="dvtCellInfo" align="left" ><input name="txtTotalCompFee" id="txtTotalCompFee" value="<?php echo $this->data[$this->projectId][total_comp_fee_collected]; ?>" class="textcontrol1"  type="text"  onKeyPress="return numbersonly(this, event,true)"  /></td>
+</tr>
+										
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Total Legal Expense</td>
+	<td class="dvtCellInfo" align="left" ><input value="<?php echo $this->data[$this->projectId][total_legal_expense]; ?>" class="textcontrol1"  type="text" name="txtLegalExpense" id="txtLegalExpense"  onKeyPress="return numbersonly(this, event,true)"  /></td>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Total Legal Earned</td>
+	<td class="dvtCellInfo" align="left" ><input value="<?php echo $this->data[$this->projectId][total_legal_earned]; ?>"  class="textcontrol1" type="text" name="txtLegalEarned" id="txtLegalEarned"  onKeyPress="return numbersonly(this, event,true)" /></td>
+</tr>
+										
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Number of Active Clients</td>
+	<td class="dvtCellInfo" align="left" ><input value="<?php echo $this->data[$this->projectId][active_client_no]; ?>" class="textcontrol1"  type="text" name="txtNoOfActiveClients" id="txtNoOfActiveClients"  onKeyPress="return numbersonly(this, event,false)"  /></td>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Sales Bonus</td>
+	<td class="dvtCellInfo" align="left" >
+        
+		<select class="ddcontrolsmall"  name="ddSalesBonus" >
+    	<?php 
+		   foreach($this->salesdata as $key => $data){
+		?>
+        <option <?php if($this->data[$this->projectId][sales_bonus_id] == $data['sales_comm_percentage'] ){ echo "selected";  } ?> value="<?php echo $data['sales_comm_percentage'] ; ?>" >
+            <?php echo  $data['sales_comm_percentage']; ?>        </option>
+		<?php 	
+        } 
+        ?>
+		</select>
+        		
+		
+		<a href="#"  title="Set Sales ID# Percentages"   class="tooltip" ><img src="<?php echo $this->baseUrl(); ?>/public/images/tooltip.jpg" hspace="2" border="0" /> </a>	</td>
+</tr>
+
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Small Balance Account Costs </td>
+	<td class="dvtCellInfo" align="left" ><input value="<?php echo $this->data[$this->projectId][small_bal_acc_cost]; ?>" class="textcontrol1"  type="text" name="txtSmallBalanceAccCost" id="txtSmallBalanceAccCost"  onKeyPress="return numbersonly(this, event,true)" /></td>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Total Fee Income <br> for the Year</td>
+	<td class="dvtCellInfo" align="left" ><input class="textcontrol1"  value="<?php echo $this->data[$this->projectId][total_fee_income_for_the_year]; ?>" type="text" name="txtFeeIncomeYear" id="txtFeeIncomeYear"  onKeyPress="return numbersonly(this, event,true)"/></td>    
+</tr>
+</table>
+																		
+<br />
+                
+<table class="tableHeading" border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tbody><tr>
+	<td class="big" align="left" ><strong>Configuration - ACES</strong></td>
+	<td class="small" align="right"></td>
+	</tr></tbody>
+</table>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+
+
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Total Number of ACES Accounts</td>
+	<td colspan="3" align="left" class="dvtCellInfo">
+    	<input value="<?php echo $this->data[$this->projectId][aces_total_acc_no]; ?>" class="textcontrol1" type="text" name="txtTotalAcesAccounts" id="txtTotalAcesAccounts"  />    </td>
+</tr>
+
+<tr>
+	<td class="dvtCellLabel" align="right"  width="25%"  ><span  class="redfont" > * </span>Labor Costs – ACES</td>
+	<td class="dvtCellInfo" align="left"  width="25%"  >&nbsp;<input value="<?php echo $this->data[$this->projectId][aces_labor_cost]; ?>" class="textcontrol1" type="text" name="txtAcesLaborCost" id="txtAcesLaborCost"  /></td>
+	<td class="dvtCellLabel" align="right"  width="25%"  >Labor Costs –ACES<BR /> (per customer)</td>
+	<td class="dvtCellInfo" align="left"  width="25%"  ><input type="text" value="<?php echo $acesLaborCostPerCustomer; ?>" readonly="yes"  name="txtLeasedFrom"  id="txtLeasedFrom" class="textcontrolsmall"   /> 
+		<a href="#"  title="Labor Costs / Number of ACES Accounts"   class="tooltip" ><img src="<?php echo $this->baseUrl(); ?>/public/images/tooltip.jpg" hspace="2"/> </a>	</td>
+</tr>
+
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Benefit Costs</td>
+	<td class="dvtCellInfo" align="left" >&nbsp;<input value="<?php echo $this->data[$this->projectId][aces_benefit_cost]; ?>" class="textcontrol1" type="text" name="txtAcesBenefitCost" id="txtAcesBenefitCost"  /></td>
+	<td class="dvtCellLabel" align="right" >Benefit Costs  <br /> (per customer) </td>
+	<td class="dvtCellInfo" align="left" ><input type="text" value="<?php echo $acesBenefitCostPerCustomer; ?>" readonly="yes"  name="txtLeasedFrom"  id="txtLeasedFrom" class="textcontrolsmall"   /> 
+		<a href="#"  title="Benefit Costs / Number of Accounts"   class="tooltip" ><img src="<?php echo $this->baseUrl(); ?>/public/images/tooltip.jpg" hspace="2"/> </a>	</td>
+</tr>
+
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Statement Cost</td>
+	<td class="dvtCellInfo" align="left" >&nbsp;<input value="<?php echo $this->data[$this->projectId][aces_statement_cost]; ?>" class="textcontrol1"  type="text" name="txtAcesStatementCost" id="txtAcesStatementCost"  /></td>
+	<td class="dvtCellLabel" align="right" >Statement Costs <BR />(per customer)</td>
+	<td class="dvtCellInfo" align="left" > 
+           
+        <input type="text" readonly="yes" value="<?php echo $acesstatementCostPerCustomer; ?>"  name="txtAcesStatementCostPer"  id="txtAcesStatementCostPer" class="textcontrolsmall"   /> 
+        <a href="#"  title="Statement Cost - Aces / Number of Prime Accounts"   class="tooltip" >
+        <img src="<?php echo $this->baseUrl(); ?>/public/images/tooltip.jpg" hspace="2"/>
+        </a>
+        
+   </td>    
+</tr>
+
+<tr>
+  <td class="dvtCellLabel" align="right" >Sales Bonus </td>
+  <td class="dvtCellInfo" align="left" >
+  
+  		<select class="ddcontrolsmall"  name="ddAcesSalesBonus" >
+    	<?php 
+		   foreach($this->salesdata as $key => $data){
+		?>
+        <option <?php if($this->data[$this->projectId][aces_sales_bonus_id] == $data['sales_comm_percentage'] ){ echo "selected";  } ?> value="<?php echo $data['sales_comm_percentage'] ; ?>" >
+            <?php echo  $data['sales_comm_percentage']; ?>        </option>
+		<?php 	
+        } 
+        ?>
+		</select>
+		<a href="#"  title="Set Sales ID# Percentages"   class="tooltip" > <img src="<?php echo $this->baseUrl(); ?>/public/images/tooltip.jpg" hspace="2"/> </a>	
+
+  
+  </td>
+  <td class="dvtCellLabel" align="right" >&nbsp;</td>
+  <td class="dvtCellInfo" align="left" >&nbsp;</td>
+</tr>
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Other Direct Costs </td>
+	<td class="dvtCellInfo" align="left" >&nbsp;<input value="<?php echo $this->data[$this->projectId][aces_other_direct_cost]; ?>" class="textcontrol1"  type="text" name="txtAcesOtherDirectCost" id="txtAcesOtherDirectCost"  v/></td>
+	<td class="dvtCellLabel" align="right" >Other Direct Costs – <br /> (per customer)</td>
+	<td class="dvtCellInfo" align="left" ><input type="text" value="<?php echo $acessOtherDirectCostPerCustomer; ?>" readonly="yes"  name="txtLeasedFrom"  id="txtLeasedFrom" class="textcontrolsmall"   /> 
+		<a href="#"  title="Other Direct Costs / Number of ACES Accounts "   class="tooltip" ><img src="<?php echo $this->baseUrl(); ?>/public/images/tooltip.jpg" hspace="2"/> </a>	</td>
+</tr>
+
+
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Indirect Costs</td>
+	<td class="dvtCellInfo" align="left" ><input value="<?php echo $this->data[$this->projectId][aces_indirect_cost]; ?>" class="textcontrol1" type="text" name="txtAcesIndirectCost" id="txtAcesIndirectCost"  /></td>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Total Company <br /> Fees Collected</td>
+	<td class="dvtCellInfo" align="left" ><input value="<?php echo $this->data[$this->projectId][aces_total_com_fee_collected]; ?>" class="textcontrol1"  type="text" name="txtAcesTotalCompFee" id="txtAcesTotalCompFee"  /></td>
+</tr>
+</table>
+        
+<table width="95%" border="0"  cellspacing="0" cellpadding="0"> 
+<tr>
+	<td colspan="3" align="center"  class="comment"  ><span style="color:#FF0000" >* </span>  mandatory   &nbsp;
+	<input class="flatinput" type="submit" name="newlease" value="Save" />&nbsp;<input class="flatinput" type="reset" name="Submit" value="Reset" /></td>
+</tr>
+
+<tr>
+	<td width="30%"  >&nbsp;</td>
+	<td >&nbsp;</td>
+	<td>&nbsp;</td>
+</tr>
+
+</table>	
+
+
+
+</td>
+</tr>
+</table>
+
+
+</form> 
+						

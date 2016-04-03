@@ -1,0 +1,63 @@
+<script language="javascript" type="text/javascript">
+function validateAccess()
+{
+
+	formControl = document.frmImportStatus
+	
+alert("test"); 	
+
+
+}
+
+</script>
+
+<form id="frmImportStatus" name="frmImportStatus" action="<?php echo $this->baseUrl(); ?>/client/importstatus"  method="post" onsubmit="return frmImportStatus()" >
+					
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr>
+		<td height="200" valign="top"  align="center"  >
+	
+<div class="breadcrumb" > <a href="<?php echo $this->baseUrl(); ?>/home" > Home </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/project" >  Projects  </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/project/projecthome/id/<?php echo $this->projectId ; ?>" > <?php echo $this->projectDetail[$this->projectId][project_name] ; ?> </a>
+> Import Status </div>
+    
+    							
+<table class="tableHeading topheading" border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tbody><tr>
+	<td class="big" align="left" ><strong> Import Status</strong></td>
+	<td class="small" align="right">
+	</td>
+	</tr></tbody>
+</table>
+								
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+
+<tr>
+	<td width="26%" align="right" valign="top" class="dvtCellLabel"> Total Records Successfully processed : </td>
+	<td class="dvtCellInfo" align="left"><?php echo $this->total_count;  ?></td>
+</tr>
+
+<tr>
+	<td align="right" valign="top" class="dvtCellInfo">Records Created : </td>
+	<td align="left" class="dvtCellInfo"><?php echo $this->created_count;  ?> </td>
+</tr>
+
+<tr>
+	<td align="right" valign="top" class="dvtCellInfo">Records Updated :</td>
+	<td align="left" class="dvtCellInfo"><?php echo $this->updated_count;  ?></td>
+</tr>
+
+<tr>
+	<td width="26%" align="right" valign="top" class="dvtCellInfo"> Records Skipped : </td>
+	<td width="35%" align="left" class="dvtCellInfo"><?php echo $this->skipped_count;  ?></td>
+</tr>
+
+</table>
+																		
+										
+	  </td>
+	</tr>
+</table>
+						
+</form>

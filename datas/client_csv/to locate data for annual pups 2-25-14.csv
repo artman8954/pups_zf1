@@ -1,0 +1,494 @@
+CLT_ID,NAME,STATUS,SALES,COLL,LIST_AMT,PAID_AMT,AMOUNT,AGE,SM ,MED,LG
+,,CODE,REP,PLAN,,,EARNED,,BAL,BAL,BAL
+,,,,,,,,,,,
+100,New Albany Radiology,C,1,K30,$0.00,$16.27,$4.89,0,0,0,0
+1001,"KNS Medical, Inc.",A,5,K32,"$7,168.79",$117.80,$43.14,631,0,1,14
+1002,"KNS Medical, Inc.",A,5,K32,"$5,448.53",$0.00,$0.00,687,0,0,10
+1003,Cole Chiropractic Clinic - 2,C,11,K40,$0.00,"$2,821.18","$1,524.69",0,0,0,0
+1004,Dr. David A. West,A,11,S10,"$38,505.05","$4,556.00","$1,538.62",195,22,68,89
+1005,Soma Plastic Surgery & Hand Clinic,I,5,S11,"$9,612.25","$1,243.57",$418.68,326,0,6,17
+1006,Tupelo Eye Center,A,5,K33,$0.00,"$4,974.81","$1,667.45",0,0,0,0
+1007,North MS Pediatrics,A,5,K30,"$140,693.58","$42,759.39","$15,450.15",338,1,357,457
+1009,OBGYN Associates of Cookeville,A,11,K33,"$10,762.32","$2,125.46",$566.22,265,9,14,17
+1010,Memphis Judo & Jiu Jitsu,A,5,K00,"$113,481.18","$4,962.75","$1,234.78",843,0,2,179
+1014,Acute Care & Family Clinic of Mooreville,A,5,K33,"$12,046.37","$4,408.79","$1,516.56",245,0,31,47
+1015,The Jackson Clinic - 2,A,11,K25,$0.00,"$13,003.43","$3,108.91",0,0,0,0
+1017,Accent Plastic & Reconstructive Surgery,A,5,K30,"$31,925.61",$541.09,$167.92,195,2,14,49
+1018,OCH Pulmonology DBA Holliday,A,5,S08,"$3,542.86",$64.80,$22.68,1144,0,2,5
+1019,Center for Digestive Health - Tupelo,A,5,S12,"$403,996.73","$102,588.74","$37,616.65",263,3,384,723
+1020,Golden Triangle Urology Group,A,5,S09,"$23,379.40","$15,175.66","$6,634.54",351,28,65,56
+1021,"Pediatric Nephrology of Alabama, P.C.",A,5,S13,"$3,421.57",$500.00,$180.19,344,0,1,10
+1023,Mid-South Propane,I,5,S14,$0.00,"$1,831.73",$596.58,0,0,0,0
+1025,Cardiology Consultants of Oxford,I,5,S15,$0.00,$392.53,$259.86,0,0,0,0
+1026,Cotton Plant Clinic,C,5,S16,"$1,584.55","$1,493.34",$480.69,177,0,14,4
+1028,Oxford Orthopaedics & Sports Medicine,A,5,S17,"$132,371.13","$15,415.32","$6,545.84",151,1,48,189
+1034,"Wilbanks Wee Con-du-it Electric, Inc.",I,5,K33,$160.50,$90.95,$30.01,99,0,0,1
+1035,Decatur Neurology,A,5,K27,"$23,684.00","$2,151.06",$586.62,225,3,38,89
+1036,Trinity Health Clinic,A,5,S08,"$35,681.11","$7,393.50","$2,660.80",611,5,54,102
+1037,"Merit Health Care, P.C.",I,5,S20,"$20,320.48","$2,002.26",$716.37,620,6,28,41
+1040,OBGYN Associates of Cookeville,A,5,K33,"$6,870.74",$494.22,$122.63,1929,21,15,20
+1042,Starkville Physical Therapy,A,5,K30,"$2,956.39","$4,022.00","$2,122.82",490,0,0,8
+1043,"Benny J. Green, M.D.",A,5,S22,"$36,304.78","$1,924.62",$626.87,366,0,1,79
+1044,M & R Associates,A,5,K30,"$4,050.00",$0.00,$0.00,227,0,0,1
+1046,Girl Scouts Heart of the South,A,5,K30,"$71,605.67","$10,079.34","$4,265.59",286,0,3,86
+1047,Women's Specialty Center,A,5,S24,"$36,441.92","$9,456.51","$3,173.47",254,3,4,88
+1048,Women's Specialty Center,A,5,S24,"$37,582.15","$16,118.65","$5,840.03",284,1,4,82
+1049,Women's Specialty Center,A,5,S24,"$23,794.74","$11,944.32","$4,005.70",257,0,3,57
+1050,Women's Specialty Center,A,5,S24,"$26,115.40","$3,425.19","$1,111.86",241,1,1,42
+1051,Woodstock Family Medicine,A,5,K35,"$10,311.37",$203.01,$73.66,689,2,77,29
+1052,"Threlkeld, Threlkeld & Omer",I,5,S26,"$76,271.64","$1,474.39",$365.82,508,0,37,129
+1053,"Decatur Gastroenterology Associates, PC",A,5,S25,"$114,177.74","$8,628.67","$3,016.15",489,44,159,215
+1055,Hartselle Urgent Care,A,5,K27,"$37,909.94","$5,064.95","$1,425.90",231,0,169,147
+1056,The Eye Group of Mississippi,A,5,R30,"$4,354.67",$554.03,$202.21,337,0,12,19
+1059,Columbus Urology Group,A,5,S09,"$14,860.73",$729.13,$268.20,389,19,46,29
+1060,"Paul Wesley Barrett, CFNP",I,5,S09,$948.00,$270.40,$105.09,193,7,2,3
+1061,Salient Hospitalists,A,5,K27,"$63,627.30",$187.97,$56.60,173,2,14,108
+1063,Seale Harris Clinic,A,5,S29,"$140,166.98","$24,258.82","$5,243.34",193,0,156,415
+1066,Golden Triangle Pathology,A,5,K30,"$156,831.03","$9,435.47","$3,148.15",222,22,428,434
+1068,Jackson Oncology Associates,A,5,S33,"$17,666.56",$0.00,$0.00,778,1,19,34
+1069,University Orthopaedic Clinic,A,5,S34,"$456,636.03","$18,631.46","$5,367.57",232,124,396,641
+1071,Gardendale Surgical Center,A,5,S35,"$21,636.86","$2,118.81",$582.65,179,0,24,56
+1072,Alabama Digestive Health and Endoscopy,A,5,S35,"$8,725.38",$0.00,$0.00,216,0,5,25
+1073,Moore Orthopaedic Surgery Center,A,5,S35,"$15,195.75",$834.88,$241.19,257,0,6,27
+1075,The Clinic of Plastic Surgery,A,5,S36,"$7,988.80",$0.00,$0.00,907,0,3,3
+1079,North Atlanta RV Rentals,A,5,K40,"$28,217.82",$0.00,$0.00,381,0,0,5
+108,Dr. Michael Todd,A,5,K30,"$71,943.43","$15,921.23","$5,610.81",196,15,147,224
+1084,Tupelo Physical Therapy,A,5,S03,$0.00,"$3,198.03","$1,749.98",0,0,0,0
+11001,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,"$25,795.66","$10,119.88",0,0,0,0
+11002,OrthoSports Associates,A,5,K24,"$498,676.00","$62,066.38","$14,515.14",308,4,338,869
+11004,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,$187.06,$43.16,0,0,0,0
+11005,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,$402.74,$92.94,0,0,0,0
+11007,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,$100.00,$23.08,0,0,0,0
+11008,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,"$1,001.00",$231.00,0,0,0,0
+11009,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,"$1,619.76",$426.11,0,0,0,0
+11010,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,$467.05,$103.25,0,0,0,0
+11013,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,"$2,068.48",$509.56,0,0,0,0
+11014,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,$600.00,$138.10,0,0,0,0
+11015,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,$723.26,$173.06,0,0,0,0
+11016,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,"$1,278.83",$307.79,0,0,0,0
+11018,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,"$1,367.37",$340.82,0,0,0,0
+11019,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,$512.01,$118.16,0,0,0,0
+11020,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,$45.00,$10.39,0,0,0,0
+11021,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,$290.33,$76.83,0,0,0,0
+11024,Orthopaedic Specialists of Alabama-2,A,5,S19,$0.00,"$1,209.00",$362.70,0,0,0,0
+11025,Orthopaedic Specialists of Alabama-2,A,5,S19,$0.00,$170.00,$51.00,0,0,0,0
+11028,Orthopaedic Specialists of Alabama-2,A,5,S19,$0.00,$30.00,$9.00,0,0,0,0
+11029,Orthopaedic Specialists of Alabama-2,A,5,S19,$0.00,$250.00,$75.00,0,0,0,0
+11030,Orthopaedic Specialists of Alabama-2,A,5,S19,$0.00,$120.00,$36.00,0,0,0,0
+11031,Orthopaedic Specialists of Alabama-2,A,5,S19,$0.00,$132.26,$39.68,0,0,0,0
+11033,Orthopaedic Specialists of Alabama-2,A,5,S19,$0.00,$98.69,$29.61,0,0,0,0
+11035,Orthopaedic Specialists of Alabama-2,A,5,S19,$0.00,$550.00,$165.00,0,0,0,0
+11052,"Orthopaedic Specialists of Alabama,P.C.",A,5,S19,$0.00,"$2,551.77",$595.03,0,0,0,0
+11053,Orthopaedic Specialists of Alabama-2,A,5,S19,$0.00,$856.38,$256.91,0,0,0,0
+11054,Orthopaedic Specialists of Alabama-2,A,5,S19,$0.00,$900.00,$270.00,0,0,0,0
+11055,Orthopaedic Specialists of Alabama-2,A,5,S19,$0.00,$603.00,$180.90,0,0,0,0
+11056,Orthopaedic Specialists of Alabama-2,A,5,S19,$0.00,$465.59,$139.68,0,0,0,0
+11057,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,"$1,055.24",$245.41,0,0,0,0
+11059,"Orthopaedic Specialists of Alabama, P.C.",A,5,S19,$0.00,$500.00,$68.95,0,0,0,0
+111,Dr. Frank Stanley,C,1,K33,$0.00,$20.00,$6.60,0,0,0,0
+113,Dr. Thurmond Beasley,I,1,K33,$0.00,$16.09,$5.31,0,0,0,0
+1175,Tippah County Hospital,C,5,K30,$0.00,$641.44,$258.74,0,0,0,0
+118,Dr Woodrow Brand,A,1,K35,"$37,175.41","$1,883.22",$687.74,335,4,21,48
+1203,"Mac's Tire Center, Inc.",A,1,K33,"$2,706.27",$0.00,$0.00,223,0,0,5
+129,New Albany Surgical Group,C,5,K30,$0.00,$499.88,$165.04,0,0,0,0
+135,Delta Neurology Clinic,C,5,K31,$0.00,$90.09,$26.14,0,0,0,0
+140,Womens Clinic of New Albany,C,1,K33,$0.00,$113.30,$68.30,0,0,0,0
+147,Sheehan Counseling Center,C,1,K30,$0.00,$752.22,$530.69,0,0,0,0
+1500,"North Mississippi Medical Center, Inc.",A,5,H24,"$5,421,327.57","$116,696.45","$37,664.80",454,118,450,3666
+1536,Mayo Eye Center,A,1,K30,"$7,050.04","$1,775.17",$520.74,192,2,16,15
+157,Internal Medicine RHC /New Albany Med Gp,C,1,K33,$0.00,$139.40,$46.00,0,0,0,0
+159,Radiology of North Mississippi,C,1,K28,$0.00,$398.80,$153.30,0,0,0,0
+1634,"William Everitt,  DDS",A,5,K35,"$59,437.66","$10,669.98","$3,840.91",449,1,57,123
+1640,Dr. William Barr  Orthopaedic Surgeon,C,1,K30,$0.00,$30.00,$9.00,0,0,0,0
+169,"Tupelo Ear, Nose & Throat-01",C,1,K30,$0.00,$610.50,$244.20,0,0,0,0
+171,"Tupelo Ear, Nose & Throat-03",C,1,K30,$0.00,$40.78,$12.23,0,0,0,0
+176,"Tupelo Anesthesia Group, P.A.",A,5,TAG,"$1,987,430.27","$237,732.37","$94,583.41",238,397,1729,2345
+184,"Surgery Associates, P.A.",A,5,S27,"$322,272.82","$5,969.41","$1,978.62",253,1,103,345
+193,Aurora Spine Center,A,1,K35,"$20,015.76","$3,770.66","$1,144.78",355,4,26,33
+20001,David Cook,A,200,K00,"$1,665.00",$0.00,$0.00,232,0,0,1
+20003,"M&W Precise Medical Mgmt., Inc.",A,200,K00,"$5,746.54",$405.00,$0.00,235,0,13,15
+20006,N MS Periodontal Clinic,A,200,K00,$0.00,$79.00,$0.00,0,0,0,0
+20015,Tennessee Valley Pediatric Sedation,A,200,K00,"$11,527.33","$1,281.80",$4.00,274,0,25,28
+20022,"Mississippi Guttering Supply Co., Inc.",A,200,K00,$400.00,$0.00,$0.00,265,0,0,1
+20023,Tennessee Valley Sleep Sedation Services,A,200,K00,"$9,263.88","$2,330.62",$12.00,214,0,17,24
+20024,Internal Medicine & Pediatric Clinic,A,200,K00,"$15,666.58","$3,261.41",$48.00,439,0,35,52
+20036,TRI inc Realtors,A,200,K00,"$132,618.45","$2,501.31",$0.00,578,0,0,57
+2004,Midsouth Pathology,C,5,K29,$0.00,"$1,923.21",$566.25,0,0,0,0
+20041,M & W Gas Co.,A,200,K00,$0.00,$155.15,$0.00,0,0,0,0
+20048,Family Care Clinic of Ripley,A,200,K00,"$9,563.91","$4,297.84",$0.00,333,0,15,46
+20049,St. Paul's Episcopal School,A,200,K00,$0.00,$808.00,$0.00,0,0,0,0
+20054,Encore Rehab,A,201,K00,"$54,264.20","$8,344.47",$8.00,296,0,35,114
+20055,Sunbelt Rehab,A,201,K00,$688.00,$652.00,$0.00,519,0,0,1
+20057,"Encore Rehabilitation, Inc.",A,200,K00,"$147,062.27","$28,876.51",$160.00,217,0,227,424
+20063,Senter Medical Clinic,A,200,K00,$0.00,$275.00,$0.00,0,0,0,0
+20064,Anytime Fitness Amory MS,A,200,K00,$0.00,$613.90,$0.00,0,0,0,0
+20070,"Nephrology Associates, P.C.",A,200,K00,"$144,866.63","$10,127.12",$24.00,284,0,62,258
+20073,Trailboss Trailers,A,200,K00,$0.00,$850.38,$0.00,0,0,0,0
+20074,Corinth Laser Center,A,200,K00,"$16,096.48",$514.08,$0.00,287,0,1,16
+20078,Renick Plumbing,A,200,K00,$0.00,$192.66,$0.00,0,0,0,0
+20083,Discount Air,A,200,ES3,$682.72,$0.00,$0.00,182,0,0,1
+20088,"Pediatric Nephrology of Alabama, PC",A,200,ES2,"$1,941.58",$411.06,$8.00,299,0,12,7
+20099,Southside Baptist Church,A,200,K00,"$2,449.50",$406.00,$0.00,198,0,0,3
+20100,Swoope Insurance Agency,A,200,K00,"$3,225.43",$0.00,$0.00,368,0,0,5
+20101,Pines at Barnes Crossing,A,200,K00,"$30,234.37",$526.53,$0.00,233,0,0,11
+20102,M & W Precise Medical Management,C,200,K00,$213.85,$78.73,$0.00,508,0,1,1
+20103,University Optometric Group,A,200,K00,$901.40,$113.20,$0.00,212,0,10,3
+20104,Jay Dickens Racing,A,200,K00,"$6,018.40",$121.93,$4.00,532,0,0,4
+20105,"David Goodcase, CPA",A,200,K00,$340.00,$0.00,$0.00,86,0,0,1
+20106,Judge Little Sporting Goods Company,A,200,K00,$547.11,$0.00,$0.00,199,0,5,2
+20107,"Cheyenne International, Inc.",A,200,K00,"$2,540.00",$0.00,$0.00,209,0,0,1
+20108,Taylor Meadows,A,200,K00,"$2,700.00",$0.00,$0.00,291,0,0,2
+20109,Meek Counseling Services,A,200,K00,"$2,618.00",$0.00,$0.00,602,0,0,3
+20110,"Jernigan Healthcare, Inc.",A,200,K00,"$23,939.63","$1,176.11",$16.00,407,1,28,75
+20111,Moffett Law Firm,A,200,K00,"$53,894.96",$500.00,$0.00,493,0,0,17
+20112,Anytime Fitness Hamilton AL,A,200,K00,$189.96,$0.00,$0.00,134,0,0,1
+20113,"Active Data Comm, Inc.",A,200,K00,"$4,209.68",$0.00,$0.00,582,0,0,2
+20114,Forty West Designs,A,200,K00,"$1,333.00",$0.00,$0.00,186,0,0,1
+20115,The Kangaroo's Pouch Children's Center,A,200,K00,"$1,344.77",$0.00,$0.00,237,0,0,2
+20116,"Robert D. Newton, D.M.D. & Assoc, LLC",A,200,K00,"$3,998.90",$225.20,$0.00,574,5,26,10
+20117,Sportsman Lawn and Landscape,A,200,K00,"$9,040.48",$0.00,$0.00,1247,0,0,2
+20118,"Developmental Industries, Inc.",A,200,K00,"$1,820.00",$0.00,$0.00,295,0,0,1
+205,Anesthesia & Pain Management,C,1,K30,$0.00,$75.50,$37.75,0,0,0,0
+242,"Endocrinology Consultants, PLLC",A,5,K30,"$52,613.38","$26,807.28","$10,022.63",458,29,96,126
+248,NMMC Credit Union,A,1,K33,"$16,797.18","$2,713.87",$931.76,395,0,0,8
+262,Delta Telepage of Greenville,C,1,K00,$0.00,$20.00,$6.60,0,0,0,0
+263,Anesthesia Consultants of Oxford,I,5,P01,$0.00,"$10,694.04","$3,786.03",0,0,0,0
+297,Heritage OB-GYN Clinic,I,5,K35,$0.00,$168.00,$61.40,0,0,0,0
+3000,Inergy LP - Abbeville AL - 0603,A,5,ILP,"$1,085.08","$2,035.42",$469.24,111,0,0,4
+3001,Inergy LP - Addison AL - 0418,A,5,ILP,"$6,534.83","$5,986.51","$1,368.71",176,0,0,20
+3002,Inergy LP - Albertville AL - 0107,A,5,ILP,"$1,215.89",$0.00,$0.00,141,0,0,4
+3003,Inergy LP - Alexander City AL - 0592,A,5,ILP,"$1,197.53",$413.77,$103.45,165,0,0,4
+3004,Inergy LP - Aliceville AL - 0511,A,5,ILP,$205.56,$47.07,$11.77,126,0,0,1
+3005,Inergy LP - Amory MS - 0421,A,5,ILP,"$3,410.09","$2,266.60",$500.50,141,0,2,10
+3006,Inergy LP - Baileyton AL - 0417,A,5,ILP,"$1,648.62",$541.73,$117.56,187,0,0,5
+3007,Inergy LP - Batesville MS - 0546,A,5,ILP,"$1,668.88",$0.00,$0.00,165,0,1,5
+3009,Inergy LP - Blountsville AL - 0105,A,5,ILP,"$2,513.38","$1,479.60",$344.76,173,0,1,8
+3010,Inergy LP - Brent AL -0128,A,5,ILP,$765.43,"$1,224.65",$306.16,137,0,0,3
+3011,Inergy LP - Butler AL - 0585,A,5,ILP,"$4,842.96","$6,896.15","$1,587.30",144,0,1,15
+3012,Inergy LP - Byhalia MS - 0594,A,5,ILP,$133.77,$191.80,$44.59,100,0,0,1
+3013,Inergy LP - Canton MS - 0444,A,5,ILP,"$1,891.21","$2,380.88",$552.31,136,0,0,4
+3014,Inergy LP - Carbon Hill AL - 0536,A,5,ILP,$639.79,$692.07,$135.07,140,0,0,3
+3015,Inergy LP - Chattanooga TN - 0203,A,11,ILP,"$2,133.16","$1,095.16",$294.80,136,0,0,6
+3016,Inergy LP - Clarksdale MS - 0008,A,5,ILP,$346.39,$198.11,$49.53,343,0,0,2
+3017,Inergy LP - Cleveland TN - 0201,A,11,ILP,$543.14,"$4,317.86","$1,592.07",96,0,1,3
+3019,Inergy LP - Columbus MS - 0431,A,5,ILP,"$23,647.62","$13,458.09","$3,243.80",212,0,8,90
+3021,Inergy LP - Decatur AL - 0535,A,5,ILP,"$3,934.74",$931.31,$232.83,145,0,1,12
+3022,Inergy LP - Defuniak Springs FL - 0596,A,5,ILP,$0.00,$71.97,$17.99,0,0,0,0
+3023,Inergy LP - Dekalb MS - 0512,A,5,ILP,"$1,803.14","$1,536.96",$337.27,153,0,0,6
+3024,Inergy LP - Demopolis AL - 0537,A,5,ILP,"$2,007.52",$626.66,$133.50,124,0,0,5
+3026,Inergy LP - Durant MS - 0446,A,5,ILP,"$2,685.41","$2,790.51",$650.98,130,0,0,10
+3029,Inergy LP - Fayette AL - 0433,A,5,ILP,$0.00,$114.85,$28.71,0,0,0,0
+3030,Inergy LP - Fayetteville TN - 0112,A,11,ILP,"$1,225.90",$0.00,$0.00,132,0,1,2
+3031,Inergy LP - Fulton MS - 0600,A,5,ILP,"$1,910.69",$494.63,$123.66,183,0,1,6
+3034,Inergy LP - Geraldine AL - 0563,A,5,ILP,"$1,457.85",$534.14,$131.43,154,0,1,6
+3035,Inergy LP - Gordo AL - 0432,A,5,ILP,$237.23,$168.46,$30.32,125,0,0,1
+3036,Inergy LP - Greensboro AL - 0428,A,5,ILP,$897.08,$908.35,$203.49,119,0,0,4
+3038,Inergy LP - Haleyville AL - 0553,A,5,ILP,"$5,708.81","$2,981.45",$693.05,134,0,2,17
+3039,Inergy LP - Hamilton AL - 0538,A,5,ILP,$0.00,$154.44,$38.61,0,0,0,0
+3040,Inergy LP - Hamilton GA - 0602,A,5,ILP,"$1,148.83","$1,102.18",$280.69,151,0,0,3
+3041,Inergy LP - Hartselle AL - 0109,A,5,ILP,"$5,949.63","$2,464.20",$641.09,167,0,0,20
+3043,Inergy LP - Houlka MS - 0572,A,5,ILP,"$1,257.47","$1,446.81",$399.54,199,0,0,4
+3044,Inergy LP - Huntsville AL - 0111,A,5,ILP,"$16,305.32","$3,959.22",$938.49,203,0,11,47
+3045,Inergy LP - Jasper AL - 0597,A,5,ILP,$914.64,"$1,038.35",$219.24,130,0,0,2
+3046,Inergy LP - Kilmichael MS - 0609,A,5,ILP,"$1,541.08","$1,172.66",$263.47,123,0,0,3
+3048,Inergy LP - Louisville MS - 0652,A,5,ILP,$626.71,"$1,371.66",$429.89,111,0,0,3
+3049,Inergy LP - Luverne AL - 0579,A,5,ILP,$945.34,$67.90,$15.72,218,0,0,4
+3050,Inergy LP - Macon MS - 0516,A,5,ILP,$439.02,$301.87,$75.47,120,0,0,2
+3051,Inergy LP - Marietta MS - 0558,A,5,ILP,"$1,608.66","$1,858.86",$774.75,182,0,2,5
+3052,Inergy LP - Marks MS - 0005,A,5,ILP,$365.73,$84.96,$27.24,240,0,0,2
+3053,Inergy LP - Maryville TN - 0598,A,11,ILP,$380.73,$268.40,$67.10,194,0,0,1
+3054,Inergy LP - Meridian MS - 0513,A,5,ILP,"$1,651.09",$809.31,$208.58,152,0,1,7
+3055,Inergy LP - Montgomery AL - 0549,A,5,ILP,"$39,765.88","$16,416.24","$4,118.18",232,0,8,109
+3056,Inergy LP - Moulton AL - 0106,A,5,ILP,"$3,646.76","$1,889.22",$866.32,174,0,1,12
+3057,Inergy LP - New Albany MS - 0442,A,5,ILP,$380.98,$145.11,$36.28,140,0,0,1
+3058,Inergy LP - Owens Cross Rds AL - 0110,A,5,ILP,"$2,638.20",$943.85,$258.46,204,0,2,9
+3059,Inergy LP - Oxford MS - 0548,A,5,ILP,$831.63,$416.96,$102.71,119,0,0,2
+3060,Inergy LP - Pell City AL - 0534,A,5,ILP,"$3,419.78",$890.48,$222.61,152,0,0,12
+3061,Inergy LP - Pensacola FL - 0607,A,5,ILP,"$4,347.48","$1,284.24",$308.38,142,0,1,19
+3062,Inergy LP - Petersburg TN - 0595,A,11,ILP,"$1,632.99",$825.26,$206.32,138,0,1,3
+3063,Inergy LP - Phenix City AL - 0601,A,5,ILP,$593.45,$265.75,$65.04,148,0,0,2
+3064,Inergy LP - Philadelphia MS - 0514,A,5,ILP,"$37,060.25","$19,054.90","$4,811.10",187,0,12,121
+3065,Inergy LP - Pontotoc MS - 0311,A,5,ILP,$403.40,$129.17,$32.29,129,0,0,2
+3066,Inergy LP - Ripley MS - 0443,A,5,ILP,$722.12,"$1,098.17",$255.12,190,0,0,3
+3067,Inergy LP - Russellville AL - 0517,A,5,ILP,"$11,054.24","$7,733.51","$1,844.96",298,0,0,31
+3068,Inergy LP - Savannah TN - 0574,A,11,ILP,"$6,242.33","$2,758.49",$648.24,131,0,1,16
+3069,Inergy LP - Selma AL - 0127,A,5,ILP,"$2,251.76","$3,508.22",$861.43,167,0,1,6
+3071,Inergy LP - Senatobia MS - 0007,A,5,ILP,"$38,617.60","$11,764.78","$2,839.84",194,0,8,128
+3072,Inergy LP - Bell Buckle TN - 0599,A,11,ILP,"$3,856.78",$458.60,$120.65,157,0,1,8
+3074,Inergy LP - Starkville MS - 0608,A,5,ILP,"$1,876.25","$4,943.73","$1,146.91",117,0,0,6
+3075,Inergy LP - Sulligent AL - 0531,A,5,ILP,$729.89,$264.51,$72.13,133,0,1,3
+3076,Inergy LP - Sumiton AL - 0103,A,5,ILP,"$19,187.04","$1,986.11",$496.53,158,0,2,11
+3077,Inergy LP - Summerdale AL - 0606,A,5,ILP,$227.68,$329.04,$75.26,157,0,1,1
+3078,Inergy LP - Sylvania AL - 0108,A,5,ILP,$541.42,$636.91,$155.73,127,0,0,3
+3079,Inergy LP - Troy AL - 0580,A,5,ILP,"$2,468.08",$0.00,$0.00,183,0,0,2
+3080,Inergy LP - Tupelo MS - 0429,A,5,ILP,"$22,628.67","$7,954.10","$1,922.87",168,0,5,77
+3081,Inergy LP - Tuscaloosa AL - 0532,A,5,ILP,$315.94,$0.00,$0.00,123,0,0,1
+3082,Inergy LP - Union Springs AL - 0583,A,5,ILP,$331.75,$938.08,$234.50,82,0,0,1
+3083,Inergy LP - Warrior AL - 0560,A,5,ILP,"$1,733.45","$2,111.59",$521.00,152,0,0,6
+3084,Inergy LP - Water Valley MS - 0604,A,5,ILP,$0.00,$200.00,$145.33,0,0,0,0
+3085,Inergy LP - Waynesboro TN - 0573,A,11,ILP,"$2,894.59",$937.90,$234.47,152,0,0,6
+3086,Inergy LP - Wedowee AL - 0587,A,5,ILP,$171.15,$19.96,$3.59,120,0,0,1
+3087,Inergy LP - West Point MS - 0312,A,5,ILP,$0.00,$466.00,$116.51,0,0,0,0
+3088,Inergy LP - Yazoo City MS - 0447,A,5,ILP,$0.00,$182.92,$45.73,0,0,0,0
+3089,Inergy LP - York AL - 0552,A,5,ILP,$292.11,$430.87,$107.71,153,0,0,1
+3090,Inergy LP - Commerce GA - 131,A,5,ILP,"$3,655.89",$382.96,$79.45,145,0,0,12
+3101,Rural Gas #011 - Ada OK,A,5,ILP,$158.05,$416.07,$101.22,105,0,0,1
+3102,Choctaw Propane #009 - Choctaw OK,A,5,ILP,$0.00,$443.36,$92.68,0,0,0,0
+3103,Ethridge Propane #013 - Edmond OK,A,5,ILP,$237.18,$0.00,$0.00,154,0,0,1
+3105,Independent Propane #114 - Cabot AR,A,5,ILP,"$11,402.62","$1,296.85",$273.97,115,0,0,9
+3106,"Gas-Tec #102 - Alvin, TX",A,5,ILP,$0.00,$356.83,$77.84,0,0,0,0
+3107,Centex Propane #140 - Austin TX,A,5,ILP,$476.25,$134.00,$36.50,167,0,1,1
+3108,Southern Butane #122 - Brazoria TX,A,5,ILP,$564.92,$954.06,$193.16,124,0,0,2
+3109,Propane Gas Service #280 - Brenham TX,A,5,ILP,$852.11,"$1,933.09",$410.09,101,0,0,4
+3110,Gas-Tec #104 - Bryan TX,A,5,ILP,"$1,074.18","$1,074.18",$268.55,148,0,0,2
+3111,Independent Propane #275 - Cleburne TX,A,5,ILP,$774.72,"$1,213.85",$231.82,110,0,0,3
+3112,Independent Propane #204 - Ft Worth TX,A,5,ILP,$0.00,$174.52,$43.63,0,0,0,0
+3113,Centex Propane #139 - Georgetown TX,A,5,ILP,"$3,237.44","$1,502.51",$325.66,142,0,0,8
+3114,Penny's Propane #120 - Kaufman TX,A,5,ILP,$255.98,$262.04,$47.17,135,0,0,1
+3115,Farmers LP Gas #124 - Henderson TX,A,5,ILP,$281.00,$255.00,$63.75,130,0,0,1
+3116,Gas-Tec #105 - Huntsville TX,A,5,ILP,$23.98,"$3,571.54",$729.41,129,1,0,0
+3117,Shelby LP Gas #185 - Jasper TX,A,5,ILP,$440.30,$649.86,$147.10,198,0,0,2
+3118,Penny's Propane #121 - Gun Barrel Cty TX,A,5,ILP,"$8,394.11",$300.67,$54.12,63,0,0,4
+3119,Polk County Propane #138 -Livingston TX,A,5,ILP,$495.68,"$1,544.45",$292.41,121,0,0,2
+3121,Plum Creek Propane #211 - Lockhart TX,A,5,ILP,$614.85,$0.00,$0.00,76,0,0,2
+3122,Independent Propane #128 - Marshall TX,A,5,ILP,$117.36,$50.00,$9.00,105,0,0,1
+3123,Independent Propane #210 - Midlothian TX,A,5,ILP,$744.18,$909.49,$196.82,115,0,0,2
+3124,Independent Propane #133 - Mont Belvieu,A,5,ILP,"$11,325.41","$9,215.45","$1,716.18",116,0,0,2
+3125,Shelby LP Gas #191 - Nacogdoches TX,A,5,ILP,$0.00,$242.18,$60.55,0,0,0,0
+3128,Independent Propane #136 - Victoria TX,A,5,ILP,"$1,014.56","$1,250.06",$241.49,82,0,0,1
+3129,Progas #152 - Vidor TX,A,5,ILP,"$1,313.51","$1,395.88",$297.20,117,0,0,3
+3130,Independent Propane #277 - Willis TX,A,5,ILP,$237.73,$0.00,$0.00,125,0,0,1
+3131,Independent Propane #151 - Winnsboro TX,A,5,ILP,$405.28,$0.00,$0.00,124,0,0,1
+3202,"Lampton-Love, Inc.",A,5,LLR,$0.00,$175.18,$63.91,0,0,0,0
+3212,"Lampton-Love, Inc.",A,5,LLR,$164.55,$0.00,$0.00,327,0,1,1
+3213,"Lampton-Love, Inc.",A,5,LLR,$26.07,$0.00,$0.00,278,0,1,0
+3215,"Lampton-Love, Inc.",A,5,LLR,$120.97,$0.00,$0.00,545,0,2,0
+3216,"Lampton-Love, Inc.",A,5,LLR,$65.17,$0.00,$0.00,585,0,1,0
+3217,"Lampton-Love, Inc.",A,5,LLR,"$1,341.08",$202.70,$70.95,454,0,0,5
+3219,Lampton-Love Inc.,A,5,LLR,$787.66,$0.00,$0.00,486,0,0,3
+3220,"Lampton-Love, Inc.",A,5,LLR,"$18,381.94",$0.00,$0.00,431,0,0,1
+3221,"Lampton-Love, Inc.",A,5,LLR,$718.28,$103.49,$36.22,503,0,0,2
+3223,"Lampton-Love, Inc.",A,5,LLR,"$1,004.52",$0.00,$0.00,406,0,1,3
+3225,"Lampton-Love, Inc.",A,5,LLR,"$1,453.88",$0.00,$0.00,435,0,0,5
+358,Dr. John Gassaway,C,5,K30,$0.00,$222.75,$75.22,0,0,0,0
+374,PBCS Inc. / Dr Kevin G Johnson,A,5,K28,"$40,707.02","$13,918.18","$4,317.43",336,10,74,115
+382,Leonel Lacayo   M.D.,I,5,K31,$0.00,$125.35,$36.36,0,0,0,0
+388,Nephrology & Hypertension Associates,A,5,K33,"$81,943.64","$9,408.92","$3,701.92",225,90,250,180
+391,"New Albany Light, Gas, and Water",A,5,K00,"$104,622.02","$18,023.06","$4,342.45",72,0,37,222
+4002,Highlands Medical Center,C,1,D33,$0.00,"$7,340.94","$4,336.50",0,0,0,0
+402,"Rossetti Dental Association, P.H.",A,5,K33,"$6,995.30","$3,202.20","$1,062.09",454,0,8,16
+409,Cooper Realty Inc.,A,5,K33,"$59,244.78","$7,054.24","$3,488.99",262,0,0,36
+439,Corinth Surgery Center,C,5,K27,$0.00,"$6,292.53","$3,331.18",0,0,0,0
+440,Magnolia Anesthesiology Associates P A,A,5,K27,"$358,279.80","$51,107.26","$20,115.96",214,200,448,529
+454,"Michael Foss, M. D.",C,5,K31,$0.00,$2.65,$0.77,0,0,0,0
+464,Dr. Hoat M Hoang,A,1,K35,"$65,879.29","$1,142.07",$415.32,328,13,36,61
+465,Blue Mtn. Family Medicine Clinic,C,5,K33,$0.00,$117.80,$38.87,0,0,0,0
+466,"Tupelo Eye Center, Optical",A,5,K33,$341.83,$284.76,$120.77,89,0,2,1
+477,Carraway Medical Center ER,C,5,K35,$0.00,$12.94,$3.62,0,0,0,0
+5000,Helen Keller Hospital,C,5,K26,$0.00,$300.00,$75.00,0,0,0,0
+5003,Professional Medical Services,C,5,K28,$0.00,$21.45,$6.22,0,0,0,0
+5004,Dr.'s Boger and Solomon,A,1,K27,"$1,843.83",$652.18,$176.09,555,0,3,3
+5013,Cullman Reg Orthopedic & Sports Medicine,A,1,K27,"$132,915.55","$10,816.03","$3,080.95",722,0,114,230
+5023,Cullman Urgent Care Center,A,1,K27,"$14,290.19","$1,876.64",$463.57,314,0,4,85
+5028,Seidel Plastic Surgery,A,1,K27,"$4,986.73",$782.45,$224.56,319,0,6,9
+503,Sports  Med,C,5,P03,$0.00,$381.20,$116.23,0,0,0,0
+5030,"Charles T. Prickett, MD",A,1,K27,$681.05,$325.00,$87.75,317,2,7,1
+5033,Decatur Internal Medicine,A,1,K27,"$4,610.78","$2,445.63",$660.31,221,0,10,15
+5045,"North Central Neurology, P C",A,1,K27,"$5,196.69",$671.77,$294.38,591,0,11,22
+5046,"Edward H. Fisher, III, M.D.",C,5,K30,$0.00,$740.06,$434.79,0,0,0,0
+5053,Cullman Physical Medicine,A,1,K27,"$14,707.80",$358.54,$94.58,198,0,23,30
+5055,Cullman Heart and Urgent Care P C,A,5,K33,"$12,658.81","$5,972.44","$2,572.38",323,1,0,72
+5056,Tuckier Surgical Clinic,A,1,K27,"$8,712.46",$20.00,$4.25,229,1,9,22
+5064,Surgical Associates of North Alabama,A,5,K29,"$189,948.31","$13,574.97","$6,327.82",219,0,1,186
+5072,Susan Winchester M D,A,5,K00,"$11,520.18","$2,587.47",$715.03,955,9,13,24
+5076,Dr. Darrell Potter,I,5,K00,$0.00,$573.42,$157.89,0,0,0,0
+510,Family Clinic of New Albany,A,5,K33,"$37,798.81","$8,328.32","$3,042.16",254,2,103,130
+531,"Magnolia Gastroenterology, PA",C,5,K29,$0.00,"$12,717.90","$6,043.73",0,0,0,0
+540,Birmingham Hematology & Oncology Assoc.,A,5,P25,"$481,948.09","$29,214.34","$6,871.05",157,29,384,429
+547,Siloam Springs Memorial Hospital,C,5,K25,$0.00,$120.00,$30.00,0,0,0,0
+549,Plantersville Family Clinic,A,5,K33,"$12,569.56","$6,473.20","$2,256.10",240,42,103,42
+551,Brookwood OBGYN,I,5,K30,$0.00,$588.32,$182.09,0,0,0,0
+558,Eze Family Medical Clinic,A,5,S32,"$55,901.62","$10,286.09","$3,510.85",538,50,200,176
+564,"James L. White, M.D.",A,5,K30,"$21,694.13","$8,988.26","$3,199.54",228,9,44,53
+565,"Clyde Phillips, M.D.",A,5,K30,"$25,302.31","$10,956.45","$4,672.22",226,14,33,48
+566,"Osvaldo Hans, M.D.",C,5,K33,$0.00,$40.00,$16.00,0,0,0,0
+567,"Jackson Ear, Nose & Throat Clinic",C,5,K33,$0.00,$233.67,$82.47,0,0,0,0
+568,"Stacy Haynes, M.D.",C,5,K29,$0.00,$339.85,$107.08,0,0,0,0
+587,Dr. Price Kloess / Alabama Vision Ctr,C,5,K29,$0.00,$67.70,$19.63,0,0,0,0
+593,Dr. Matthew B. Wesson,A,5,K33,"$12,067.66","$3,316.30","$1,378.00",227,0,27,43
+594,Dr. Fred H. Mothershed,A,5,K33,"$3,035.40",$927.31,$284.56,206,0,20,8
+600,Tishomingo Health Services Inc.,A,5,K35,"$4,116,059.85","$87,152.64","$39,299.56",450,56,292,3723
+6000,Cardiothoracic Surgery Clinic of N MS,C,5,K30,$0.00,"$9,118.70","$5,382.03",0,0,0,0
+601,Imaging Associates of N MS Magnolia LLC,A,5,K33,"$2,084,769.87","$133,348.26","$53,483.48",315,1,8523,5954
+6045,Athens Limestone Hospital,C,5,K30,$0.00,"$2,427.85",$947.01,0,0,0,0
+608,"Ken Grinspun, M.D.",C,5,K30,$0.00,$15.00,$6.00,0,0,0,0
+622,"Tupelo Ear, Nose & Throat-26",C,1,K30,$0.00,$61.60,$24.64,0,0,0,0
+627,Certified Medical Specialists,A,5,K29,"$303,555.90","$14,965.03","$5,703.83",642,0,14,414
+635,"Michael Gerhardt & Brice Brackin, MD",C,5,K30,$0.00,"$1,031.00",$317.36,0,0,0,0
+661,Marion Regional Medical Center,A,5,K25,"$2,895,277.59","$66,067.41","$24,571.89",454,56,525,2695
+668,"Mason Surgical Clinic, PLLC",C,5,K35,"$72,254.81","$12,966.72","$5,774.72",428,0,28,101
+676,Radiology of North Mississippi,C,1,K28,$0.00,$176.37,$49.35,0,0,0,0
+681,Newton Regional Hospital,C,5,K30,$0.00,$892.38,$454.89,0,0,0,0
+684,Corinth Surgery CRNA Billing,I,5,K27,$0.00,$5.00,$1.35,0,0,0,0
+689,Marion Regional Medical Ctr. Medicare,A,5,K33,"$141,165.85",$642.38,$217.35,552,69,202,226
+693,New Albany OBGYN,I,5,K34,$0.00,"$2,552.85","$1,512.28",0,0,0,0
+694,Gastroenterology for Children,A,5,K00,"$12,119.45","$4,422.67","$1,220.52",159,21,73,33
+696,Plastic and Hand Surgery Associates,C,5,K29,$0.00,"$1,703.51","$1,030.19",0,0,0,0
+700,Magnolia Regional Health Center,A,5,K25,$0.00,"$381,655.25","$168,910.41",0,0,0,0
+705,Tri Lakes Medical Center,C,5,D28,$0.00,"$11,457.97","$3,778.09",0,0,0,0
+706,"The Meridian Anesthesiology Group, PA",A,5,K32,"$412,550.52","$55,803.06","$22,021.34",218,15,602,686
+707,Internal Medicine & Pediatric Clinic,A,1,K35,"$18,590.69","$4,089.77","$1,982.98",338,0,2,53
+710,Mid-Town Family Clinic,C,5,K40,$0.00,$223.00,$89.20,0,0,0,0
+712,Dr. Kenneth Kellough,C,5,K31,$0.00,$16.17,$4.69,0,0,0,0
+732,Acute Care & Family Clinic of Pontotoc,A,5,K33,"$13,947.03","$5,857.66","$2,642.74",234,0,26,53
+743,Mission Primary Care Clinic,C,5,K27,$0.00,$564.08,$152.30,0,0,0,0
+745,Family Medicine Clinic - Dr. James Ervin,I,5,K33,$0.00,$281.46,$92.88,0,0,0,0
+746,Magnolia Endoscopy Center,C,5,K29,$0.00,"$6,261.93","$2,865.67",0,0,0,0
+747,"Magnolia Regional Medical, CRNA",A,5,K27,"$183,974.55","$21,615.68","$8,014.83",242,198,312,330
+752,The Imaging Center at Gloster Creek,A,5,K33,"$731,764.45","$129,395.02","$53,336.06",299,83,694,1151
+755,Premier Radiology,C,1,K28,$0.00,"$1,072.09",$314.55,0,0,0,0
+758,J P B Pathology,A,5,K30,"$355,536.77","$82,560.97","$30,372.31",206,95,1231,982
+764,UA Optometric,A,5,K35,$0.00,$79.25,$24.85,0,0,0,0
+766,Gulf Coast Sleep Lab,C,5,K00,$0.00,$53.13,$23.91,0,0,0,0
+768,Tri Lakes Medical Center Clinics,C,5,K28,$0.00,$73.52,$20.58,0,0,0,0
+773,Anesthesia Resource Mgmt. Solutions,C,5,K25,$0.00,$233.00,$64.25,0,0,0,0
+775,Magnolia Regional Med. Ctr. Medicare,I,5,K25,$0.00,"$7,018.37","$1,835.68",0,0,0,0
+778,"Arkansas Cardiology, I",A,5,D22,"$51,480.26","$22,890.61","$9,438.26",561,1,15,105
+779,"Arkansas Cardiology, II",A,5,D22,"$6,493.62","$2,263.17",$655.35,452,0,29,19
+780,Tennessee Valley Pediatric Sedation,A,5,K15,"$3,550.10",$599.39,$147.70,222,1,8,11
+791,Pain Management Center of N MS PLLC,A,5,K35,"$204,346.36","$36,843.24","$13,711.84",234,1011,763,421
+792,Bessemer ER Physicians,C,5,K35,$0.00,$400.00,$140.00,0,0,0,0
+793,Premier Medical / St. Vincent's East ER,A,5,K45,"$3,214,829.72","$151,171.55","$77,234.57",237,315,2295,5420
+794,"Premier Medical / Urgent Care, P.C.",A,5,K45,"$38,823.84","$9,566.07","$4,651.63",275,279,221,114
+795,Dr. James W. Major,C,5,K31,$0.00,$116.49,$105.55,0,0,0,0
+796,Dr. Edwin Ozua,C,5,K31,$0.00,$277.95,$154.61,0,0,0,0
+800,"Tishomingo Health Services, Inc.",A,5,K35,"$134,337.87","$1,679.05",$642.28,529,43,330,370
+8014,"William K. Harper, M.D.",C,5,K33,$0.00,$678.66,$223.95,0,0,0,0
+802,Family Medicine Clinic of N. MS.,C,5,K35,$0.00,$413.52,$144.73,0,0,0,0
+803,"Meridian CRNA, LLC",A,5,K32,"$23,795.62","$6,208.46","$2,206.87",207,3,149,75
+805,Sutherland Cardiology,I,11,K00,$0.00,"$4,962.76","$2,411.04",0,0,0,0
+807,Metabolic Disorders,A,5,K30,"$66,371.42","$33,604.16","$11,032.74",247,0,121,204
+808,Jackson Ear Clinic,I,5,K33,$0.00,"$2,401.68","$1,288.57",0,0,0,0
+810,Creekmore Clinic,I,5,K30,$0.00,$552.19,$173.64,0,0,0,0
+813,"D. Land Renfroe, M.D.",C,5,K31,$0.00,$65.19,$20.21,0,0,0,0
+814,Denis A. Yalkut M.D.,C,5,K31,$0.00,$474.16,$293.07,0,0,0,0
+816,North East Orthopaedics,C,5,K33,$0.00,"$2,278.79","$1,114.68",0,0,0,0
+818,"Anesthesia Consultants, P.A.",A,5,S28,"$8,971.88",$867.47,$251.74,187,3,17,27
+819,"Anesthesia Consultants, P.A.",A,5,S28,"$8,197.65","$1,957.53",$547.11,205,1,23,29
+821,"Anesthesia Consultants, P.A.",A,5,S28,"$6,817.76",$885.88,$227.20,184,1,23,18
+822,"Anesthesia Consultants, P.A.",A,5,S28,"$12,661.94","$2,422.72",$692.95,226,1,19,37
+823,"Anesthesia Consultants, P.A.",A,5,S28,"$5,796.96","$1,518.11",$434.28,206,0,6,21
+824,"Anesthesia Consultants, P.A.",A,5,S28,"$7,003.93","$1,213.80",$324.69,201,0,15,21
+825,Greenwood Leflore Physician Services,C,5,K33,$0.00,$389.00,$128.37,0,0,0,0
+826,"Anesthesia Consultants, P.A.",A,5,S28,"$11,843.84","$1,840.55",$495.56,191,0,18,28
+828,"Anesthesia Consultants, P.A.",A,5,S28,"$8,080.03","$1,204.09",$412.57,195,0,22,25
+831,"Anesthesia Consultants, P.A.",A,5,S28,"$9,999.55","$3,264.63",$883.29,223,6,13,24
+832,"Crossroads Rehabilitation Services, Inc.",A,5,K33,"$82,883.31","$17,028.54","$6,632.39",343,0,12,195
+836,"Anesthesia Consultants, P.A.",A,5,S28,"$15,118.51","$2,702.13",$767.54,208,2,18,37
+837,"Anesthesia Consultants, P.A.",A,5,S28,"$8,757.24","$1,630.05",$467.44,209,2,18,36
+838,"Anesthesia Consultants, P.A.",A,5,S28,"$5,609.05","$2,637.71",$747.73,221,15,67,13
+839,"Anesthesia Consultants, P.A.",A,5,S28,$0.00,$329.70,$78.76,0,0,0,0
+842,"Oxford Endocrinology Consultants, P.C.",A,5,K35,$570.34,$577.28,$202.05,318,1,8,1
+847,The Bone and Joint Clinic,I,11,K25,$0.00,"$19,683.17","$5,653.40",0,0,0,0
+848,Imaging Centers for Excellence,C,5,K27,$0.00,$108.50,$29.30,0,0,0,0
+850,Oxford Orthopaedics,C,5,K33,$0.00,$148.87,$49.13,0,0,0,0
+854,Crossroads Rehabilitation Services(Medic,A,5,K33,"$5,381.75",$212.52,$70.13,359,0,2,23
+855,Rehab 2000,I,5,K35,$0.00,$10.02,$3.51,0,0,0,0
+858,Rehab at Work,C,5,K30,$0.00,"$17,765.10","$8,963.08",0,0,0,0
+859,Hickory Hollow Foot and Ankle Center,A,11,K30,$0.00,$111.08,$27.46,0,0,0,0
+860,Surgery Clinic of Tupelo - 4,C,5,K25,$0.00,$290.00,$72.50,0,0,0,0
+861,Surgery Clinic of Tupelo - 5,C,5,K25,$0.00,$20.00,$5.00,0,0,0,0
+863,Surgery Clinic of Tupelo - 12,C,5,K25,$0.00,$480.00,$120.00,0,0,0,0
+864,Surgery Clinic of Tupelo - 13,C,5,K25,$0.00,$600.00,$150.00,0,0,0,0
+870,Surgery Clinic of Tupelo - 4/Hamilton,A,5,K30,"$7,974.52","$7,368.52","$3,029.16",245,1,5,13
+871,Surgery Clinic of Tupelo - 5/Williamson,A,5,K30,"$42,398.40","$18,682.77","$7,321.70",180,0,25,72
+872,Surgery Clinic of Tupelo - 10/Pigott,A,5,K30,"$117,519.08","$21,110.48","$7,798.31",163,0,67,161
+873,Surgery Clinic of Tupelo - 12/Pinson,A,5,K30,"$96,130.09","$10,555.02","$4,421.01",176,0,38,110
+874,Accent Plastic Surgery -13,C,5,K30,$0.00,"$1,383.97",$490.19,0,0,0,0
+875,Surgery Clinic of Tupelo - 15/McAuley,A,5,K30,"$84,558.16","$22,252.77","$9,351.62",168,2,45,143
+876,Surgery Clinic of Tupelo - 18/Sanders,A,5,K30,"$90,118.04","$26,414.79","$10,773.98",169,1,49,121
+878,Tupelo Plastic Surgery Clinic,A,5,K30,"$85,462.77","$21,171.61","$8,465.70",177,0,21,97
+879,Angela Campbell Orsborn,I,5,K33,$0.00,$631.32,$451.22,0,0,0,0
+881,Tupelo Ear Nose & Throat,A,1,K30,"$561,321.50","$181,711.10","$65,725.59",235,36,676,929
+882,"David J. Halvorson, M.D.",A,5,K35,"$54,100.57","$12,721.73","$4,740.15",233,1,76,128
+883,Friendship Family Medical,I,5,K35,$0.00,$5.98,$2.09,0,0,0,0
+884,Jackson Sports Medicine and Rehab,I,5,K33,$0.00,$68.00,$25.12,0,0,0,0
+885,Greenville Sports Medicine,A,5,K33,"$14,743.44",$924.00,$326.35,370,0,7,28
+886,Ridgeland Sports Medicine,C,5,K33,$0.00,$491.35,$162.15,0,0,0,0
+887,Byram Sports Medicine,C,5,K33,$0.00,$79.00,$28.75,0,0,0,0
+890,North Mississippi Pain Management,A,5,TAG,"$173,670.64","$43,381.64","$18,751.92",264,12,272,275
+893,"Gastroenterology Associates, N.A.",A,5,K29,"$350,411.92","$56,655.16","$18,279.25",291,272,624,793
+894,Helton Family Dental,A,5,K33,"$2,841.20","$2,208.54","$1,026.82",501,0,0,8
+895,Tennessee Valley Pain Consultants,A,5,K29,"$713,567.00","$139,840.43","$45,473.93",161,611,2960,1871
+896,Center for Colon & Digestive Diseases,A,5,K29,"$263,085.59","$100,670.45","$31,530.01",170,388,798,622
+897,The Bone and Joint Surgery Center,C,11,K33,$0.00,"$1,634.93",$599.32,0,0,0,0
+899,"Nephrology Associates, P.C.",A,5,S38,$0.00,"$4,753.83","$1,599.58",0,0,0,0
+901,General Surgery Associates /MD Solutions,A,5,K29,"$395,981.41","$46,105.95","$15,991.48",181,80,284,538
+902,Huntsville Endoscopy Center,A,5,K29,"$104,941.27","$43,195.49","$14,407.96",167,7,163,282
+903,Physician Professional Fee /MD Solutions,A,5,K40,"$308,416.73","$39,347.74","$16,395.76",192,1475,1309,413
+904,University Anesthesia Associates,I,11,K20,$0.00,"$5,562.00","$1,195.61",0,0,0,0
+906,Monroe County Mississippi Justice Court,I,5,K00,$0.00,"$12,335.36","$2,503.06",0,0,0,0
+910,Dr. Rex Harris,I,5,K35,$0.00,$21.54,$7.54,0,0,0,0
+912,"L  & B Laboratories, Inc",C,5,K30,$0.00,$378.00,$124.60,0,0,0,0
+913,"MS Ear, Nose, Throat Surgical Asso.",A,5,K30,"$81,396.09","$15,237.28","$5,870.02",283,0,81,196
+914,Women's Medical Assoc. of Nashville,A,11,S01,"$31,108.90","$5,280.06","$1,630.79",433,0,19,64
+915,Tupelo Orthopedic Clinic,A,5,K25,"$139,594.46","$24,035.95","$10,273.93",471,0,60,174
+917,"The Surgical Clinic, PLLC",A,11,S01,"$355,169.54","$13,284.37","$4,916.47",499,12,124,366
+919,Mid-Tennessee Bone & Joint Clinic,A,11,D29,"$464,029.05","$80,879.51","$26,740.04",380,3,193,717
+920,Tennessee Sports Medicine & Orthopedics,I,11,R29,$0.00,"$3,862.74","$1,252.41",0,0,0,0
+921,Arkansas Specialty Orthopaedics,I,5,D22,"$170,864.11","$30,809.01","$9,783.95",418,7,347,442
+922,Arkansas Specialty Orthopaedics II,I,5,D22,"$790,919.81","$195,705.55","$73,823.06",428,4,59,1411
+923,Olive Branch Family Medical Center,A,5,K30,"$42,559.51","$22,119.83","$6,869.49",238,1,5,227
+924,The Tennessee Credit Union,C,11,K30,$0.00,"$10,672.34","$6,639.83",0,0,0,0
+927,Middle Tennessee Locum Services,I,11,K20,$0.00,"$1,031.31",$222.26,0,0,0,0
+929,Hamilton Specialty Clinic - Dr. Seay,I,5,K25,$0.00,$599.95,$149.98,0,0,0,0
+932,Surgical Alliance of Middle TN,I,11,K33,$0.00,"$1,242.22",$409.94,0,0,0,0
+934,"Norwood Clinic, Inc.",A,5,K32,"$90,017.14","$16,254.23","$4,986.70",703,7,150,223
+935,Gallatin Women's Center,I,11,K33,$0.00,$386.55,$151.68,0,0,0,0
+936,"Baxter Clinic of Hernando, PLLC",I,5,K33,"$8,733.28","$1,558.45",$516.97,350,0,34,29
+939,Arkansas Specialty Orthopaedic Center II,I,5,D22,"$198,098.85","$81,807.61","$30,065.33",264,0,55,301
+941,Dr. Chad Price Orthopedic Surgery,I,11,K33,$0.00,$573.96,$194.77,0,0,0,0
+942,OBGYN Associates of Cookeville,A,11,K33,"$20,870.41","$5,286.05","$1,314.58",267,12,27,41
+943,OBGYN Associates of Cookeville,I,11,K33,"$1,464.96","$3,595.78",$898.22,283,1,4,3
+945,OBGYN Associates of Cookeville,A,11,K33,"$14,516.48","$10,321.47","$2,609.46",259,12,26,39
+946,OBGYN Associates of Cookeville,I,11,K00,$0.00,$131.95,$32.74,0,0,0,0
+947,Anesthesia Solutions of Mobile,A,5,D20,"$855,667.16","$64,359.60","$19,277.86",197,40,758,1324
+948,"Silver Dollar Sales, Inc.",I,5,K33,$0.00,$650.57,$241.49,0,0,0,0
+949,Corinth Surgical/ Dr. Edmonson,A,5,K32,"$120,939.42","$12,170.15","$4,665.74",284,3,37,136
+950,"Delta Capital Resources, LLC",I,5,K40,$0.00,$20.61,$8.25,0,0,0,0
+953,Acute Care & Family Clinic of Tupelo Inc,C,5,K33,$0.00,$445.23,$166.06,0,0,0,0
+954,OBGYN Associates of Cookeville,A,11,K33,"$19,510.83","$6,083.94","$1,530.56",264,54,62,84
+955,OCH Center for Pain Management,A,5,K31,$0.00,$163.43,$50.67,0,0,0,0
+956,OCH - Parsons' Family Medical Clinic,A,5,K31,"$62,722.25","$3,189.40","$1,269.77",558,0,1,51
+957,OCH Professional Services,A,5,K31,"$32,766.22","$6,414.08","$3,019.75",650,0,59,68
+958,OCH Center for Breast Health,A,5,K31,"$12,805.91","$14,626.31","$6,169.13",995,0,8,16
+959,OCH General Surgery Associates,A,5,K31,$0.00,$50.00,$15.50,0,0,0,0
+960,U. S. Community Credit Union,A,11,K30,"$87,930.93","$13,877.75","$4,909.48",108,2,32,166
+962,"Partridge Propane, Inc.",A,5,K33,"$3,361.54","$1,223.25",$456.43,327,0,1,9
+963,"Partridge Propane, Inc.",A,5,K33,$0.00,"$1,441.66",$528.81,0,0,0,0
+964,Comprehensive Pain Management,A,5,K35,"$232,886.58","$44,711.94","$16,460.79",237,20,223,383
+965,The Jackson Clinic,A,11,K25,"$3,706.50","$166,930.07","$46,921.16",345,0,0,1
+966,OCH Center for Pain Management 2,A,5,K31,$0.00,$92.05,$28.54,0,0,0,0
+967,OCH Professional Services 2,A,5,K31,$0.00,$104.00,$41.60,0,0,0,0
+971,Anesthesia Group East,A,5,S02,"$587,031.32","$41,354.63","$14,395.20",268,246,580,994
+973,Comprehensive Pain Center of Jackson,A,5,C30,"$93,412.49","$9,752.29","$4,217.98",519,0,42,164
+974,Medical Arts Surgical,A,5,S04,"$1,007,728.12","$64,666.05","$27,636.89",251,0,0,667
+977,Starkville Orthopedics,A,5,S05,"$48,900.78","$11,532.93","$4,730.11",392,0,28,108
+978,Mississippi Bone and Joint Clinic,A,5,S05,"$170,152.42","$19,000.27","$7,508.84",529,3,28,128
+979,Starkville Orthopedics,A,5,S05,"$75,262.92","$13,618.95","$4,909.88",363,0,21,91
+980,Upper Cumberland Urology Associates,A,11,S06,"$16,853.12","$12,936.47","$5,392.11",264,30,15,27
+981,Starkville Internal Medicine,A,5,K33,"$38,036.86","$1,669.51",$603.47,909,0,25,67
+982,Marion Regional Medical Ctr - Physicians,A,5,K25,"$1,804,527.70","$85,686.85","$22,643.36",286,579,2100,4448
+983,Cardiothoracic Surgery Clinic - 2,A,5,K15,$0.00,"$2,776.64",$416.50,0,0,0,0
+984,Urology Professional Association,A,5,D23,"$1,302,302.53","$197,403.59","$61,711.99",146,593,934,1432
+985,Mississippi Premier Plastic Surgery,A,5,S07,"$39,418.49","$7,266.41","$3,209.09",312,0,6,46
+986,Express Care of New Albany,I,5,K33,$0.00,$105.00,$37.33,0,0,0,0
+987,Diabetes Care Group,A,5,S08,"$13,574.29","$1,381.41",$633.02,291,8,36,38
+989,Urology Professional Association - 2,A,5,D23,"$13,468.83","$5,005.37","$1,364.29",143,366,221,0
+991,The Eye Group of Mississippi,A,5,R30,"$9,134.05","$1,291.86",$476.09,266,8,43,32
+992,The Eye Group of Mississippi,A,5,R30,"$2,303.69",$895.71,$331.69,282,0,15,7
+993,The Eye Group of Mississippi,I,5,R30,$0.00,$263.46,$97.41,0,0,0,0
+994,The Eye Group of Mississippi,A,5,R30,"$2,722.26",$106.08,$37.13,324,0,4,8
+995,Cornerstone Primary Care,A,11,S08,"$5,777.57","$1,063.36",$392.97,314,2,30,25
+998,"KNS Medical, Inc.",A,5,K32,"$7,612.80",$867.00,$277.44,686,0,0,8
+,,,,,"$41,633,340.23","$4,990,177.00","$1,796,901.92",,8559,38910,62757

@@ -1,0 +1,93 @@
+
+<script language="javascript" type="text/javascript">
+function validateChangePassword(){
+
+	formControl = document.frmchangepassword
+
+	if(!passwordcheck(formControl.txtpasswordpresent))
+	{
+	return false
+	}
+
+
+	if(!passwordcheck(formControl.txtconfirmpasswordpresent))
+	{
+	return false
+	}
+
+	if(!confirmpasswordcheck(formControl.txtpasswordpresent,formControl.txtconfirmpasswordpresent))
+	{
+	return false
+	}
+	
+	
+	if(!passwordcheck(formControl.txtpassword1))
+	{
+	return false
+	}
+
+	
+	if(!confirmpasswordcheck(formControl.txtpassword1,formControl.txtpassword2))
+	{
+	return false
+	}
+	
+}
+</script>
+
+<form id="frmchangepassword" name="frmchangepassword" action="<?php echo $this->baseUrl(); ?>/user/changepass" method="post" onsubmit="return validateChangePassword()" >
+					
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr>
+	<td height="200" valign="top"  align="center" >
+
+<div class="breadcrumb" > <a href="<?php echo $this->baseUrl(); ?>/home" > Home </a>  >  Change Password </div>	
+
+
+<table class="tableHeading topheading" border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tbody>
+		<tr>
+			<td class="big" align="left" ><strong> Change Password</strong></td>
+			<td class="small" align="left"> 
+			
+				<div class="message" > <?php echo $this->msg ; ?> </div> 
+			
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+								
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tr>
+		<td width="25%" align="right" valign="top" class="dvtCellLabel"><span style="color:#FF0000" > * </span>  Present Password : </td>
+		<td class="dvtCellInfo" align="left"  ><input class="textcontrol1" type="password" value="" name="txtpasswordpresent" /></td>
+        <td width="25%" align="right" valign="top" class="dvtCellLabel"><span style="color:#FF0000" > * </span>  Confirm Present Password : </td>
+        <td class="dvtCellInfo" align="left"  ><input class="textcontrol1" type="password" value="" name="txtconfirmpasswordpresent" /></td>
+	</tr>
+
+	<tr>
+		<td width="25%" align="right" valign="top" class="dvtCellLabel"><span style="color:#FF0000" > * </span>  New Password : </td>
+		<td class="dvtCellInfo" align="left" ><input class="textcontrol1" type="password" value="" name="txtpassword1"  /></td>
+		<td width="25%" align="right" valign="top" class="dvtCellLabel"><span style="color:#FF0000" > * </span>  Confirm New Password : </td>
+		<td class="dvtCellInfo" align="left"  ><input class="textcontrol1" type="password" value="<?php echo $this->data[$this->projectId][project_name];  ?>" name="txtpassword2"  /></td>
+        
+	</tr>
+
+	<tr>
+		<td colspan="4" align="center"  class="comment" height="50px"  >
+			<input class="flatinput" type="submit" name="save" value="Save" /> 
+			<input class="flatinput" type="reset" name="reset" value="Reset" />
+			<input class="flatinput" type="hidden" name="id" value="<?php echo $this->projectId ?>" />
+		</td>
+	</tr>
+	
+</table>
+
+
+	</td>
+</tr>
+</table>
+						
+</form>

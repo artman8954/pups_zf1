@@ -1,0 +1,565 @@
+<script language="javascript">
+
+	function confirmDelate(id){
+	
+		if(confirm("Are you Sure ? "))
+			window.location.href='app/delete.php?type=user&id=' + id 
+	}
+	
+	
+function displaySearch(){
+
+	if(document.getElementById('search').style.display == 'block'){
+		document.getElementById('search').style.display = 'none';
+	}
+	else{
+		document.getElementById('search').style.display = 'block'
+	}
+
+}
+
+function validateSearch()
+{
+	if(document.search.search_text.value == ''){
+		document.search.search_text.focus()
+		alert('Please enter search text ! ')
+		return false;
+	}
+	if(document.search.search_option.selectedIndex == 0){
+		document.search.search_option.focus()
+		alert('Please select option!')
+		return false;
+	}
+
+}
+
+
+</script>
+
+<script src="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jquery-1.10.2.min.js" type="text/javascript" ></script>
+<link rel="stylesheet" href="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jqueryui/jquery-ui.css" />
+<script src="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jqueryui/jquery-ui.js"></script>
+
+<?php
+	$tab = 2;
+	if($this->run == 'prime'){
+		$tab = 0;
+	}else if($this->run == 'ace'){
+		$tab = 1;
+	}
+?>
+
+<script>
+ $(function() {
+$( "#accordion" ).accordion({
+heightStyle: "content",
+active: <?php echo $tab; ?>
+});
+});
+</script>
+
+<?php
+
+ $client_id_frm_cacl = $this->client_id; 
+
+?>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0"  align="center"  >
+	<tr>
+		<td height="400" valign="top" align="center"  >
+        
+<div class="breadcrumb" > <a href="<?php echo $this->baseUrl(); ?>/home" > Home </a>  >
+
+<a href="<?php echo $this->baseUrl(); ?>/project" >  Projects  </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/project/projecthome/id/<?php echo $this->data[$this->id]['project_id'] ; ?>" > <?php echo $this->data[$this->id]['project_name'] ; ?> </a> >
+<a href="<?php echo $this->baseUrl(); ?>/client/index/id/<?php echo $this->data[$this->id]['project_id'] ; ?>" > Customer Data </a>
+
+> <?php echo $this->escape( $this->data[$this->id]['client_name']) ; ?></div>
+				
+<table class="tableHeading topheading" border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tr>
+		<td width="25%" align="left" class="big" >Client Home Page</td>
+        <td width="75%" class="message" align="left" ><?php echo $this->message; ?></td>
+		
+	</tr>
+</table>
+									
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Client Name</td>
+		<td class="dvtCellInfo" align="left" colspan="3" ><?php echo $this->escape( $this->data[$this->id]['client_name']) ; ?></td>
+	</tr>
+																			
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Client Id</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['client_id']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Client Id Group</td>
+		<td class="dvtCellInfo" id="mouseArea_Email"  align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['client_id_group']) ; ?></td>
+	</tr>
+	
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Status</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['status']) ; ?>&nbsp;</td>
+		<td class="dvtCellLabel" align="right" width="25%">Sales Rep Id</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->data[$this->id]['sales_rep_id']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">List Amount </td>
+		<td class="dvtCellInfo"  align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['list_amount']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Paid Amount </td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['paid_amount']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Earned Amount</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->data[$this->id]['earned_amount']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Age</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['age']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Small Balance</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->data[$this->id]['small_balance']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Medium Balance</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['medium_balance']) ; ?></td>
+	</tr>
+																
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Large Balance</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['large_balance']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Legal Fee Amount</td>
+		<td class="dvtCellInfo" id="mouseArea_Email"  align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['legal_fee_amount']) ; ?></td>
+	</tr>
+	
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Legal Fee Amount <br /> Earned US</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['legal_fee_amount_earned_us']) ; ?>&nbsp;</td>
+		<td class="dvtCellLabel" align="right" width="25%">Legal Fee Amount <br /> Earned Client</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->data[$this->id]['legal_fee_amount_earned_client']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Legal Total Amount Earned  </td>
+		<td class="dvtCellInfo"  align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['legal_total_amount_earned']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Court Cost Fee </td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['court_cost_fee']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Attorney Fee </td>
+		<td class="dvtCellInfo"  align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['attorney_fee']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Collection Fee </td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['collection_fee']) ; ?></td>
+	</tr>
+ 
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Principal Paid </td>
+		<td class="dvtCellInfo"  align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['principal_paid']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Total Paid</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['total_paid']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Avg. Age of Account </td>
+		<td class="dvtCellInfo"  align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['average_age_acc']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Controlled Cost Accounts</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['controlled_cost_accounts']) ; ?></td>
+	</tr>
+    
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Aces Es1</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->data[$this->id]['aces_es1']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Aces Es2</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['aces_es2']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Aces Es3</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->data[$this->id]['aces_es3']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Aces Esf</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['aces_esf']) ; ?></td>
+	</tr>
+    
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Aces List Amount </td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->data[$this->id]['aces_list_amount']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Aces Paid Amount</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['aces_paid_amount']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Aces Sales Bonus</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->data[$this->id]['small_balance']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Small Balance Account Costs</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['medium_balance']) ; ?></td>
+	</tr>
+    
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Total Fee Income for the Year</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->data[$this->id]['small_balance']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%"></td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['medium_balance']) ; ?></td>
+	</tr>
+    
+    </table>
+
+<br />
+
+<div id="accordion">
+
+<h3  style="text-align:left;font-weight:bold">PUP Prime Calculation Details</h3>
+<div style="padding:10 0 10 10">
+
+<?php
+
+	$aces_es1 = $this->data[$this->id]['aces_es1'];
+	$aces_es2 = $this->data[$this->id]['aces_es2'];
+	$aces_es3 = $this->data[$this->id]['aces_es3'];
+	$aces_esf = $this->data[$this->id]['aces_esf'];
+	
+	if( $aces_es1 > 0 || $aces_es2 > 0 || $aces_es3 > 0 || $aces_esf > 0 ) {
+	
+		echo "This is not a prime account ! "; 
+	
+	}else{
+
+?>
+<table border="0" cellpadding="5"  cellspacing="0" width="100%" >
+																			
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Large Balance Accounts</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php  echo $this->escape(  $this->data[$this->id]['large_balance'] ) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Medium Balance Accounts</td>
+		<td class="dvtCellInfo" id="mouseArea_Email"  align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['medium_balance']) ; ?></td>
+	</tr>
+	
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Small Balance Accounts</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->id]['small_balance']) ; ?>&nbsp;</td>
+		<td class="dvtCellLabel" align="right" width="25%">Controlled Cost Accounts</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->data[$this->id]['controlled_cost_accounts']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Total Dollar Volume</td>
+		<td class="dvtCellInfo"  align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['total_dollar_volume_p7']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Non-Legal Dollars Recovered</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['non_legal_dollars_recovered_p8'] ) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Legal Dollars Recovered</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['legal_dollars_recovered_p9']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Total Dollars Recovered</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['total_dollars_recovered_p9_2']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Average Age of Account</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['avg_age_of_account_p9_3']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Average Balance</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['avg_balance_p9_4']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Fee Rate</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['fee_rate_p10']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Recovery Rate</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['recovery_rate_p11']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Total Fees (PL Balance)</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo  $this->escape( $this->pupprimedata[$client_id_frm_cacl]['total_fees_p12']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Non-Legal Fees</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php   echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['nonlegal_fees_p12_2']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">CC & Attorney Fees</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['cc_attorney_fees_p13']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Average Fee Per Account</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['avg_fee_per_account_p14']) ; ?></td>
+	</tr>
+ 
+ 	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Labor Costs for Collectors <br /> (Prime)</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['labot_cost_for_collectors_prime_p15']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Labor Costs for Collectors <br /> (Controlled Cost/Med)</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['labot_cost_for_collectors_contr_p16']) ; ?></td>
+	</tr>
+    
+    <tr>
+		<td class="dvtCellLabel" align="right" width="25%">Total Labor Costs </td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['total_labor_cost_p17']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Benefits Cost (Prime)</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['benefit_cost_prime_p18']) ; ?></td>
+	</tr>
+    
+    <tr>
+		<td class="dvtCellLabel" align="right" width="25%">Benefits Cost (CC & MED)</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['benefit_cost_ccmed_p19']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Total Benefits Cost</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['total_benefit_cost_p20']) ; ?></td>
+	</tr>
+    
+    <tr>
+		<td class="dvtCellLabel" align="right" width="25%">Statement Cost (Prime)</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['statement_cost_prime_p21']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Statement Cost (CC & MED)</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['statement_cost_ccmed_p22']) ; ?></td>
+	</tr>
+
+    <tr>
+		<td class="dvtCellLabel" align="right" width="25%">Total Statement Cost</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['total_statement_cost_p23']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Sales Bonus</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['sales_bonus_P24']) ; ?></td>
+	</tr>
+    
+    <tr>
+		<td class="dvtCellLabel" align="right" width="25%">Small Balance Accounts Costs</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['small_balance_acc_cost_p25']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Other Direct Costs – PRIME</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['other_direct_cost_prime_p26']) ; ?></td>
+	</tr>
+    
+        <tr>
+		<td class="dvtCellLabel" align="right" width="25%">Other Direct Costs – (CC & Med)</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['other_direct_cost_ccmed_p27']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Other Direct Costs Total</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['other_direct_cost_total_p28']) ; ?></td>
+	</tr>
+    <tr>
+		<td class="dvtCellLabel" align="right" width="25%">Total Direct Costs</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['total_direct_cost_p29']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Client Legal Amount Earned Us</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['client_legal_amount_earned_us_p30']) ; ?></td>
+	</tr>
+    
+    <tr>
+		<td class="dvtCellLabel" align="right" width="25%">Total Legal Amount Earned</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['total_legal_amount_earned_p31']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Legal Expenses</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['legal_expenses_p32']) ; ?></td>
+	</tr>
+    
+    <tr>
+		<td class="dvtCellLabel" align="right" width="25%">Legal Expense – Customer</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['legal_expenses_customer_p33']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Number of Active Customers</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['number_of_active_customers_p34']) ; ?></td>
+	</tr>
+
+
+
+    <tr>
+		<td class="dvtCellLabel" align="right" width="25%">Average Cost Per Account</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['avg_cost_per_acc_p35']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Total Cost of Collection</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['total_cost_of_collections_p36']) ; ?></td>
+	</tr>
+    
+    <tr>
+		<td class="dvtCellLabel" align="right" width="25%">Total Profit/Loss </td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['total_profit_loss_p37']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Indirect Costs (Company)</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['indirect_cost_company_p38']) ; ?></td>
+	</tr>
+    
+    <tr>
+		<td class="dvtCellLabel" align="right" width="25%">Indirect Costs (per customer)</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['indirect_cost_per_customer_p39']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Total Profit/Loss <br /> Including Indirect</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['total_profit_loss_incl_indirect_p40']) ; ?></td>
+	</tr>
+    
+    <tr>
+		<td class="dvtCellLabel" align="right" width="25%">Last Run By</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['created_by']) ;  ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Last Run Time</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->pupprimedata[$client_id_frm_cacl]['creation_datetime']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Export Prime/Cc Report in PDF</td>
+		<td width="25%" align="left" class="dvtCellInfo">
+            <a href="<?php echo $this->baseUrl(); ?>/client/exportpupprimepdf/id/<?php echo $this->id; ?>" /> 
+                <img src="<?php echo $this->baseUrl(); ?>/public/images/pdf.jpg"   /> 
+            </a> 
+        </td>
+		<td class="dvtCellLabel" align="right" width="25%">Export Prime/Cc Report in Excel</td>
+		<td class="dvtCellInfo" align="left" width="25%">
+            <img src="<?php echo $this->baseUrl(); ?>/public/images/page_excel.png"   /> 
+       </td>
+	</tr>
+    </table>
+    
+<?php
+	}
+?>
+
+
+</div>
+
+
+
+<h3  style="text-align:left;font-weight:bold">Aces Calculation Details</h3>
+<div style="padding:10 0 10 10" >
+
+<?php
+	
+	$aces_es1 = $this->data[$this->id]['aces_es1'];
+	$aces_es2 = $this->data[$this->id]['aces_es2'];
+	$aces_es3 = $this->data[$this->id]['aces_es3'];
+	$aces_esf = $this->data[$this->id]['aces_esf'];
+	
+	if( $aces_es1 == 0 && $aces_es2 == 0 && $aces_es3 == 0 && $aces_esf == 0 ) {
+	
+		echo "This is not an ace account ! "; 
+	
+	}else{
+
+
+?>
+<table border="0" cellpadding="5"  cellspacing="0" width="100%" >
+																			
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">ES1</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php  echo $this->escape( $this->acesdata[$client_id_frm_cacl]['es1_a3']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">ES2</td>
+		<td class="dvtCellInfo" id="mouseArea_Email"  align="left" width="25%"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['es2_a4']) ; ?></td>
+	</tr>
+	
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">ES3</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['es3_a5']) ; ?>&nbsp;</td>
+		<td class="dvtCellLabel" align="right" width="25%">ESF</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['esf_a6']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Total Dollar Volume</td>
+		<td class="dvtCellInfo"  align="left" width="25%"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['total_dollar_vol_a7']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Total Dollar Volume Recovered </td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['total_dollar_vol_recovered_a8']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Average Age of Account</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['avg_age_account_a9']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Fee Amount</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['fee_amount_a10']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Misc Fee</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['misc_fee_a11']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Total Fees (PL Balance)</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['total_fees_a12']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Labor Costs</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['labor_cost_a13']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Benefits Cost </td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['benefit_cost_a14']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Statement Costs</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['statement_cost_a15']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Sales Bonus</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['sales_bonus_a16']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Other Direct Costs</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['other_direct_cost_a17']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Total Direct Costs</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['total_direct_cost_a18']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Total # Active Customers</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['total_number_active_customers_a19']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Avg. Cost Per Account</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['avg_cost_per_account_a20']) ; ?></td>
+	</tr>
+    
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Total Cost Of Collection</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['total_cost_collection_a20_1']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Total Profit/Loss</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['total_profit_lost_a21']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Indirect Costs Company</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['indirect_cost_company_a22']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Indirect Costs Per Customer </td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['indirect_cost_per_company_a23']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Total Profit/Loss with Indirect</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['total_profit_loss_indirect_a24']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Run by</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->acesdata[$client_id_frm_cacl]['created_by']) ; ?></td>
+	</tr>
+
+
+    
+<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Export Report in PDF</td>
+		<td width="25%" align="left" class="dvtCellInfo">
+        
+        <?php
+		$client_id_frm_cacl = $this->pupdata[$this->client_id]['client_id'];
+		?>
+        
+        <a href="<?php echo $this->baseUrl(); ?>/client/exportpupacespdf/id/<?php echo $this->id; ?>" /> 
+            <img src="<?php echo $this->baseUrl(); ?>/public/images/pdf.jpg"  title="PUP Calc Not Yet Run" /> 
+        </a> 
+
+        
+        </td>
+		<td class="dvtCellLabel" align="right" width="25%">Export Report in Excel</td>
+		<td class="dvtCellInfo" align="left" width="25%">
+            <img src="<?php echo $this->baseUrl(); ?>/public/images/page_excel.png"   /> 
+       </td>
+	</tr>
+    </table>
+    
+<?php
+	}
+?>
+
+
+</div>
+
+
+
+<h3 style="text-align:left;font-weight:bold" > Revenue Analysis Dashboard </h3>
+<div>
+
+
+
+<img src="<?php echo $this->baseUrl(); ?>/public/images/salescomparison.gif"  width="678" />
+
+
+
+</div>
+
+
+</div>
+        
+        <div id="chartid"  class="dvtCellInfo" style="border:0"></div>
+        
+
+								
+		</td>							
+	</tr>
+</table>
+

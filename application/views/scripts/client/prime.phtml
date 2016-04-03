@@ -1,0 +1,452 @@
+
+<script type="text/javascript" language="javascript" src="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jquery-1.10.2.min.js"></script>
+
+
+<link href="<?php echo $this->baseUrl(); ?>/public/stylesheet/style.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jquery-latest.js" type="text/javascript" ></script>
+<script src="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jquery.tablesorter.js" type="text/javascript" ></script>
+
+
+<script type="text/javascript" charset="utf-8">
+
+function confirmDelete(id){
+
+	if(confirm("Are you Sure ? "))
+		window.location.href='<?php echo $this->baseUrl();?>/client/delete/id/' + id
+}
+
+function selectPageSize(sel){
+  window.location.href=sel.options[sel.selectedIndex].value; 
+}
+
+function selectAlluser(){
+Frm = document.frmUserList
+controllength = Frm.selected_id.length
+
+	if(Frm.selectall.checked == true){	
+		for(i=0;i<controllength;i++){
+		Frm.selected_id[i].checked = true
+		}
+	}
+	else
+	{
+		for(i=0;i<controllength;i++){
+		Frm.selected_id[i].checked = false
+		}
+	}
+
+}
+
+function selectAtleastOne(){
+Frm = document.frmUserList
+flag = 0;
+controllength = Frm.selected_id.length
+		for(i=0;i<controllength;i++){
+			if(Frm.selected_id[i].checked == true){
+				flag = 1;
+				break;
+			}
+		}
+		
+	if(flag == 0){
+	alert('Please select atleast one teacher!')
+	return false
+	}
+	else if(flag == 1)
+	{
+				if(confirm('Are you sure?')){
+					Frm.submit();
+				}
+
+	}
+}
+
+
+function validateSearch()
+{
+	if(document.search.search_text.value == ''){
+		document.search.search_text.focus()
+		alert('Please enter search text ! ')
+		return false;
+	}
+	if(document.search.search_option.selectedIndex == 0){
+		document.search.search_option.focus()
+		alert('Please select option ! ')
+		return false;
+	}
+
+}
+
+
+function displayEdit(id){
+
+    editStatus = document.getElementById('editstat').value;
+	
+	if(editStatus != 1){
+	document.getElementById(id).style.visibility = "visible";
+	}
+
+}  
+
+
+function hideEdit(id){
+	document.getElementById(id).style.visibility = "hidden";
+}
+
+
+function edit(spanid,val,column,id) {
+	imgid = "img_" + column + id; 
+	val = document.getElementById(imgid).title
+	document.getElementById(imgid).style.visibility = "hidden";
+	document.getElementById('editstat').value = 1 ; 
+			
+	var floatValues = new Array('list_amount','paid_amount','earned_amount',
+	'legal_fee_amount', 'legal_fee_amount_earned_us', 'legal_fee_amount_earned_client','legal_total_amount_earned', 
+	'court_cost_fee', 'attorney_fee' , 'collection_fee', 'principal_paid', 'total_paid','aces_list_amount', 'aces_paid_amount',
+	'small_balance','medium_balance','large_balance','controlled_cost_accounts','controlled_cost_accounts');
+
+	integerValues = new Array('sales_rep_id','age','client_id','small_balance','medium_balance','large_balance','aces_es1', 'aces_es2' , 'aces_es3' , 'aces_esf');
+	
+	var inFloat = floatValues.indexOf(column);
+	var inInt 	= integerValues.indexOf(column);
+	
+	
+	if(inFloat > 0){
+		document.getElementById(spanid).innerHTML = "<input type='text' value=\"" + val +"\"  id=\"txt_" + id +"\" onkeypress='return numbersonly(this, event,true)' /><input type='button' value='Save' class='flatinput' onclick='ajaxSave(\"" + column + "\",\"" + id + "\")' style='margin-left:10px' >";
+	}else if(inInt > 0){
+		document.getElementById(spanid).innerHTML = "<input type='text' value=\"" + val +"\"  id=\"txt_" + id +"\" onkeypress='return numbersonly(this, event,false)' /><input type='button' value='Save' class='flatinput' onclick='ajaxSave(\"" + column + "\",\"" + id + "\")' style='margin-left:10px' >";
+	}else{
+		document.getElementById(spanid).innerHTML = "<input type='text' value=\"" + val +"\"  id=\"txt_" + id +"\" /><input type='button' value='Save' class='flatinput' onclick='ajaxSave(\"" + column + "\",\"" + id + "\")' style='margin-left:10px' >";
+	}
+	
+	
+}
+
+function ajaxSave(column, id){
+
+	txtid = "txt_" + id;
+	txtValue = document.getElementById(txtid).value
+	spanid = "span_" + column + id; 
+    imgid = "img_" + column + id; 
+	
+	$.post("<?php echo $this->baseUrl(); ?>/client/saveajax",{id:id,data:txtValue,colname:column},function(result){
+
+		if(column == 'client_name'){
+			document.getElementById(spanid).innerHTML = "<a href='<?php echo $this->baseUrl(); ?>/client/clienthome/id/" + id + "' > "+ result + "</a>";
+		}else{
+			document.getElementById(spanid).innerHTML = result;
+		}
+		
+		document.getElementById(imgid).title = result;
+		document.getElementById('editstat').value = 0 ; 
+
+	  });
+	  
+	  
+}
+
+
+function deleteRow(r, id)
+{
+
+	if(confirm("Are you Sure ? ")){
+	var i=r.parentNode.parentNode.rowIndex;
+	
+	$.post("<?php echo $this->baseUrl(); ?>/client/deleteajax",{id:id},function(result){
+		
+		document.getElementById('clientdatatable').deleteRow(i);
+			alert("Selected row is successfully deleted ! ");
+	  });
+	  
+	
+	}
+	
+}
+
+
+//for ie8 compatibility of indexOf function 
+if (!Array.prototype.indexOf) { 
+    Array.prototype.indexOf = function(obj, start) {
+         for (var i = (start || 0), j = this.length; i < j; i++) {
+             if (this[i] === obj) { return i; }
+         }
+         return -1;
+    }
+}
+
+
+
+$(document).ready(function()
+{
+		$("#clientdatatable").tablesorter(		
+				{ headers: { 30: { sorter: false },
+							 31: { sorter: false	}
+							}
+				},
+				
+				{ 
+        		// define a custom text extraction function 
+        		textExtraction: function(node) { 
+            	// extract data from markup and return it  
+            	return node.childNodes[0].childNodes[0].innerHTML; 
+        		} 
+    }
+	
+	
+		);
+	}
+);
+
+
+</script>
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center"  >
+	<tr>
+		<td  height="30px"   valign="middle"  >
+			
+<div class="message" id="message"   ><?php echo $this->message; ?></div>
+
+<div class="breadcrumb" > <a href="<?php echo $this->baseUrl(); ?>/home" > Home </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/project" >  Projects  </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/project/projecthome/id/<?php echo $this->project_id ; ?>" > <?php echo $this->project_name ; ?> </a>
+>  Customer Data </div>	
+            						
+<table border="0" cellspacing=0 cellpadding=2 width=100% >
+<tr>
+	<td width="80%"  style="padding-right:20px" class="adminsubhead" >
+    	Customer Data
+    </td>
+	<td width=20% align="right">
+	
+	<a href="<?php echo $this->baseUrl(); ?>/client/newclient/prid/<?php echo  $this->project_id ; ?>"><img src="<?php echo $this->baseUrl(); ?>/public/images/btnAdd.gif"   border="0"   width="28px" height="27px"  /></a>
+	<a href="<?php echo $this->baseUrl(); ?>/client/importclient/id/<?php echo $this->project_id; ?>"><img src="<?php echo $this->baseUrl(); ?>/public/images/importcsv.gif" width="28px" height="27px"   border="0"    /></a>
+	<a href="<?php echo $this->baseUrl(); ?>/group/index/id/<?php echo $this->project_id; ?>"><img src="<?php echo $this->baseUrl(); ?>/public/images/icon-48-user.png" width="28px" height="27px"   border="0"  style="border:1px solid #cccccc "   /></a>
+</td>	
+</tr>
+
+
+</table>
+									
+</td>
+</tr>	
+
+
+<tr>
+<td valign="middle"  >
+									
+<div id="search" style="padding:10px 0 10px 0;"  >
+
+<form name="search"	 action="<?php echo $this->baseUrl(); ?>/client/prime/id/<?php echo $this->project_id; ?>" method="post"  style="margin:0"  onsubmit="return validateSearch()">
+						
+<table width="100%" height="40px"  cellpadding="0" cellspacing="0" border="0" id="lightouterborder" >
+<tr>
+<td width="20%" class="dvtCellLabel"><img src="<?php echo $this->baseUrl(); ?>/public/images/basicsearch.gif"></td>
+<td width="20%" class="dvtCellLabel" align="center" ><input type="text" name="search_text" class="controltext" style="width:98%" > </td>
+<td width="20%" class="dvtCellLabel" >
+<select name="search_option" id="fop1" class="controltext" style="width:90%"   >
+<option value="">Select Option</option>
+<option value="e">Equals</option>
+<option value="n">Not equal to</option>
+<option value="l">Like</option>
+</select>
+</td>
+<td width="20%" class="dvtCellLabel"><b>In</b>&nbsp;
+
+<select name="search_field"  class="controltext" style="width:90%" >
+<option label="Client Name" value="client_name" >Client Name</option>
+<option label="Client Id" value="client_id" >Client Id</option>
+</select>
+
+<td width="20%" class="dvtCellLabel">
+<input type="submit"  name="search" value="Search Now"  class="flatinput1"  style="width:98%"  ></td>
+</tr>
+</table>
+
+</form>		
+
+</div>
+							
+</td></tr>
+
+
+
+<tr>
+<td height="200" valign="top"  align="center"   >
+								
+<form id="frmCustomerList" name="frmUserList" action="#" method="post" onsubmit="return validate()" >
+								
+<table border=0 cellspacing=1 cellpadding=0 width="100%" class="lvtBg">
+	<tr> <td>
+    
+      
+				<table   border="0"  cellspacing=0 cellpadding=2 width=100% class="small">
+			    <tr>
+		        	<td   align="left" >
+					<?php 
+							echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml',array('params' => $this->params)  ); 
+							echo $this->paginator->firstItemNumber; 
+							$totalRecords =  $this->paginator->getTotalItemCount(); 
+					?>
+					<span>Page size: </span>
+		        	<select name="page_size" onchange="selectPageSize(this)">
+			        	<?
+			        	foreach($this->page_sizes as $i){	
+			        		echo '<option value="'.$this->url(array_merge($this->params,array('page' => null, 'page_size'=>$i)) ).($i == $this->params[page_size] ? '" selected="selected' : '').'">'.$i.'</option>';
+			        	}
+			        	?>
+		        	</select>                    
+                    <input id="editstat" type="hidden"  />
+                    
+					</td>
+       		    </tr>
+				</table>
+		        
+<div   style="width:1300px;height:400px;overflow:auto;"> 
+
+
+<table cellpadding="0" cellspacing="1" border="0" id="clientdatatable" width="95%" class="tablesorter lvt small" >
+
+<thead>
+<tr class="bluehead" >
+	<th  > # </th>
+	<th  width="150px" >Client Name </th>
+	<th  width="150px" >Client Id</th>
+	<th  width="150px"  >Client Id Group </th>
+	<th>Average Balance</th>
+	<th>Recovery Rate</th>
+    <th>Large Balance Accounts</th>
+	<th>Medium Balance Accounts</th>
+	<th>Small Balance Accounts</th>
+	<th>Controlled Cost Accounts</th>
+	<th>Total Dollar Volume</th>
+	<th>Non-Legal Dollars Recovered</th>
+	<th>Legal Dollars Recovered</th>
+	<th>Total Dollars Recovered</th>
+	<th>Average Age</th>
+	<th>Average Balance</th>
+	<th>Fee Rate</th>
+	<th>Recovery Rate</th>
+	<th>Total Fees (P&L Balance)</th>
+	<th>Non-Legal Fees</th>
+	<th>CC& Attorney Fees</th>
+	<th>Average Fee Per Account</th>
+	<th>Labor Costs Total</th>
+	<th>Benefit Costs Total</th>
+	<th>Statement Cost Total</th>
+	<th>Sales Bonus</th>
+	<th>Small Balance Account Costs</th>
+	<th>Other Direct Costs Total</th>
+	<th>Total Direct Costs</th>
+	<th>Client Legal Amount Earned Us</th>
+	<th>Legal Expense – Customer</th>
+	<th>Average Cost Per Account</th>
+	<th>Total Cost of Collection</th>
+	<th>Total Profit/Loss</th>
+	<th>Total Profit/Loss with Indirect</th>
+</tr>
+</thead>
+
+
+
+
+<tbody >		
+        				
+<?php
+
+
+
+
+$i = 1;
+foreach($this->paginator as $record){
+
+if($i%2==1){
+	$tr = 'class="eventr"';
+} else {
+	$tr = 'class="oddtr"';
+}
+
+
+$ace_id = $record->ace_id;
+
+$prime_id = $record->prime_id;
+
+if($ace_id > 0){
+	$aces_status_image = 'tick.png'; 
+}else{
+	$aces_status_image = 'publish_r.png'; 
+}
+
+if($prime_id > 0){
+	$prime_status_image = 'tick.png'; 
+}else{
+	$prime_status_image = 'publish_r.png'; 
+}
+
+?>
+
+<tr id="tr_<?php echo $record->proj_client_id; ?>" <?php echo $tr ;?> >
+	<td width="20"><?php echo $i; ?></td>
+	<td>
+        <a  href="<?php echo $this->baseUrl(); ?>/client/clienthome/id/<?php echo $record->proj_client_id; ?>" ><?php echo $this->escape($record->client_name);  ?></a>
+    </td>
+	<td><?=$this->escape($record->client_id);  ?></td>
+	<td><?=$this->escape($record->client_id_group);?></td>
+	<td><?=$this->escape($record->avg_balance_p9_4);?></td>
+	<td><?=$this->escape($record->recovery_rate_p11);  ?></td>
+	<td><?=$this->escape($record->large_bal_account_p3);  ?></td>
+	<td><?=$this->escape($record->medium_bal_account_p4);  ?></td>
+	<td><?=$this->escape($record->small_bal_account_p5);  ?></td>
+	<td><?=$this->escape($record->controlled_cost_account_p6);?></td>
+	<td><?=$this->escape($record->total_dollar_volume_p7);  ?></td>
+	<td><?=$this->escape($record->non_legal_dollars_recovered_p8);  ?></td>
+	<td><?=$this->escape($record->legal_dollars_recovered_p9);  ?></td>
+	<td><?=$this->escape($record->total_dollars_recovered_p9_2);  ?></td>
+	<td><?=$this->escape($record->avg_age_of_account_p9_3);?></td>
+	<td><?=$this->escape($record->avg_balance_p9_4);  ?></td>
+	<td><?=$this->escape($record->fee_rate_p10);  ?></td>
+	<td><?=$this->escape($record->recovery_rate_p11);  ?></td>
+	<td><?=$this->escape($record->total_fees_p12);  ?></td>
+	<td><?=$this->escape($record->nonlegal_fees_p12_2);?></td>
+	<td><?=$this->escape($record->cc_attorney_fees_p13);  ?></td>
+	<td><?=$this->escape($record->avg_fee_per_account_p14);  ?></td>
+	<td><?=$this->escape($record->total_labor_cost_p17);  ?></td>
+	<td><?=$this->escape($record->total_benefit_cost_p20);  ?></td>
+	<td><?=$this->escape($record->total_statement_cost_p23);?></td>
+	<td><?=$this->escape($record->sales_bonus_P24);  ?></td>
+	<td><?=$this->escape($record->small_balance_acc_cost_p25);  ?></td>
+	<td><?=$this->escape($record->other_direct_cost_total_p28);  ?></td>
+	<td><?=$this->escape($record->total_direct_cost_p29);  ?></td>
+	<td><?=$this->escape($record->client_legal_amount_earned_us_p30);?></td>
+	<td><?=$this->escape($record->legal_expenses_customer_p33);  ?></td>
+	<td><?=$this->escape($record->avg_cost_per_acc_p35);  ?></td>
+	<td><?=$this->escape($record->total_cost_of_collections_p36);  ?></td>
+	<td><?=$this->escape($record->total_profit_loss_p37);  ?></td>
+	<td><?=$this->escape($record->total_profit_loss_incl_indirect_p40);  ?></td>
+</tr>	
+						
+<?php
+$i++; 
+}
+	if($totalRecords == 0){
+	echo '<tr bgcolor=white class=message ><td colspan=8 align=center>There is no client is active ! </td></tr>';
+	}
+?>
+	</tbody>		
+ </table>
+
+             
+</div>
+
+
+		</td>
+	</tr>
+</table>							
+		
+		
+		</form>
+
+		</td>
+	</tr>
+</table>
+						

@@ -1,0 +1,79 @@
+<script language="javascript" >
+
+function validateLogin()
+{
+
+	formControl = document.frmlogin
+	
+	if(!usernamecheck(formControl.txtUsername))
+	{
+	return false
+	}
+	
+	if(!passwordcheck(formControl.txtPassword))
+	{
+	return false
+	}
+
+}
+
+</script>
+
+
+<table width="990" id="outerborder" height="250" border="0" cellpadding="0" cellspacing="0" align="center" style="margin-top:100px;">
+	<tr>
+	  <td width="32%" height="250px" align="left"  valign="top"  style="font-family:Times New Roman, Times, serif;font-size:20px;font-weight:300;color:#231f20; padding-right:10px;padding-top:11px" >
+	<span  style="padding-left:30px"> PUPS Application  </span>    
+      <br /></td>
+	  <td width="35%"   align="center">
+	  <img src="<?php echo $this->baseUrl('public/images/ACS_vector_logo.jpg') ?> " height="228px" width="228px" style="margin:25px" />
+  	</td>
+	
+	  <td width="33%" align="right"  valign="middle"    >
+
+<div width="89%" style="background-repeat:repeat-x;height:228px;margin-right:20px"  >
+
+<form name="frmlogin" action="<?php echo $this->escape($this->action);  ?> " method="post" onsubmit="return validateLogin()"  >
+
+<div align="center" class="message" ><?php echo $this->msg; ?></div>
+
+<table  border="0" cellpadding="0"  cellspacing="0"  id="outerborder" >
+	
+  <tr>
+	<td height="35" colspan="2"  align="center"    style="color:#044371" >USER LOGIN</td>
+  </tr>
+
+  <tr>
+    <td  height="35" align="left"  valign="top" class="label" >User Name : </td>
+    <td width="46%"  align="left"  valign="top" ><input type="text" name="txtUsername"   class="textcontrol"  style="width:140px" />        </td> 
+  </tr>
+
+  <tr>
+    <td width="27%" class="label" align="left" height="35"  valign="middle" >Password : </td>
+    <td width="46%" class="subhead1" align="left"  valign="middle" ><input type="password"  name="txtPassword"  class="textcontrol" style="width:140px" />        </td>
+  </tr>
+  
+   <tr>
+     <td height="35"  >&nbsp;</td>
+     <td   style="padding-bottom:10px;"   align="left" ><input type="submit" value="Login"   name="login" class="flatinput" style="width:75px;"   /></td>
+   </tr>
+	 
+</table>
+
+</form>
+
+</div>
+
+<div  align="center" style="color:#231f20" class="time"  ><a href=index.php?page=help > Help and Support </a> </div>
+
+	  	 </td>
+	</tr>
+</table>
+
+<br />
+
+<table width="990px"    bgcolor="#848587" height="50px" border="0" cellpadding="0" cellspacing="4" align="center" >
+  <tr>
+    <td height="30" align="center" ><p style="padding-left: 10px;color:#ffffff">Copyright @ Allicance Collection Service Inc All Rights Reserved</p></td>
+  </tr>
+</table>

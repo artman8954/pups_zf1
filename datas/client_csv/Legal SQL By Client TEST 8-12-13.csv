@@ -1,0 +1,498 @@
+CLT_ID,CLT_NAME,COURT_COST_FEE,ATTORNEY_FEE,COLLECTION_FEES,PRINC_PAID,TOTAL_PAID
+,,,,,,
+1001,"KNS Medical, Inc.",,,526.99,1478.13,1532.13
+1002,"KNS Medical, Inc.",,,19.2,60,60
+1003,Cole Chiropractic Clinic - 2,312,229.6,1233.02,1720.67,2270.15
+1004,Dr. David A. West,,,1129.38,3354.48,3417.48
+1005,Soma Plastic Surgery & Hand Clinic,,,35.38,122,122
+1006,Tupelo Eye Center,292,942.98,6332.59,14401.64,15784.62
+1007,North MS Pediatrics,1418,2822.89,22927.59,56311.55,61423.44
+1009,OBGYN Associates of Cookeville,,,908.11,2704.23,3612.34
+1010,Memphis Judo & Jiu Jitsu,192.5,,635.35,1482.06,1807.87
+1011,"Kellum Dental Clinic, P.A.",,,74.45,225.64,300.09
+1014,Acute Care & Family Clinic of Mooreville,,,833.45,2310.49,2381.49
+1015,The Jackson Clinic - 2,329.59,371.99,7465.06,26420.5,30767.51
+1017,Accent Plastic & Reconstructive Surgery,,,753.39,2331.28,2385.28
+1018,OCH Pulmonology DBA Holliday,,,26.05,74.43,74.43
+1019,Center for Digestive Health - Tupelo,816.21,1816.1,19483.91,51661.88,54914.19
+1020,Golden Triangle Urology Group,116,264.9,3475.29,8479.22,8952.12
+1021,"Pediatric Nephrology of Alabama, P.C.",,,224.31,618.02,626.02
+1023,Mid-South Propane,,,573.82,1726.62,1738.62
+1025,Cardiology Consultants of Oxford,,,538.74,1406.03,1470.03
+1026,Cotton Plant Clinic,,,772.36,2248.52,2288.52
+1028,Oxford Orthopaedics & Sports Medicine,177.5,262.02,2102.54,5486.6,6050.12
+1034,"Wilbanks Wee Con-du-it Electric, Inc.",,,1130.23,3376.46,3392.46
+1035,Decatur Neurology,,,429.56,1546.55,1558.55
+1036,Trinity Health Clinic,,,745.67,2031.02,2073.02
+1037,"Merit Health Care, P.C.",,,442.54,1266.18,1266.18
+1042,Starkville Physical Therapy,,,628.97,2069.9,2077.9
+1043,"Benny J. Green, M.D.",,,213.73,712.43,712.43
+1046,Girl Scouts Heart of the South,,,471.9,1466.33,1498.33
+1048,Women's Specialty Center,,,609.83,1704.74,1728.74
+1049,Women's Specialty Center,,,331.84,1005.6,1005.6
+1054,"Donald A. Presley,  D.M.D.",,,12.87,39,39
+108,Dr. Michael Todd,228.35,369.28,5109.43,13765.51,14533.14
+1084,Tupelo Physical Therapy,114,398.93,4661.54,11475.63,12232.56
+1089,N MS Periodontal Clinic,,,500.14,1371.83,1391.83
+110,Van Atkins Dep't. Store,,,500.86,1452.45,1452.45
+11001,"Orthopaedic Specialists of Alabama, P.C.",2251.7,3904.11,23312.4,44916.56,53397.74
+11002,OrthoSports Associates,,,7358.3,24900.49,31908.03
+11003,Orthopaedic Specialists of Alabama-2,,,28.13,117.2,117.2
+11004,"Orthopaedic Specialists of Alabama, P.C.",,,110.02,366.71,476.73
+11005,"Orthopaedic Specialists of Alabama, P.C.",,,1295.55,4087.2,4966.43
+11006,"Orthopaedic Specialists of Alabama, P.C.",,,348.17,1053.9,1294.07
+11007,"Orthopaedic Specialists of Alabama, P.C.",,,530.96,1613.53,2144.49
+11008,"Orthopaedic Specialists of Alabama, P.C.",,,789.41,2073.65,2863.06
+11009,"Orthopaedic Specialists of Alabama, P.C.",,,429.7,1363.95,1793.65
+11010,"Orthopaedic Specialists of Alabama, P.C.",,,174.19,561.01,735.2
+11011,"Orthopaedic Specialists of Alabama, P.C.",,,260.17,791.65,1051.82
+11012,"Orthopaedic Specialists of Alabama, P.C.",,,45.35,140.65,186
+11013,"Orthopaedic Specialists of Alabama, P.C.",,,273.29,870.42,1143.71
+11014,"Orthopaedic Specialists of Alabama, P.C.",,,555.63,1764.52,2320.15
+11015,"Orthopaedic Specialists of Alabama, P.C.",,,382.53,1221.78,1588.3
+11016,"Orthopaedic Specialists of Alabama, P.C.",,,2358.47,7581.52,9689.18
+11017,"Orthopaedic Specialists of Alabama, P.C.",,,1825.92,5723.26,7257.17
+11018,"Orthopaedic Specialists of Alabama, P.C.",,,1305,4166.97,5306.38
+11019,"Orthopaedic Specialists of Alabama, P.C.",,,1077.34,3320.69,4283.6
+11020,"Orthopaedic Specialists of Alabama, P.C.",,,881.67,2670.58,3552.25
+11021,"Orthopaedic Specialists of Alabama, P.C.",,,551.92,1803.89,2355.81
+11022,"Orthopaedic Specialists of Alabama, P.C.",,,166.97,556.58,723.55
+11024,Orthopaedic Specialists of Alabama-2,,,129.06,510,510
+11025,Orthopaedic Specialists of Alabama-2,,,66.2,230,230
+11026,Orthopaedic Specialists of Alabama-2,,,46.4,180,180
+11027,Orthopaedic Specialists of Alabama-2,,,78.07,284.8,284.8
+11028,Orthopaedic Specialists of Alabama-2,,,532.03,1933.61,1933.61
+11029,Orthopaedic Specialists of Alabama-2,,,45.16,170.2,170.2
+11030,Orthopaedic Specialists of Alabama-2,,,46.04,181,181
+11031,Orthopaedic Specialists of Alabama-2,,,104.49,396.78,396.78
+11032,Orthopaedic Specialists of Alabama-2,,,47.8,195,195
+11033,Orthopaedic Specialists of Alabama-2,,,95.59,377.47,377.47
+11034,Orthopaedic Specialists of Alabama-2,,,391.06,1613.49,1613.49
+11035,Orthopaedic Specialists of Alabama-2,,,273.15,1075.61,1075.61
+11036,Orthopaedic Specialists of Alabama-2,,,185.88,704.28,704.28
+11037,Orthopaedic Specialists of Alabama-2,,,266.88,1112,1112
+11038,Orthopaedic Specialists of Alabama-2,,,75.98,316.59,316.59
+11051,Orthopaedic Specialists of Alabama-2,,,64.8,216,280.8
+11052,"Orthopaedic Specialists of Alabama,P.C.",,,54.15,153.85,208
+11053,Orthopaedic Specialists of Alabama-2,,,486.18,1702.32,1714.32
+11054,Orthopaedic Specialists of Alabama-2,,,974.56,3270.17,3270.17
+11055,Orthopaedic Specialists of Alabama-2,,,501.34,1586.13,1636.13
+11056,Orthopaedic Specialists of Alabama-2,,,1163.2,4126.06,4154.06
+11057,"Orthopaedic Specialists of Alabama, P.C.",,,320.08,941.21,1261.29
+11058,"Orthopaedic Specialists of Alabama, P.C.",,,141.61,472.04,613.65
+11059,"Orthopaedic Specialists of Alabama, P.C.",,,274.45,375.55,650
+1175,Tippah County Hospital,,,342.57,845.45,845.45
+118,Dr Woodrow Brand,,,1056.6,2996,3004
+1203,"Mac's Tire Center, Inc.",,,351.82,1066.11,1066.11
+123,Physicians & Surgeons Clinic,,,54.45,165,165
+1238,Kirk & Kirk Properties,,,216.56,481.25,481.25
+129,New Albany Surgical Group,,,108.75,266.51,343.29
+135,Delta Neurology Clinic,,,9.67,33.33,33.33
+140,Womens Clinic of New Albany,,33.7,186.32,446.3,480
+147,Sheehan Counseling Center,,,106.53,287.25,295.25
+1500,"North Mississippi Medical Center, Inc.",63.5,24.76,5036.23,19314.02,19594.28
+1536,Mayo Eye Center,84.71,249.08,1269.92,2791.09,3151.19
+159,Radiology of North Mississippi,,,169.99,438.45,469.45
+160,"Dr. Kenneth Johnson, D.D.S.",,,21.78,66,66
+1634,"William Everitt,  DDS",,,1334.78,3757.98,3926.26
+1640,Dr. William Barr  Orthopaedic Surgeon,,,3.59,11.97,11.97
+169,"Tupelo Ear, Nose & Throat-01",,,208.71,538.32,538.32
+171,"Tupelo Ear, Nose & Throat-03",50,53.72,160.42,189,292.72
+173,"Tupelo Ear, Nose & Throat-05",,,2.48,8.25,8.25
+176,"Tupelo Anesthesia Group, P.A.",7053.21,16491.21,114174.9,267003.74,293768.82
+191,Hill Rehabilitation Services,116,87,342.12,365.81,568.81
+193,Aurora Spine Center,,,2459.73,6928.55,7298.03
+20003,"M&W Precise Medical Mgmt., Inc.",,,0,400,415
+20012,St. Clair Eye Clinic,,,0,-25,-25
+20015,Tennessee Valley Pediatric Sedation,,,0,489.43,519.43
+20023,Tennessee Valley Sleep Sedation Services,,,48,3145.06,3382.06
+20024,Internal Medicine & Pediatric Clinic,,,244,3691.59,3715.59
+20036,TRI inc Realtors,,,0,161,340
+2004,Midsouth Pathology,,,310.93,1003.24,1023.24
+20041,M & W Gas Co.,,,0,122.78,122.78
+20048,Family Care Clinic of Ripley,,,188,9547.19,9755.19
+20054,Encore Rehab,,,32,4768.12,4812.12
+20055,Sunbelt Rehab,,,8,1051.31,1059.31
+20057,"Encore Rehabilitation, Inc.",,,170,32982.34,34849.34
+20062,Express Care West,,,0,160.37,160.37
+20063,Senter Medical Clinic,,,0,266,266
+20070,"Nephrology Associates, P.C.",,,50,7027.62,7087.62
+20071,"Nephrology Associates, P.C. - RMS",,,0,242.83,272.83
+20074,Corinth Laser Center,,,8,1437.89,1445.89
+20087,Lake Piomingo Residents Association,,,0,650,650
+20088,"Pediatric Nephrology of Alabama, PC",,,0,230.83,230.83
+20091,Sunbelt Financial Services,,,0,60,60
+20095,T. K. O'Brien's Inc.,,,0,1665.5,1665.5
+20096,Eye Care Associates,,,4,454,466
+20101,Pines at Barnes Crossing,,,0,50,50
+205,Anesthesia & Pain Management,51,11.52,323.94,794.53,857.05
+214,Gilmore Clinic Services,16.36,73.32,147.76,129.06,218.74
+216,"Tupelo Ear, Nose & Throat-16",,,0,0,0
+219,Dr. Thomas McDonald,,,7.18,17.96,17.96
+242,"Endocrinology Consultants, PLLC",358,621.1,10156.88,27667.76,29050.04
+248,NMMC Credit Union,,,63.26,191.71,191.71
+263,Anesthesia Consultants of Oxford,413.31,1103.47,6327.9,13757.35,15805.04
+272,Dr. Steve Hughes.,,,0,961,961
+297,Heritage OB-GYN Clinic,,,460.87,1316.79,1316.79
+3000,Inergy LP - Abbeville AL - 0603,,,1555.83,6251.33,6251.33
+3001,Inergy LP - Addison AL - 0418,,,1143.56,5045.69,5045.69
+3002,Inergy LP - Albertville AL - 0107,,,37.32,147.36,155.36
+3003,Inergy LP - Alexander City AL - 0592,,,33.4,133.59,133.59
+3004,Inergy LP - Aliceville AL - 0511,,,96.85,387.41,387.41
+3005,Inergy LP - Amory MS - 0421,,,952.37,3819.03,3835.03
+3006,Inergy LP - Baileyton AL - 0417,,,775.02,3335.01,3367.01
+3007,Inergy LP - Batesville MS - 0546,,,6.25,25,25
+3008,Inergy LP - Belmont MS - 0556,,,127.35,509.43,509.43
+3009,Inergy LP - Blountsville AL - 0105,,,593.98,2505.21,2529.21
+301,"Tupelo Ear, Nose & Throat -21",,,58,145,145
+3010,Inergy LP - Brent AL -0128,,,536.34,2340.35,2348.35
+3011,Inergy LP - Butler AL - 0585,,,3860.25,15728.66,15736.66
+3012,Inergy LP - Byhalia MS - 0594,,,87.5,350,350
+3013,Inergy LP - Canton MS - 0444,,,681.68,2999.64,2999.64
+3014,Inergy LP - Carbon Hill AL - 0536,,,197.15,848.63,848.63
+3015,Inergy LP - Chattanooga TN - 0203,,,451.11,1941.71,1945.71
+3016,Inergy LP - Clarksdale MS - 0008,,,143.59,609.93,617.93
+3017,Inergy LP - Cleveland TN - 0201,,,1026.62,4254.78,4262.78
+3018,Inergy LP - Coldwater MS - 0547,,,59.81,239.24,239.24
+3019,Inergy LP - Columbus MS - 0431,33.33,12.08,2793.62,11851.9,11911.31
+3021,Inergy LP - Decatur AL - 0535,,,901.41,3731.06,3735.06
+3022,Inergy LP - Defuniak Springs FL - 0596,,,28.64,114.57,114.57
+3023,Inergy LP - Dekalb MS - 0512,79.61,91.53,1040.49,3587.8,3776.02
+3024,Inergy LP - Demopolis AL - 0537,,,139.88,559.54,559.54
+3025,Inergy LP - Double Springs AL - 0313,,,25,100,100
+3026,Inergy LP - Durant MS - 0446,,,1790.21,7227.42,7383.42
+3029,Inergy LP - Fayette AL - 0433,,,545.45,2162.26,2178.26
+3031,Inergy LP - Fulton MS - 0600,,,37.49,149.94,149.94
+3032,Inergy LP - Gainesville GA - 0613,,,314.38,1320.53,1320.53
+3034,Inergy LP - Geraldine AL - 0563,,,1107.04,4428.15,4428.15
+3035,Inergy LP - Gordo AL - 0432,,,137.65,546.59,554.59
+3036,Inergy LP - Greensboro AL - 0428,,,146.68,717.66,717.66
+3038,Inergy LP - Haleyville AL - 0553,,,870.48,3507.2,3531.2
+3039,Inergy LP - Hamilton AL - 0538,,,12.5,50,50
+3040,Inergy LP - Hamilton GA - 0602,,,454.95,1880.26,1880.26
+3041,Inergy LP - Hartselle AL - 0109,,,2104.1,8552.67,8583.67
+3043,Inergy LP - Houlka MS - 0572,,,218.89,963.39,971.39
+3044,Inergy LP - Huntsville AL - 0111,,,1656.63,6963.9,7017.9
+3045,Inergy LP - Jasper AL - 0597,,,61.17,339.86,339.86
+3046,Inergy LP - Kilmichael MS - 0609,,,461.68,2044.72,2052.72
+3047,Inergy LP - Lake MS - 0445,,,104.77,355.05,371.05
+3048,Inergy LP - Louisville MS - 0652,,,959.43,3921.64,3929.64
+3049,Inergy LP - Luverne AL - 0579,,,297.27,1157.08,1165.08
+3050,Inergy LP - Macon MS - 0516,,,319.19,1302.04,1302.04
+3051,Inergy LP - Marietta MS - 0558,,,1673.84,6609.55,6697.55
+3052,Inergy LP - Marks MS - 0005,,,118.37,489.49,489.49
+3053,Inergy LP - Maryville TN - 0598,,,567.41,2458.05,2458.05
+3054,Inergy LP - Meridian MS - 0513,,,343.55,1342.17,1350.17
+3055,Inergy LP - Montgomery AL - 0549,,,288.14,1172.13,1186.13
+3056,Inergy LP - Moulton AL - 0106,,,349.71,1460.54,1468.54
+3057,Inergy LP - New Albany MS - 0442,,,117.68,470.71,470.71
+3058,Inergy LP - Owens Cross Rds AL - 0110,,,157.56,635.09,643.09
+3059,Inergy LP - Oxford MS - 0548,,,621.44,2458.18,2466.18
+3060,Inergy LP - Pell City AL - 0534,,,61.61,246.44,246.44
+3061,Inergy LP - Pensacola FL - 0607,,,245.94,983.78,983.78
+3062,Inergy LP - Petersburg TN - 0595,,,534.48,2239.19,2271.19
+3063,Inergy LP - Phenix City AL - 0601,,,376.32,1496.95,1512.95
+3064,Inergy LP - Philadelphia MS - 0514,,,4431.33,17875.73,17922.73
+3065,Inergy LP - Pontotoc MS - 0311,,,188.45,866.27,878.27
+3066,Inergy LP - Ripley MS - 0443,,,1258.03,4936.12,4960.12
+3067,Inergy LP - Russellville AL - 0517,149.13,204.73,2499.9,8296.44,8686.3
+3068,Inergy LP - Savannah TN - 0574,,,1109,4342.98,4392.98
+3069,Inergy LP - Selma AL - 0127,,,1716.7,7283.95,7295.95
+3071,Inergy LP - Senatobia MS - 0007,,,4208.27,17450.59,17624.59
+3072,Inergy LP - Bell Buckle TN - 0599,,,427.22,1612.88,1636.88
+3074,Inergy LP - Starkville MS - 0608,114,136.84,5856.01,22743.08,23153.92
+3075,Inergy LP - Sulligent AL - 0531,,,399.16,1521.12,1567.12
+3076,Inergy LP - Sumiton AL - 0103,,,136.32,557.81,557.81
+3077,Inergy LP - Summerdale AL - 0606,,,60.43,241.71,241.71
+3078,Inergy LP - Sylvania AL - 0108,,,550.11,2197.26,2213.26
+3080,Inergy LP - Tupelo MS - 0429,,,1171.53,5514.11,5538.11
+3082,Inergy LP - Union Springs AL - 0583,,,344.76,1432.19,1432.19
+3083,Inergy LP - Warrior AL - 0560,,,291.5,1281.7,1281.7
+3084,Inergy LP - Water Valley MS - 0604,,,145.39,581.56,581.56
+3085,Inergy LP - Waynesboro TN - 0573,,,653.49,2749.11,2749.11
+3086,Inergy LP - Wedowee AL - 0587,,,69.32,354.59,354.59
+3087,Inergy LP - West Point MS - 0312,,,165.89,727.52,727.52
+3088,Inergy LP - Yazoo City MS - 0447,,,6.25,25,25
+3089,Inergy LP - York AL - 0552,,,248.21,992.87,992.87
+3090,Inergy LP - Commerce GA - 131,,,1105.33,4184.51,4253.51
+3101,Rural Gas #011 - Ada OK,,,755.92,3258.27,3266.27
+3102,Choctaw Propane #009 - Choctaw OK,,,31.26,125.03,125.03
+3103,Ethridge Propane #013 - Edmond OK,,,668.92,3073.9,3077.9
+3105,Independent Propane #114 - Cabot AR,,,1714.57,7656.78,7656.78
+3106,"Gas-Tec #102 - Alvin, TX",,,1493.79,7304.8,7304.8
+3107,Centex Propane #140 - Austin TX,,,79.14,439.63,439.63
+3108,Southern Butane #122 - Brazoria TX,,,534.9,2642.29,2642.29
+3109,Propane Gas Service #280 - Brenham TX,,,405.11,1825.25,1825.25
+3110,Gas-Tec #104 - Bryan TX,,,284.4,1230.19,1238.19
+3111,Independent Propane #275 - Cleburne TX,,,1630.96,8247.78,8255.78
+3112,Independent Propane #204 - Ft Worth TX,,,41.45,230.3,230.3
+3113,Centex Propane #139 - Georgetown TX,,,527.92,2237.65,2237.65
+3114,Penny's Propane #120 - Kaufman TX,,,388.6,1840.37,1840.37
+3115,Farmers LP Gas #124 - Henderson TX,,,95.35,241.38,276.38
+3116,Gas-Tec #105 - Huntsville TX,,,1146.93,6098.65,6098.65
+3117,Shelby LP Gas #185 - Jasper TX,,,879.15,3817.34,3817.34
+3118,Penny's Propane #121 - Gun Barrel Cty TX,,,1059.18,4789.18,4789.18
+3119,Polk County Propane #138 -Livingston TX,,,1458.45,7027.14,7027.14
+3120,Decks Propane #110 - Llano TX,,,17.5,70,70
+3121,Plum Creek Propane #211 - Lockhart TX,,,107.39,522.69,522.69
+3122,Independent Propane #128 - Marshall TX,,,311.25,1313.33,1313.33
+3123,Independent Propane #210 - Midlothian TX,,,697.25,3802.96,3802.96
+3124,Independent Propane #133 - Mont Belvieu,,,364.76,1536.07,1536.07
+3125,Shelby LP Gas #191 - Nacogdoches TX,,,372.39,1808.5,1808.5
+3126,Shelby LP Gas #192 - San Augustine TX,,,63.61,353.4,353.4
+3127,Independent Propane #132 - Tyler TX,,,72.07,363.03,363.03
+3128,Independent Propane #136 - Victoria TX,,,476.32,2030.2,2030.2
+3129,Progas #152 - Vidor TX,,,475,2323.01,2323.01
+3130,Independent Propane #277 - Willis TX,,,462.74,1940.47,1940.47
+3131,Independent Propane #151 - Winnsboro TX,,,66.99,267.98,267.98
+3202,"Lampton-Love, Inc.",,,52.5,150,150
+3210,"Lampton-Love, Inc.",,,84.7,211.75,211.75
+3225,"Lampton-Love, Inc.",,,56.61,161.75,161.75
+358,Dr. John Gassaway,114,380.82,1283.42,2247.49,2742.31
+374,PBCS Inc. / Dr Kevin G Johnson,136.25,93.09,3751.05,11632.28,12083.62
+376,Dr. Mindelyn Austin,,,0,0,0
+388,Nephrology & Hypertension Associates,243,320.46,4559.79,11365.24,12088.7
+391,"New Albany Light, Gas, and Water",129,485.59,5394.25,17779.41,23067.77
+395,"C Michael Currie, MD, PLLC",,,46.9,129.65,137.65
+400,Amory Christian Academy,50,73.49,123.49,486.99,610.48
+4002,Highlands Medical Center,107.59,214.54,2764.96,4695.85,5735.36
+402,"Rossetti Dental Association, P.H.",116,112.68,1073.26,2205.53,2556.82
+409,Cooper Realty Inc.,164,1031.15,4289.56,8254.94,9576.94
+426,"Prime Logic, Inc.",,,74.33,225.23,225.23
+439,Corinth Surgery Center,,57.82,727.82,2425.19,2483.01
+440,Magnolia Anesthesiology Associates P A,1228.65,1916.54,17743.04,45764.54,49392.73
+464,Dr. Hoat M Hoang,,,1487.29,4066.53,4130.53
+465,Blue Mtn. Family Medicine Clinic,164,191.78,477.81,306.84,662.62
+477,Carraway Medical Center ER,,,6.92,23.45,23.45
+492,Dr. Laura Gray,106,498,1145.6,1354,1958
+5000,Helen Keller Hospital,,,75,300,300
+5004,Dr.'s Boger and Solomon,,,113.99,422.2,422.2
+5008,Breathtrac Inc.,,,5.99,20.69,20.69
+5013,Cullman Reg Orthopedic & Sports Medicine,,,2003.46,7139.14,7183.14
+5023,Cullman Urgent Care Center,,,979.11,3512.18,3871.52
+5028,Seidel Plastic Surgery,,,372.03,1307.97,1368.97
+503,Sports  Med,,,247.43,767,792
+5030,"Charles T. Prickett, MD",,,151,544.45,548.45
+5031,Cullman Internal Medicine,,,226.54,809.4,999.49
+5033,Decatur Internal Medicine,,,743.81,2716.47,2726.84
+5045,"North Central Neurology, P C",,,153.13,537.53,545.53
+5046,"Edward H. Fisher, III, M.D.",118.3,1.27,121.28,3.8,123.37
+5049,"OBGYN South, P C",134.22,,517.43,582.42,985.79
+5053,Cullman Physical Medicine,,,346.58,1239.16,1285.63
+5055,Cullman Heart and Urgent Care P C,,75,2661.3,7310.32,7432.32
+5056,Tuckier Surgical Clinic,,,366.1,1281.88,1304
+5064,Surgical Associates of North Alabama,730.63,600.99,4431.51,8618.05,10112.06
+5072,Susan Winchester M D,,,1992.27,5422.39,7369.67
+5073,Artie Nelson M D,,,25.11,86.6,86.6
+5076,Dr. Darrell Potter,217,,582.43,853.86,1169.59
+510,Family Clinic of New Albany,,,1887.25,5409.78,5546.8
+515,Guntersville Family Practice,,,97.27,219,244
+531,"Magnolia Gastroenterology, PA",368,657.86,7091.21,18615.57,20039.88
+540,Birmingham Hematology & Oncology Assoc.,,,5875.99,23958.42,24215.42
+542,Huntsville Anesthesia Consultants,,,3.36,12,12
+547,Siloam Springs Memorial Hospital,,,30,120,120
+549,Plantersville Family Clinic,,,1607.91,4872.42,4872.42
+551,Brookwood OBGYN,214.82,,1328.08,2446.38,2692.18
+558,Eze Family Medical Clinic,,,13362.92,41053.49,41391.49
+563,"Austin Dental Clinic, P.A.",,,63.38,166.39,229.77
+564,"James L. White, M.D.",114,119.68,2826.82,8167.97,8476.65
+565,"Clyde Phillips, M.D.",109.42,,2879.24,8568.51,8769.93
+567,"Jackson Ear, Nose & Throat Clinic",,,237.14,706.49,710.49
+568,"Stacy Haynes, M.D.",,,214.14,593.53,635.53
+571,"Charles Lovelady, MD PC",,,95.44,353.5,353.5
+575,"Delta Capital Resources, LLC",,,277.87,304,793.89
+576,Medical Center East Physicans,,,198.5,619.45,619.45
+582,Dr. Philip Wong,,,6.76,21.81,21.81
+587,Dr. Price Kloess / Alabama Vision Ctr,,,25.3,87.3,87.3
+592,Dr. Jane A Gehlsen,,,12.96,44.68,44.68
+593,Dr. Matthew B. Wesson,,,880.77,2617.81,2636.49
+594,Dr. Fred H. Mothershed,,,427.65,1266.98,1309.62
+600,Tishomingo Health Services Inc.,2928.7,4796.94,31446.21,61970.46,70723.63
+6000,Cardiothoracic Surgery Clinic of N MS,139.5,933.59,4729.69,8992.62,10134.71
+601,Imaging Associates of N MS Magnolia LLC,4748.64,6049.12,54130.17,120438.74,133310.5
+6045,Athens Limestone Hospital,221.2,-53.8,926.77,2280.66,2473.34
+6068,Chilton Medical Center,148.04,0,807.86,777.64,1614.3
+608,"Ken Grinspun, M.D.",50,79.4,169.4,0,169.4
+622,"Tupelo Ear, Nose & Throat-26",,,146.73,366.82,366.82
+625,"Tupelo Ear, Nose & Throat-29",,,45,150,150
+627,Certified Medical Specialists,65,136.74,4254.65,13006.22,13355.96
+633,"Hematology & Oncology Assc. of AL., LLC",,,69.97,279.91,279.91
+634,"Tupelo Ear, Nose & Throat-24",,,41.28,103.2,103.2
+635,"Michael Gerhardt & Brice Brackin, MD",,,343.75,1145.88,1174.35
+642,Dr. Enriqui A. Valdivia,144,106.97,423.99,419.54,670.51
+643,"Tupelo Ear, Nose & Throat-37",,,292.74,731.87,731.87
+655,Chilton Medical Center -2,,,64.15,142.54,142.54
+661,Marion Regional Medical Center,1533.8,4168.43,19307.24,40767.61,48787.56
+668,"Mason Surgical Clinic, PLLC",759,1318.34,8675.18,17285.68,19516.49
+676,Radiology of North Mississippi,144,164.34,722.84,1153.45,1461.79
+681,Newton Regional Hospital,235,151.4,573.4,415.57,801.97
+682,"James W. Major, M.D.",,,0.03,0.09,0.09
+684,Corinth Surgery CRNA Billing,,,39.82,147.5,147.5
+689,Marion Regional Medical Ctr. Medicare,,,659.22,1906.81,1936.81
+692,First Care Family Clinic,,186.38,195.38,0,195.38
+693,New Albany OBGYN,363.19,399.07,2696.19,5079.32,5943.58
+694,Gastroenterology for Children,0,-562.94,985.21,4016.35,4721.9
+696,Plastic and Hand Surgery Associates,127.46,100,587.15,832.6,1270.45
+700,Magnolia Regional Health Center,19882.22,49631.88,225060.31,526828.17,600850.29
+704,"Rayner Eye Clinic, LLC",,,112.13,320.36,320.36
+705,Tri Lakes Medical Center,571.71,2925.44,6705.4,9244.84,12998.03
+706,"The Meridian Anesthesiology Group, PA",1324.8,1605.82,20406.32,49946.51,53782.45
+707,Internal Medicine & Pediatric Clinic,321.18,432.56,2711.25,4982.28,5946.52
+712,Dr. Kenneth Kellough,,,19.09,61.56,61.56
+732,Acute Care & Family Clinic of Pontotoc,128,284.18,1180.05,2074.32,2587.12
+733,Dr. Hadidi,,,35.11,118.13,118.13
+743,Mission Primary Care Clinic,,,169.7,613.72,617.72
+746,Magnolia Endoscopy Center,64,150.74,3284.02,9633.56,10020.33
+747,"Magnolia Regional Medical, CRNA",342,569.58,7127.13,18911.8,20221.38
+752,The Imaging Center at Gloster Creek,3182.99,5661.63,35098.27,72359.85,82323.47
+754,"Waters Family Healthcare, Inc.",,,78.75,225,225
+755,Premier Radiology,164,166.17,1408.26,3454.85,3797.02
+756,Primary Care Group,,,20,134.08,154.08
+758,J P B Pathology,2954.77,3299.56,39880.11,98121.45,106666.56
+764,UA Optometric,,,118.95,339.85,339.85
+766,Gulf Coast Sleep Lab,24.71,,208.23,496.74,661.45
+768,Tri Lakes Medical Center Clinics,,,64.59,144.97,168.97
+773,Anesthesia Resource Mgmt. Solutions,,,10.35,41.4,41.4
+775,Magnolia Regional Med. Ctr. Medicare,,,3669.31,14275.51,14343.51
+778,"Arkansas Cardiology, I",2656.63,4329.06,28762.7,70350.61,78314.76
+779,"Arkansas Cardiology, II",,,2661.98,9041.26,9197.26
+780,Tennessee Valley Pediatric Sedation,,,301.15,1029.86,1044.34
+791,Pain Management Center of N MS PLLC,623.5,1323.33,15301.74,35920.99,38366.82
+792,Bessemer ER Physicians,,,5.53,15.79,15.79
+793,Premier Medical / St. Vincent's East ER,1823.52,1180.83,64898.06,120608.25,125406.84
+794,"Premier Medical / Urgent Care, P.C.",,,4050.07,7820.15,7960.15
+795,Dr. James W. Major,123.3,,123.3,0,123.3
+800,"Tishomingo Health Services, Inc.",,,202.76,579.3,579.3
+8014,"William K. Harper, M.D.",,,430.38,1279.95,1287.95
+802,Family Medicine Clinic of N. MS.,,,89.44,278.01,367.45
+803,"Meridian CRNA, LLC",,,2135.22,6154.81,6248.81
+805,Sutherland Cardiology,297.38,252.47,2584.48,4660.04,6249.23
+807,Metabolic Disorders,114,393.94,10416.47,30412.54,31214.48
+808,Jackson Ear Clinic,326.87,318.47,1687.44,2953.88,3619.22
+810,Creekmore Clinic,,22.84,712.37,2180.05,2218.89
+811,Hartselle Primary Care PC,,,15.1,41.12,45.12
+813,"D. Land Renfroe, M.D.",,,53.61,172.88,172.88
+816,North East Orthopaedics,213,1062.63,3509.74,5697.65,6993.08
+818,"Anesthesia Consultants, P.A.",227,324.97,987.33,1068.6,1670.5
+819,"Anesthesia Consultants, P.A.",,,157.57,643.5,659.5
+821,"Anesthesia Consultants, P.A.",,,86.89,376.75,380.75
+822,"Anesthesia Consultants, P.A.",,,141.19,573.57,588.57
+823,"Anesthesia Consultants, P.A.",,,42.9,176.8,180.8
+824,"Anesthesia Consultants, P.A.",,,142.42,611,619
+825,Greenwood Leflore Physician Services,,,176.13,461,485
+826,"Anesthesia Consultants, P.A.",,,86.77,358.05,366.05
+827,"Anesthesia Consultants, P.A.",,,24.99,113.6,113.6
+828,"Anesthesia Consultants, P.A.",115,165.26,723.01,1466.6,1750.86
+829,"Anesthesia Consultants, P.A.",,,12.58,57.2,57.2
+831,"Anesthesia Consultants, P.A.",,,208.36,947.09,947.09
+832,"Crossroads Rehabilitation Services, Inc.",263.67,276.27,8301.69,21975.18,22820.12
+836,"Anesthesia Consultants, P.A.",,,19.01,86.4,86.4
+837,"Anesthesia Consultants, P.A.",,,1.24,5.62,5.62
+838,"Anesthesia Consultants, P.A.",,,284.58,1202.6,1222.6
+839,"Anesthesia Consultants, P.A.",,,355.51,1415.99,1459.99
+841,Harding Medical Center,,,3.96,12,12
+842,"Oxford Endocrinology Consultants, P.C.",,,337.58,930.19,942.19
+847,The Bone and Joint Clinic,504,37.5,6537.13,22520.98,23336.88
+854,Crossroads Rehabilitation Services(Medic,,,109.95,333.18,333.18
+855,Rehab 2000,,,3.66,10.45,10.45
+858,Rehab at Work,1014.21,1660.33,16230.38,41151.39,44244.93
+859,Hickory Hollow Foot and Ankle Center,,,192.65,540.87,733.52
+860,Surgery Clinic of Tupelo - 4,,,85,340,340
+861,Surgery Clinic of Tupelo - 5,,,26.3,105.18,105.18
+862,Surgery Clinic of Tupelo - 10,,,200,800,800
+863,Surgery Clinic of Tupelo - 12,,,105,420,420
+864,Surgery Clinic of Tupelo - 13,,,367.5,1470,1470
+868,Surgery Clinic of Tupelo - Buckley,,,12.5,50,50
+870,Surgery Clinic of Tupelo - 4/Hamilton,566,1285.15,6152.92,12382.51,14392.66
+871,Surgery Clinic of Tupelo - 5/Williamson,544.92,1566.2,6709.63,12741.92,15062.04
+872,Surgery Clinic of Tupelo - 10/Pigott,228,741.16,5364.91,12152.42,13211.58
+873,Surgery Clinic of Tupelo - 12/Pinson,114,249.4,5288.41,14561.16,15044.56
+874,Accent Plastic Surgery -13,114,2008.09,2548.58,1134.17,3278.06
+875,Surgery Clinic of Tupelo - 15/McAuley,114,604.42,6112.13,15481.75,16346.17
+876,Surgery Clinic of Tupelo - 18/Sanders,184.71,1753.2,8322.38,17647.16,19950.07
+878,Tupelo Plastic Surgery Clinic,378,404.11,5425.57,13419.51,14408.62
+879,Angela Campbell Orsborn,,,35.93,108.88,108.88
+881,Tupelo Ear Nose & Throat,2513.5,4150.67,62775.52,173210.83,182176.96
+882,"David J. Halvorson, M.D.",208.69,245.42,3765.52,8843.25,9408.35
+883,Friendship Family Medical,,,155.18,352.4,363.4
+885,Greenville Sports Medicine,114,149.52,601.02,859.45,1122.97
+886,Ridgeland Sports Medicine,114,,227.33,251.85,365.85
+888,Flowood Sports Medicine and Rehab,,,395.9,1239.68,1263.68
+890,North Mississippi Pain Management,1012.21,3062.38,17531.62,40929.3,45263.89
+891,Brooks Oil Company,,,0,0,0
+893,"Gastroenterology Associates, N.A.",402.67,489.86,15819.39,49152.62,50485.3
+894,Helton Family Dental,74,93.34,1710.33,4231.11,4517.45
+895,Tennessee Valley Pain Consultants,1709.02,1988.99,46252.21,135662.65,141275.63
+896,Center for Colon & Digestive Diseases,799.21,500.23,27997.71,84486.68,87629.04
+897,The Bone and Joint Surgery Center,227.91,343.67,874.61,799.88,1397.96
+899,"Nephrology Associates, P.C.",,,3974.52,11663.27,11765.05
+901,General Surgery Associates /MD Solutions,635.43,754.31,13300.96,37600.79,39551.21
+902,Huntsville Endoscopy Center,470.02,415.46,12664.39,38162.14,39656.17
+903,Physician Professional Fee /MD Solutions,75,,10784.33,25768.32,26245.32
+904,University Anesthesia Associates,,,4356.87,20554.47,20800.47
+906,Monroe County Mississippi Justice Court,,,2804.08,10518.11,13322.19
+909,"Nurse Anesthesia of Virginia, PLLC",,,69.2,230.66,230.66
+912,"L  & B Laboratories, Inc",,,246.49,821.64,821.64
+913,"MS Ear, Nose, Throat Surgical Asso.",244,207.93,3509.63,9037.04,9575.97
+914,Women's Medical Assoc. of Nashville,72.75,,2368.12,7304.15,7425.9
+915,Tupelo Orthopedic Clinic,979.5,1819.29,12474.51,33815.29,37180.07
+917,"The Surgical Clinic, PLLC",220.3,1451.45,13233.8,35306.14,37732.5
+919,Mid-Tennessee Bone & Joint Clinic,988.5,712.64,23508.07,69882.09,72010.23
+920,Tennessee Sports Medicine & Orthopedics,,,625.83,1955.8,1955.8
+921,Arkansas Specialty Orthopaedics,403.4,1225,10481.38,28782.22,30857.24
+922,Arkansas Specialty Orthopaedics II,4330.09,7706.46,52611.48,130197.01,143811.08
+923,Olive Branch Family Medical Center,151.41,283.51,6236.67,18408.76,19088.68
+924,The Tennessee Credit Union,,3066.51,5597.45,6327.4,9393.91
+926,Anesthesia Resources Biloxi,,,146,584,584
+927,Middle Tennessee Locum Services,,,57.04,205.19,221.19
+929,Hamilton Specialty Clinic - Dr. Seay,,,1044.3,3421.81,3484.81
+932,Surgical Alliance of Middle TN,,,788.79,2317.53,2341.53
+933,"Lance Weaver, M.D.",,,64.02,145.5,161.5
+934,"Norwood Clinic, Inc.",,,9100.14,26244.86,26355.86
+935,Gallatin Women's Center,,,239.59,689.67,701.67
+936,"Baxter Clinic of Hernando, PLLC",,,1030.03,3075.85,3090.85
+939,Arkansas Specialty Orthopaedic Center II,1159.57,1064,29422.95,92075,95308.15
+941,Dr. Chad Price Orthopedic Surgery,,,363.75,1065.92,1077.92
+942,OBGYN Associates of Cookeville,,,1668.06,4957.49,6625.55
+943,OBGYN Associates of Cookeville,,,402.72,1239.65,1642.37
+944,Dr. Bert Geer,,,15.42,46.73,62.15
+945,OBGYN Associates of Cookeville,,,1710.73,4964.18,6674.91
+947,Anesthesia Solutions of Mobile,492.21,168.66,17313.52,55379.23,56759.1
+949,Corinth Surgical/ Dr. Edmondson,114,28.39,2898.38,8052.68,8211.07
+950,"Delta Capital Resources, LLC",,,4.3,10.74,10.74
+953,Acute Care & Family Clinic of Tupelo Inc,,,59.46,180.19,180.19
+954,OBGYN Associates of Cookeville,,,2092.3,6150.45,8227.78
+955,OCH Center for Pain Management,,,543.73,1624.96,1664.96
+956,OCH - Parsons' Family Medical Clinic,114,211.89,2917.66,7762.35,8206.24
+957,OCH Professional Services,520,1426.35,9476.81,21969.81,24321.16
+958,OCH Center for Breast Health,,,1885.44,5875.64,5939.64
+959,OCH General Surgery Associates,,,1871.12,5700.4,5804.4
+960,U. S. Community Credit Union,715.5,476.75,7032.28,16615.12,18445.83
+961,Partridge Propane,,,86.79,263,263
+962,"Partridge Propane, Inc.",,,823.93,2496.74,2496.74
+963,"Partridge Propane, Inc.",,,615.84,1841.92,1849.92
+964,Comprehensive Pain Management,322.09,205.62,14534.39,38060.38,39176.09
+965,The Jackson Clinic,10539.43,10049.38,110798.88,360145.07,456391.78
+966,OCH Center for Pain Management 2,,,109.36,352.79,352.79
+967,OCH Professional Services 2,,,169.26,533.1,537.1
+971,Anesthesia Group East,511.48,325.32,6433.99,15457.22,16581.02
+973,Comprehensive Pain Center of Jackson,,,4238.38,11817.45,12011.45
+974,Medical Arts Surgical,1634.37,1638.02,21921.88,53765.66,57780.51
+977,Starkville Orthopedics,524,1118.18,5132.55,10227.34,11932.52
+978,Mississippi Bone and Joint Clinic,164,141.19,1277.59,3013.29,3318.48
+979,Starkville Orthopedics,508,907.08,3567.65,5749.92,7328
+980,Upper Cumberland Urology Associates,1035.5,50,11624.17,27623.17,28888.67
+981,Starkville Internal Medicine,,,176.01,509.12,517.12
+982,Marion Regional Medical Ctr - Physicians,111.99,231.1,19367.62,71828.39,72996.86
+983,Cardiothoracic Surgery Clinic - 2,,,514.5,3430,3430
+984,Urology Professional Association,2713.71,4506.32,54618.21,167907.32,176443.35
+985,Mississippi Premier Plastic Surgery,206,541.62,3858.34,9177.45,10005.29
+986,Express Care of New Albany,164,209.71,806.08,1090.39,1503.1
+987,Diabetes Care Group,116,86.58,872.9,1797.85,2040.43
+988,"Nephrology Associates, P.C.-RMS",,,8.25,25,25
+989,Urology Professional Association - 2,,,1030.13,3791.63,3899.63
+991,The Eye Group of Mississippi,,,98.36,255.31,267.31
+992,The Eye Group of Mississippi,115,108.67,493.91,649.55,918.43
+993,The Eye Group of Mississippi,,,310.16,747.03,807.03
+995,Cornerstone Primary Care,,,238.01,593.14,625.14
+998,"KNS Medical, Inc.",,,891.86,2740.19,2755.19

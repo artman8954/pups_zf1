@@ -1,0 +1,130 @@
+<script language="javascript" type="text/javascript">
+
+function validateMapCsv()
+{
+
+	formControl = document.frmMapCsv
+	var myControls = formControl.elements['ddSelect[]'];
+	var mandatoryArr = new Array('client_id');
+	
+	var mandatory_status = 0;
+	var repeat_status = 0;
+
+	var arrAdded = new Array();
+	var selectedArr = new Array();
+
+	k = 0 ;
+	for (var i = 0; i < myControls.length; i++) {
+		var aControl = myControls[i];
+
+		 if(aControl.value != "" ){
+
+			if( (inArray(aControl.value,selectedArr) == true  )){
+				repeat_status = 1;
+				break; 
+			}
+			
+			selectedArr[k] = aControl.value; 
+			k++; 
+		}
+	}
+	
+	
+	for (var i = 0; i < mandatoryArr.length; i++) {
+		val = mandatoryArr[i];
+		if( inArray(val,selectedArr) == 0  ){
+			mandatory_status = 1;
+			break; 
+		}
+	}
+
+	if(repeat_status == 1){
+		alert("Repeated database field selection is invalid");
+		return false;
+	}
+
+	if(mandatory_status == 1){
+		alert("Client id is mandatory");
+		return false;
+	}
+
+}
+
+</script>
+
+<form id="frmMapCsv" name="frmMapCsv"  action="<?php echo $this->baseUrl(); ?>/client/importstatus" method="post" onsubmit="return validateMapCsv()" >
+					
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr>
+		<td height="200" valign="top"  align="center"  >
+								
+<table class="tableHeading" border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="big" align="left" ><strong> Mapp Client/Customer Info</strong></td>
+<td class="small" align="right"></td>
+</tr></tbody>
+</table>
+								
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+	<td width="21%" align="right" valign="top" class="dvtCellLabel"> Selected Project Name</td>
+	<td class="dvtCellInfo" align="left"  colspan="2"> 
+    
+	<?php
+	
+	echo $this->projectDetail[$this->projectId]['project_name'];
+	
+	?>
+    
+    </td>
+</tr>
+                                
+<tr>
+	<td width="21%" align="right" valign="top" class="dvtCellLabel">Header</td>
+	<td class="dvtCellLabel" align="left">Row1</td>
+	<td class="dvtCellLabel" align="left">Database Fields</td>
+</tr>
+                                                                    
+
+<?php
+$i = 0;	
+foreach($this->header as $value){
+?>
+
+<tr>
+	<td align="right" valign="top" class="dvtCellInfo"><?php echo $value; ?></td>
+	<td class="dvtCellInfo" align="left"><?php echo $this->firstrow[$i]; ?></td>
+	<td class="dvtCellInfo" align="left">
+		<select name="ddSelect[]" >
+			<?php 
+				foreach($this->dbcolumns as $key => $value){
+			?>
+				<option value="<?php echo $key; ?>" ><?php echo $value; ?></option>
+			<?php
+				}
+			?>		
+		</select>                                                                          
+	</td>
+</tr>
+
+<?php
+$i++;
+}
+
+?>
+
+                                                                   
+<tr>
+	<td colspan="3" align="center"  class="comment" height="50"  ><input class="flatinput" type="submit" name="addAccess" value="Import" /> 
+	<input class="flatinput" type="reset" name="Submit" value="Reset" /></td>
+</tr>
+
+</table>
+
+		<input type="hidden" name="id" value="<?php echo $this->projectId; ?>" />
+															    
+		</td>
+	</tr>
+</table>
+						
+</form>

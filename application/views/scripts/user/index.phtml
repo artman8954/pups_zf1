@@ -1,0 +1,254 @@
+<link href="<?php echo $this->baseUrl(); ?>/public/stylesheet/style.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jquery-latest.js" type="text/javascript" ></script>
+<script src="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jquery.tablesorter.js" type="text/javascript" ></script>
+
+
+<script language="javascript">
+
+function confirmDelete(id){
+
+	if(confirm("Are you Sure ? "))
+		window.location.href='<?php echo $this->baseUrl();?>/user/delete/id/' + id
+}
+
+
+
+function selectAlluser(){
+Frm = document.frmUserList
+controllength = Frm.selected_id.length
+
+	if(Frm.selectall.checked == true){	
+		for(i=0;i<controllength;i++){
+		Frm.selected_id[i].checked = true
+		}
+	}
+	else
+	{
+		for(i=0;i<controllength;i++){
+		Frm.selected_id[i].checked = false
+		}
+	}
+
+}
+
+function selectAtleastOne(){
+Frm = document.frmUserList
+flag = 0;
+controllength = Frm.selected_id.length
+		for(i=0;i<controllength;i++){
+			if(Frm.selected_id[i].checked == true){
+				flag = 1;
+				break;
+			}
+		}
+		
+	if(flag == 0){
+	alert('Please select atleast one teacher!')
+	return false
+	}
+	else if(flag == 1)
+	{
+				if(confirm('Are you sure?')){
+					Frm.submit();
+				}
+
+	}
+}
+
+
+function validateSearch()
+{
+	if(document.search.search_text.value == ''){
+		document.search.search_text.focus()
+		alert('Please enter search text ! ')
+		return false;
+	}
+	if(document.search.search_option.selectedIndex == 0){
+		document.search.search_option.focus()
+		alert('Please select option!')
+		return false;
+	}
+
+}
+
+$(document).ready(function()
+{
+		$("#myTable").tablesorter(		
+				{ headers: { 5: { sorter: false },
+							 6: { sorter: false	},
+							 7: { sorter: false },
+							 8: { sorter: false	},
+							 9: { sorter: false },
+							 10: { sorter: false },
+							 11: { sorter: false }
+							}
+				}
+		);
+	}
+);
+
+
+</script>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center"  >
+    
+<tr>
+	<td  height="30px" valign="middle"  >
+
+                                <div class="message" id="message"  style="text-align:center"><?php echo $this->message; ?></div>
+                                <div class="breadcrumb" > <a href="<?php echo $this->baseUrl(); ?>/home" > Home </a>  >  Users </div>	
+                                
+<table border=0 cellspacing=0 cellpadding=2 width=100% >
+
+<tr>
+	<td width="20%"  class="adminsubhead" > 
+
+    Users
+    
+    </td>
+	<td width=60% align="center" ></td>
+	<td width=29% align="right"><a href="<?php echo $this->baseUrl(); ?>/user/new"><img src="<?php echo $this->baseUrl(); ?>/public/images/btnAdd.gif"   border="0"    /></a>
+</td>	
+</tr>
+</table>
+									
+</td>
+</tr>	
+
+<tr>
+<td valign="middle"  >
+									
+<div id="search" style="padding:10px 0 10px 0;"  >
+
+<form name="search"	 action="<?php echo $this->baseUrl(); ?>/user/index" method="post"  style="margin:0"  onsubmit="return validateSearch()">
+						
+<table width="100%" height="40px"  cellpadding="0" cellspacing="0" border="0" id="lightouterborder" >
+<tr>
+<td width="20%" class="dvtCellLabel" align="right" ><img src="<?php echo $this->baseUrl(); ?>/public/images/basicsearch.gif"  ></td>
+<td width="20%" class="dvtCellLabel" align="left" ><input type="text" name="search_text" class="controltext" style="width:98%" > </td>
+<td width="20%" class="dvtCellLabel" >
+<select name="search_option" id="fop1" class="controltext" style="width:98%" >
+<option value="">Select Option</option>
+<option value="e">Equals</option>
+<option value="n">Not equal to</option>
+<option value="l">Like</option>
+</select>
+</td>
+<td width="20%" class="dvtCellLabel"><b>In</b>&nbsp;
+<select name="search_field"  class="controltext" style="width:90%" >
+<option label="User Name" value="project_name" >User Name</option>
+</select>
+<td width="20%" class="dvtCellLabel" align="left" >
+<input type="submit"  name="search" value="Search Now"  class="flatinput1" style="width:98%"  ></td>
+</tr>
+</table>
+
+</form>		
+
+</div>
+							
+</td></tr>	
+
+<tr>
+<td height="200" valign="top"  align="center"   >
+								
+<form id="frmUserList" name="frmUserList" action="app/massteachersdelete.php" method="post" onsubmit="return validate()" >
+								
+<table border=0 cellspacing=1 cellpadding=0 width=100% class="lvtBg">
+	<tr><td>
+		        
+				<table   border="0"  cellspacing=0 cellpadding=2 width=100% class="small">
+			    <tr>
+		        	<td   align="left" >
+					<?php 
+							echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml',array('params' => $this->params)  ); 
+							echo $this->paginator->firstItemNumber; 
+					?>
+					</td>
+       		    </tr>
+				</table>
+			
+
+<table border=0  cellspacing=1 cellpadding=3 width=100%  id="myTable" class="tablesorter lvt small"  >
+<thead>
+
+<tr  class="bluehead">
+	<th class="lvtCol bluesubhead"> # </th>
+	<th width="326" class="lvtCol bluesubhead"> User Name </th>
+	<th width="100"  class="lvtCol bluesubhead"  >Name</th>
+	<th width="100"  class="lvtCol bluesubhead"  >Role</th>
+	<th width="130" align="center" class="lvtCol bluesubhead"  style="text-align:center;padding-right:5px" >Created Time</th>
+	<th width="130" align="center" class="lvtCol bluesubhead"  style="text-align:center;padding-right:5px" >Last Login Time</th>
+	<th width="100" align="center" class="lvtCol bluesubhead" style="text-align:center;padding-right:5px"  >Phone</th>
+	<th class="lvtCol bluesubhead" align="center" width="150" style="text-align:center;padding-right:5px"  >Mobile</th>
+	<th class="lvtCol bluesubhead" align="center" width="150" style="text-align:center;padding-right:5px"  >E-mail</th>
+	<th class="lvtCol bluesubhead" align="center" width="59" style="text-align:center;padding-right:5px"  >Edit </th>
+	<th class="lvtCol bluesubhead" align="center" width="59" style="text-align:center;padding-right:5px"  >Delete</th>
+</tr>
+
+</thead>
+			
+            			
+<?php
+$totalRecords =  $this->paginator->getTotalItemCount(); 
+
+
+$i = 1;
+foreach($this->paginator as $record){
+
+if($i%2==1){
+	$tr = 'class="eventr"';
+} else {
+	$tr = 'class="oddtr"';
+}
+
+?>
+
+<tr <?php echo $tr ;?>  >
+	<td width="20"><?php echo $i; ?></td>
+	<td><a  href="<?php echo $this->baseUrl(); ?>/user/new/id/<?php echo $record->user_id; ?>" ><?php echo $record->username;  ?></a></td>
+	<td  ><?=$record->name;  ?></td>
+	<td  ><?=$record->isadmin ? 'Administrator' : 'Manager';  ?></td>
+	<td  ><?=$record->date_of_creation ? date("d M Y, H : i A",$this->escape($record->date_of_creation)) : '';?></td>
+	<td  ><?=$record->lastlogin ? date("d M Y, H : i A",$this->escape($record->lastlogin)) : '';?></td>
+	<td  ><?=$record->phone;?></td>
+	<td  ><?=$record->mobile;?></td>
+	<td  ><?=$record->email;?></td>
+	<td align="center" ><a href="<?php echo $this->baseUrl(); ?>/user/new/id/<?php echo $record->user_id; ?>" > <img src="<?php echo $this->baseUrl(); ?>/public/images/edit.png" /> </a></td>
+	<td align="center"  ><a href='#' onclick="javascript:confirmDelete(<?php echo $record->user_id ; ?>)" ><img src="<?php echo $this->baseUrl(); ?>/public/images/publish_x.png"  /></a></td>
+</tr>	
+						
+<?php
+$i++; 
+}
+	if($totalRecords == 0){
+	echo '<tr bgcolor=white class=message ><td colspan=9 align=center>There is no user is active ! </td></tr>';
+	}
+?>
+ </table>
+
+ </div>
+			 
+			 
+
+<table border=0 cellspacing=0 cellpadding=2 width=100%>
+	<tr>
+		<td width="14%" align="left" nowrap style="padding-right:20px"></td>
+		<td width="5%" nowrap class="small" style="padding-right:20px"></td>
+		<td width="10%" nowrap >&nbsp;</td>
+		<td align="right" width=71%>&nbsp;</td>
+	</tr>
+</table>		       
+
+
+		</td>
+	</tr>
+</table>							
+		
+		
+		</form>
+
+		</td>
+	</tr>
+</table>
+						

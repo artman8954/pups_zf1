@@ -1,0 +1,186 @@
+<link href="<?php echo $this->baseUrl(); ?>/public/stylesheet/style.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jquery-latest.js" type="text/javascript" ></script>
+<script src="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jquery.tablesorter.js" type="text/javascript" ></script>
+
+
+
+<script language="javascript">
+
+function confirmDelete(docid,projid){
+
+	if(confirm("Are you Sure ? "))
+		window.location.href='<?php echo $this->baseUrl();?>/document/delete/id/' + docid + '/prid/' + projid
+}
+
+
+
+function selectAlluser(){
+Frm = document.frmUserList
+controllength = Frm.selected_id.length
+
+	if(Frm.selectall.checked == true){	
+		for(i=0;i<controllength;i++){
+		Frm.selected_id[i].checked = true
+		}
+	}
+	else
+	{
+		for(i=0;i<controllength;i++){
+		Frm.selected_id[i].checked = false
+		}
+	}
+
+}
+
+function selectAtleastOne(){
+Frm = document.frmUserList
+flag = 0;
+controllength = Frm.selected_id.length
+		for(i=0;i<controllength;i++){
+			if(Frm.selected_id[i].checked == true){
+				flag = 1;
+				break;
+			}
+		}
+		
+	if(flag == 0){
+	alert('Please select atleast one teacher!')
+	return false
+	}
+	else if(flag == 1)
+	{
+				if(confirm('Are you sure?')){
+					Frm.submit();
+				}
+
+	}
+}
+
+
+function validateSearch()
+{
+	if(document.search.search_text.value == ''){
+		document.search.search_text.focus()
+		alert('Please enter search text ! ')
+		return false;
+	}
+	if(document.search.search_option.selectedIndex == 0){
+		document.search.search_option.focus()
+		alert('Please select option!')
+		return false;
+	}
+
+}
+
+
+$(document).ready(function()
+{
+		$("#myTable").tablesorter(		
+				{ headers: { 5: { sorter: false },
+							 6: { sorter: false	}
+							}
+				}
+		);
+	}
+);
+
+
+</script>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center"  >
+	<tr>
+		<td  height="30px"  class="adminsubhead" valign="middle"  >
+					
+<div class="message" id="message"   ><?php echo $msg?></div>
+
+<div class="breadcrumb" > <a href="<?php echo $this->baseUrl(); ?>/home" > Home </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/project" >  Projects  </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/project/projecthome/id/<?php echo $this->project_id ; ?>" > <?php echo $this->projectname ; ?> </a>
+>  Uploaded Csv Files </div>	
+            				
+                    				
+<table border=0 cellspacing=0 cellpadding=2 width=100% >
+<tr>
+	<td width="40%"  style="padding-right:20px" class="adminsubhead" >Uploaded Csv Files </td>
+	<td width=50% align="center" ></td>
+	<td width=10% align="right"></td>	
+</tr>
+</table>
+									
+</td>
+</tr>	
+
+
+<tr>
+<td height="200" valign="top"  align="center"   >
+								
+<form id="frmUserList" name="frmUserList" action="app/massteachersdelete.php" method="post" onsubmit="return validate()" >
+								
+<table border=0 cellspacing=1 cellpadding=0 width=100% class="lvtBg">
+	<tr><td>
+		        
+
+			
+
+<table border=0  cellspacing=1 cellpadding=3 width=100% id="myTable" class="tablesorter lvt small" >
+<thead>
+<tr class="bluehead">
+	<th class="lvtCol bluesubhead"> # </th>
+	<th width="300" class="lvtCol bluesubhead">Document Name </th>
+	<th width="225" align="left" class="lvtCol bluesubhead"  >Uploaded By</th>
+	<th width="225" align="left" class="lvtCol bluesubhead"  >Uploaded Time</th>
+	<th class="lvtCol bluesubhead" align="left" width="171"  >Document Size</th>
+	<th class="lvtCol bluesubhead" align="center" width="50" style="text-align:center;padding-right:5px"  >Download</th>
+	<th class="lvtCol bluesubhead" align="center" width="50" style="text-align:center;padding-right:5px"  >Delete</th>
+</tr>
+</thead>					
+<?php
+
+$totalRecords =  $this->paginator->getTotalItemCount(); 
+
+$i = 1;
+foreach($this->paginator as $record){
+
+if($i%2==1){
+	$tr = 'class="eventr"';
+} else {
+	$tr = 'class="oddtr"';
+}
+
+
+?>
+
+<tr  <?php echo $tr ;?> >
+	<td width="25"><?php echo $i; ?></td>
+	<td><?php echo $record->doc_name;  ?></td>
+	<td align="left" ><?php echo $record->name;  ?></td>
+	<td align="left" ><?php echo $record->created_time;  ?></td>
+	<td align="left" ><?php echo $record->doc_size;  ?> KB</td>
+	<td align="center" ><a href="<?php echo $this->baseUrl(); ?>/document/download/id/<?php echo  $record->doc_id; ?>" ><img src="<?php echo $this->baseUrl(); ?>/public/images/download.jpg" /></a></td>
+	<td align="center"  ><a href='#' onclick="javascript:confirmDelete(<?php echo $record->doc_id ; ?>,<?php echo $this->project_id; ?>)" ><img src="<?php echo $this->baseUrl(); ?>/public/images/publish_x.png"  /></a></td>
+</tr>	
+						
+<?php
+$i++; 
+}
+	if($totalRecords == 0){
+	echo '<tr bgcolor=white class=message ><td colspan=8 align=center>There is no document is uploaded ! </td></tr>';
+	}
+?>
+ </table>
+
+ </div>
+			 
+
+
+		</td>
+	</tr>
+</table>							
+		
+		
+		</form>
+
+		</td>
+	</tr>
+</table>
+						

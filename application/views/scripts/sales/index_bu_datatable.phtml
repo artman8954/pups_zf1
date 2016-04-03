@@ -1,0 +1,271 @@
+<script language="javascript">
+
+function confirmDelete(id){
+
+	if(confirm("Are you Sure ? "))
+		window.location.href='<?php echo $this->baseUrl();?>/project/delete/id/' + id
+}
+
+
+
+function selectAlluser(){
+Frm = document.frmUserList
+controllength = Frm.selected_id.length
+
+	if(Frm.selectall.checked == true){	
+		for(i=0;i<controllength;i++){
+		Frm.selected_id[i].checked = true
+		}
+	}
+	else
+	{
+		for(i=0;i<controllength;i++){
+		Frm.selected_id[i].checked = false
+		}
+	}
+
+}
+
+function selectAtleastOne(){
+Frm = document.frmUserList
+flag = 0;
+controllength = Frm.selected_id.length
+		for(i=0;i<controllength;i++){
+			if(Frm.selected_id[i].checked == true){
+				flag = 1;
+				break;
+			}
+		}
+		
+	if(flag == 0){
+	alert('Please select atleast one teacher!')
+	return false
+	}
+	else if(flag == 1)
+	{
+				if(confirm('Are you sure?')){
+					Frm.submit();
+				}
+
+	}
+}
+
+
+function validateSearch()
+{
+	if(document.search.search_text.value == ''){
+		document.search.search_text.focus()
+		alert('Please enter search text ! ')
+		return false;
+	}
+	if(document.search.search_option.selectedIndex == 0){
+		document.search.search_option.focus()
+		alert('Please select option!')
+		return false;
+	}
+
+}
+
+
+
+
+</script>
+
+<style type="text/css" title="currentStyle">
+	@import "<?php echo $this->baseUrl(); ?>/public/media/css/demo_page.css";
+	@import "<?php echo $this->baseUrl(); ?>/public/media/css/demo_table.css";
+</style>
+
+<script type="text/javascript" language="javascript" src="<?php echo $this->baseUrl(); ?>/public/media/js/jquery.js"></script>
+
+<script type="text/javascript" language="javascript" src="<?php echo $this->baseUrl(); ?>/public/media/js/jquery.dataTables.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+
+function editRow ( oTable, nRow )
+{
+    var aData = oTable.fnGetData(nRow);
+    var jqTds = $('>td', nRow);
+    jqTds[1].innerHTML = '<input value="'+aData[1]+'" type="text">';
+    jqTds[2].innerHTML = '<input value="'+aData[2]+'" type="text">';
+    jqTds[3].innerHTML = '<a class="edit" href="">Save</a>';
+}
+
+function saveRow ( oTable, nRow )
+{
+    var jqInputs = $('input', nRow);
+    oTable.fnUpdate( jqInputs[0].value, nRow, 1, false );
+    oTable.fnUpdate( jqInputs[1].value, nRow, 2, false );
+    oTable.fnUpdate( '<a class="edit" href=""> <img src="<?php echo $this->baseUrl(); ?>/public/images/edit.png" /></a>', nRow, 3, false );
+    oTable.fnDraw();
+}
+
+
+
+
+
+$(document).ready(function() {
+	var oTable = $('#example').dataTable();
+	var nEditing = null;
+	
+	$('#new').click( function (e) {
+		e.preventDefault();
+		
+		var aiNew = oTable.fnAddData( [ '', '', '', '', '', 
+			'<a class="edit" href="">Edit</a>', '<a class="delete" href="">Delete</a>' ] );
+		var nRow = oTable.fnGetNodes( aiNew[0] );
+		editRow( oTable, nRow );
+		nEditing = nRow;
+	} );
+	
+	$('#example a.delete').live('click', function (e) {
+		e.preventDefault();
+		
+		var nRow = $(this).parents('tr')[0];
+		oTable.fnDeleteRow( nRow );
+	} );
+	
+	$('#example a.edit').live('click', function (e) {
+		e.preventDefault();
+		
+		/* Get the row as a parent of the link that was clicked on */
+		var nRow = $(this).parents('tr')[0];
+		
+		if ( nEditing !== null && nEditing != nRow ) {
+			/* Currently editing - but not this row - restore the old before continuing to edit mode */
+			restoreRow( oTable, nEditing );
+			editRow( oTable, nRow );
+			nEditing = nRow;
+		}
+		else if ( nEditing == nRow && this.innerHTML == "Save" ) {
+			/* Editing this row and want to save it */
+			saveRow( oTable, nEditing );
+			nEditing = null;
+			
+		}
+		else {
+			/* No edit in progress - let's start one */
+			editRow( oTable, nRow );
+			nEditing = nRow;
+		}
+	} );
+} );
+
+
+</script>
+
+
+<table width="95%" border="0" cellpadding="0" cellspacing="0" align="center"  >
+    
+<tr>
+	<td  height="30px"   valign="middle"  >
+								
+                                <div class="message" id="message"  style="text-align:center"><?php echo $this->message; ?></div>
+                                
+                                <div class="breadcrumb" > <a href="<?php echo $this->baseUrl(); ?>/home" > Home </a>  > Sales Commission </div>	
+                                	
+<table border=0 cellspacing=0 cellpadding=2 width=100% >
+
+<tr>
+	<td width="20%"  class="adminsubhead" > Sales Commission    </td>
+	<td width=60% align="center" ></td>
+	<td width=29% align="right"><a href="<?php echo $this->baseUrl(); ?>/project/new"><img src="<?php echo $this->baseUrl(); ?>/public/images/btnAdd.gif"   border="0"    /></a>
+</td>	
+</tr>
+</table>
+
+									
+</td>
+</tr>	
+
+
+<tr>
+<td height="200" valign="top"  align="center"   >
+								
+<form id="frmUserList" name="frmUserList" action="app/massteachersdelete.php" method="post" onsubmit="return validate()" >
+								
+<table border=0 cellspacing=1 cellpadding=0 width=100% class="lvtBg">
+	<tr><td>
+			
+
+<table border=0  cellspacing=1 cellpadding=3 width="100%" class="lvt small display"  id="example">
+<thead>
+
+<tr>
+	<td class="lvtCol bluesubhead"> # </td>
+	<td width="351" class="lvtCol bluesubhead"> Sales Id</td>
+	<td width="436" align="left" class="lvtCol bluesubhead"  >Commission Percentage</td>
+	<td class="lvtCol bluesubhead" align="center" width="109" >Edit </td>
+	<td class="lvtCol bluesubhead" align="center" width="112" >Delete</td>
+</tr>
+
+</thead>					
+	
+    <tbody>
+    
+<?php
+$totalRecords =  $this->paginator->getTotalItemCount(); 
+
+
+$i = 1;
+foreach($this->paginator as $record){
+
+
+?>
+
+<tr bgcolor=white >
+	<td width="47"><?php echo $i; ?></td>
+	<td><?php echo $record->sales_id;  ?></td>
+	<td align="left" ><?php echo $record->sales_comm_percentage;  ?></td>
+	<td align="center" ><a class="edit" href=""> <img src="<?php echo $this->baseUrl(); ?>/public/images/edit.png" /> </a></td>
+	<td align="center"  ><a href=''  class="delete"  ><img src="<?php echo $this->baseUrl(); ?>/public/images/publish_x.png"  /></a></td>
+</tr>	
+						
+<?php
+$i++; 
+}
+	if($totalRecords == 0){
+	echo '<tr bgcolor=white class=message ><td colspan=8 align=center>There is no sales commission is active ! </td></tr>';
+	}
+?>
+	</tbody>
+
+ </table>
+
+ </div>
+			 
+			 
+
+<table border=0 cellspacing=0 cellpadding=2 width=100%>
+	<tr>
+		<td width="14%" align="left" nowrap style="padding-right:20px"></td>
+		<td width="5%" nowrap class="small" style="padding-right:20px"></td>
+		<td width="10%" nowrap >&nbsp;</td>
+		<td align="right" width=71%>&nbsp;</td>
+	</tr>
+</table>		       
+
+
+		</td>
+	</tr>
+</table>							
+		
+		
+        
+        
+     
+        
+        
+        
+        
+		</form>
+
+		</td>
+	</tr>
+</table>
+				
+                
+                
+
+            		

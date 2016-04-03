@@ -1,0 +1,78 @@
+
+<script language="javascript" type="text/javascript">
+function validateSales()
+{
+
+	formControl = document.frmNewSales
+	
+	if(!emptycheck(formControl.txtSalesId,'Sales Id',""))
+	{
+		return false
+	}
+	
+	if(!emptycheck(formControl.txtSalesPercentage,'Sales Percentage',""))
+	{
+		return false
+	}
+	
+
+}
+
+</script>
+
+<form id="frmNewSales" name="frmNewSales" action="<?php echo $this->baseUrl(); ?>/sales/save" method="post" onsubmit="return validateSales()" >
+					
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr>
+	<td height="200" valign="top"  align="center" >
+
+<div class="breadcrumb" > <a href="<?php echo $this->baseUrl(); ?>/home" > Home </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/sales" >  Sales  </a>  >
+Sales Commission Info </div>
+
+
+<table class="tableHeading topheading" border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tbody>
+		<tr>
+			<td class="big" align="left" ><strong> New Sales Commission </strong></td>
+			<td class="small" align="right"></td>
+		</tr>
+	</tbody>
+</table>
+
+
+								
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tr>
+		<td width="25%" align="right" valign="top" class="dvtCellLabel"><span style="color:#FF0000" > * </span>  Sales Id : </td>
+		<td class="dvtCellInfo" align="left" width="25%" >
+        	<input onKeyPress="return numbersonly(this, event,false)"  type="text" value="<?php echo $this->data[$this->id][sales_id];  ?>" name="txtSalesId" class="textcontrol1" />
+        </td>
+        
+		<td width="25%" align="right" valign="top" class="dvtCellLabel"><span style="color:#FF0000" > * </span>  Sales Percentage : </td>
+		<td class="dvtCellInfo" align="left" width="25%" >
+        	<input onKeyPress="return numbersonly(this, event,true)"  class="textcontrol1" type="text" value="<?php echo $this->data[$this->id][sales_comm_percentage];  ?>" name="txtSalesPercentage" />
+        </td>
+	</tr>
+		<tr>
+		<td width="25%" align="right" valign="top" class="dvtCellLabel">Notes : </td>
+		<td class="dvtCellInfo" align="left" colspan="3"><input class="textcontrol1" type="text" value="<?php echo $this->data[$this->id][notes];  ?>" name="txtNotes" /></td>
+
+    </tr>
+	<tr>
+		<td colspan="4" align="center"  class="comment" height="50px"  >
+		
+			<input class="flatinput" type="submit" name="save" value="Save" /> 
+			<input class="flatinput" type="reset" name="reset" value="Reset" />
+			<input class="flatinput" type="hidden" name="id" value="<?php echo $this->id ?>" />
+		
+		</td>
+	</tr>
+</table>
+
+
+	</td>
+</tr>
+</table>
+						
+</form>

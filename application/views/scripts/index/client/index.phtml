@@ -1,0 +1,208 @@
+<script language="javascript">
+
+function confirmDelete(id){
+
+	if(confirm("Are you Sure ? "))
+		window.location.href='<?php echo $this->baseUrl();?>/project/delete/id/' + id
+}
+
+
+
+function selectAlluser(){
+Frm = document.frmUserList
+controllength = Frm.selected_id.length
+
+	if(Frm.selectall.checked == true){	
+		for(i=0;i<controllength;i++){
+		Frm.selected_id[i].checked = true
+		}
+	}
+	else
+	{
+		for(i=0;i<controllength;i++){
+		Frm.selected_id[i].checked = false
+		}
+	}
+
+}
+
+function selectAtleastOne(){
+Frm = document.frmUserList
+flag = 0;
+controllength = Frm.selected_id.length
+		for(i=0;i<controllength;i++){
+			if(Frm.selected_id[i].checked == true){
+				flag = 1;
+				break;
+			}
+		}
+		
+	if(flag == 0){
+	alert('Please select atleast one teacher!')
+	return false
+	}
+	else if(flag == 1)
+	{
+				if(confirm('Are you sure?')){
+					Frm.submit();
+				}
+
+	}
+}
+
+
+function validateSearch()
+{
+	if(document.search.search_text.value == ''){
+		document.search.search_text.focus()
+		alert('Please enter search text ! ')
+		return false;
+	}
+	if(document.search.search_option.selectedIndex == 0){
+		document.search.search_option.focus()
+		alert('Please select option!')
+		return false;
+	}
+
+}
+
+</script>
+
+<table width="95%" border="0" cellpadding="0" cellspacing="0" align="center"  >
+	<tr>
+		<td  height="30px"  class="adminsubhead" valign="middle"  >
+									
+<table border=0 cellspacing=0 cellpadding=2 width=100% >
+<tr>
+	<td width="20%"  style="padding-right:20px" class="adminsubhead" >Client Information</td>
+	<td width=60% align="center" ><div class="message" id="message"   ><?php echo $this->message; ?></div></td>
+	<td width=20% align="right">
+	
+	<a href="<?php echo $this->baseUrl(); ?>/client/newclient"><img src="<?php echo $this->baseUrl(); ?>/public/images/btnAdd.gif"   border="0"   width="28px" height="27px"  /></a>
+	<a href="<?php echo $this->baseUrl(); ?>/client/importclient"><img src="<?php echo $this->baseUrl(); ?>/public/images/importcsv.gif" width="28px" height="27px"   border="0"    /></a>
+	
+</td>	
+</tr>
+</table>
+									
+</td>
+</tr>	
+
+<tr>
+<td valign="middle"  >
+									
+<div id="search" style="padding:10px 0 10px 0;"  >
+
+<form name="search"	 action="<?php echo $this->baseUrl(); ?>/project/index" method="post"  style="margin:0"  onsubmit="return validateSearch()">
+						
+<table width="100%" height="40px"  cellpadding="0" cellspacing="0" border="0" id="lightouterborder" >
+<tr>
+<td width="20%" class="dvtCellLabel"><img src="<?php echo $this->baseUrl(); ?>/public/images/basicsearch.gif"></td>
+<td width="20%" class="dvtCellLabel" align="center" ><input type="text" name="search_text" class="controltext" style="width:145px" > </td>
+<td width="20%" class="dvtCellLabel" >
+<select name="search_option" id="fop1" class="controltext"  >
+<option value="">Select Option</option>
+<option value="e">Equals</option>
+<option value="n">Not equal to</option>
+<option value="l">Like</option>
+</select>
+</td>
+<td width="20%" class="dvtCellLabel"><b>In</b>&nbsp;
+<select name="search_field"  class="controltext" style="width:145px" >
+<option label="Project Name" value="project_name" >Client Name</option>
+<option label="Project Name" value="project_name" >Client Id</option>
+<option label="Project Name" value="project_name" >Project Name</option>
+</select>
+<td width="20%" class="dvtCellLabel">
+<input type="submit"  name="search" value="Search Now"  class="flatinput1"  ></td>
+</tr>
+</table>
+
+</form>		
+
+</div>
+							
+</td></tr>	
+
+<tr>
+<td height="200" valign="top"  align="center"   >
+								
+<form id="frmUserList" name="frmUserList" action="app/massteachersdelete.php" method="post" onsubmit="return validate()" >
+								
+<table border=0 cellspacing=1 cellpadding=0 width=100% class="lvtBg">
+	<tr><td>
+		        
+				<table   border="0"  cellspacing=0 cellpadding=2 width=100% class="small">
+			    <tr>
+		        	<td   align="left" >
+					<?php 
+							 echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml',array('params' => $this->params)  ); 
+					?>
+					</td>
+       		    </tr>
+				</table>
+			
+
+<table border=0  cellspacing=1 cellpadding=3 width=100% class="lvt small">
+<tr>
+	<td class="lvtCol bluesubhead"> # </td>
+	<td width="200" class="lvtCol bluesubhead">Client Name </td>
+	<td width="200" align="left" class="lvtCol bluesubhead">Client Id</td>
+	<td class="lvtCol bluesubhead" align="left" width="200" >Project Name</td>
+	<td class="lvtCol bluesubhead" align="center" width="59" >Edit </td>
+	<td class="lvtCol bluesubhead" align="center" width="59" >Delete</td>
+</tr>
+						
+<?php
+$totalRecords =  $this->paginator->getTotalItemCount(); 
+
+$i = 1;
+foreach($this->paginator as $record){
+
+
+?>
+
+<tr bgcolor=white >
+	<td width="20"><?php echo $i; ?></td>
+	<td><a  href="<?php echo $this->baseUrl(); ?>/client/clienthome/id/<?php echo $record->proj_client_id; ?>" ><?php echo $this->escape($record->client_name);  ?></a></td>
+	<td align="left" ><?php echo $this->escape($record->client_id);  ?> </td>
+	<td align="left" ><a href="index.php?page=projecthome&id=<?php echo $rows[teachersid]; ?>" ><?php echo $this->escape($record->project_name);  ?> </a> </td>
+	<td align="center" ><a href="<?php echo $this->baseUrl(); ?>/client/newclient/id/<?php echo $record->proj_client_id; ?>" ><img src="<?php echo $this->baseUrl(); ?>/public/images/edit.png" /></a></td>
+	<td align="center"  ><a href='#' onclick="javascript:confirmDelete(<?php echo $record->project_id ; ?>)" ><img src="<?php echo $this->baseUrl(); ?>/public/images/publish_x.png"  /></a></td>
+</tr>	
+						
+<?php
+$i++; 
+}
+	if($totalRecords == 0){
+	echo '<tr bgcolor=white class=message ><td colspan=8 align=center>There is no client is active ! </td></tr>';
+	}
+?>
+						
+ </table>
+
+ </div>
+			 
+			 
+
+<table border=0 cellspacing=0 cellpadding=2 width=100%>
+	<tr>
+		<td width="14%" align="left" nowrap style="padding-right:20px"></td>
+		<td width="5%" nowrap class="small" style="padding-right:20px"></td>
+		<td width="10%" nowrap >&nbsp;</td>
+		<td align="right" width=71%>&nbsp;</td>
+	</tr>
+</table>		       
+
+
+		</td>
+	</tr>
+</table>							
+		
+		
+		</form>
+
+		</td>
+	</tr>
+</table>
+						

@@ -1,0 +1,114 @@
+<script language="javascript">
+
+	function confirmDelate(id){
+	
+		if(confirm("Are you Sure ? "))
+			window.location.href='app/delete.php?type=user&id=' + id 
+	}
+	
+	
+function displaySearch(){
+
+	if(document.getElementById('search').style.display == 'block'){
+		document.getElementById('search').style.display = 'none';
+	}
+	else{
+	
+	document.getElementById('search').style.display = 'block'
+	
+	}
+
+}
+
+function validateSearch()
+{
+	if(document.search.search_text.value == ''){
+		document.search.search_text.focus()
+		alert('Please enter search text ! ')
+		return false;
+	}
+	if(document.search.search_option.selectedIndex == 0){
+		document.search.search_option.focus()
+		alert('Please select option!')
+		return false;
+	}
+
+}
+
+
+</script>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0"  align="center">
+	<tr>
+		<td height="400" valign="top" align="center"  >
+							
+<table class="tableHeading" border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tr>
+		<td class="big" align="left" >Client Home Page</td>
+		<td class="big" align="right"></td>
+	</tr>
+</table>
+									
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Client Name</td>
+		<td class="dvtCellInfo" align="left" colspan="3" ><?php echo $this->escape( $this->data[$this->clientId]['client_name']) ; ?></td>
+	</tr>
+																			
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Client Id</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->clientId]['client_id']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Client Id Group</td>
+		<td class="dvtCellInfo" id="mouseArea_Email"  align="left" width="25%"><?php echo $this->escape( $this->data[$this->clientId]['client_id_group']) ; ?></td>
+	</tr>
+	
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Status</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->clientId]['status']) ; ?>&nbsp;</td>
+		<td class="dvtCellLabel" align="right" width="25%">Sales Rep Id</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->data[$this->clientId]['sales_rep_id']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">List Amount </td>
+		<td class="dvtCellInfo"  align="left" width="25%"><?php echo $this->escape( $this->data[$this->clientId]['list_amount']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Paid Amount </td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->clientId]['paid_amount']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Earned Amount</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->data[$this->clientId]['earned_amount']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Age</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->clientId]['age']) ; ?></td>
+	</tr>
+
+	<tr>
+		<td class="dvtCellLabel" align="right" width="25%">Small Balance</td>
+		<td width="25%" align="left" class="dvtCellInfo"><?php echo $this->escape( $this->data[$this->clientId]['small_balance']) ; ?></td>
+		<td class="dvtCellLabel" align="right" width="25%">Medium Balance</td>
+		<td class="dvtCellInfo" align="left" width="25%"><?php echo $this->escape( $this->data[$this->clientId]['medium_balance']) ; ?></td>
+	</tr>
+
+</table>
+
+<br />
+
+<table class="tableHeading" border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td align="left" class="big">Revenue Analysis Dashboard  </td>
+		<td class="small" align="right">&nbsp;</td>	
+	</tr></tbody>
+</table>
+
+<table border="0" cellpadding="5"  class="tableHeading" cellspacing="0" width="100%" style="margin-bottom:20px;border-top:0">
+	<tbody><tr>
+		<td align="center">	<div id="chartid"  class="dvtCellInfo" style="border:0"></div>
+		<img src="<?php echo $this->baseUrl(); ?>/public/images/salescomparison.gif"  width="678" height="276" /></td>
+	</tr></tbody>
+</table>	
+
+								
+		</td>							
+	</tr>
+</table>

@@ -1,0 +1,699 @@
+
+<script type="text/javascript" language="javascript" src="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jquery-1.10.2.min.js"></script>
+
+
+<link href="<?php echo $this->baseUrl(); ?>/public/stylesheet/style.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jquery-latest.js" type="text/javascript" ></script>
+<script src="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jquery.tablesorter.js" type="text/javascript" ></script>
+
+
+<script type="text/javascript" charset="utf-8">
+
+function confirmDelete(id){
+
+	if(confirm("Are you Sure ? "))
+		window.location.href='<?php echo $this->baseUrl();?>/client/delete/id/' + id
+}
+
+function selectPageSize(sel){
+  window.location.href=sel.options[sel.selectedIndex].value; 
+}
+
+function selectAlluser(){
+Frm = document.frmUserList
+controllength = Frm.selected_id.length
+
+	if(Frm.selectall.checked == true){	
+		for(i=0;i<controllength;i++){
+		Frm.selected_id[i].checked = true
+		}
+	}
+	else
+	{
+		for(i=0;i<controllength;i++){
+		Frm.selected_id[i].checked = false
+		}
+	}
+
+}
+
+function selectAtleastOne(){
+Frm = document.frmUserList
+flag = 0;
+controllength = Frm.selected_id.length
+		for(i=0;i<controllength;i++){
+			if(Frm.selected_id[i].checked == true){
+				flag = 1;
+				break;
+			}
+		}
+		
+	if(flag == 0){
+	alert('Please select atleast one teacher!')
+	return false
+	}
+	else if(flag == 1)
+	{
+				if(confirm('Are you sure?')){
+					Frm.submit();
+				}
+
+	}
+}
+
+
+function validateSearch()
+{
+	if(document.search.search_text.value == ''){
+		document.search.search_text.focus()
+		alert('Please enter search text ! ')
+		return false;
+	}
+	if(document.search.search_option.selectedIndex == 0){
+		document.search.search_option.focus()
+		alert('Please select option ! ')
+		return false;
+	}
+
+}
+
+
+function displayEdit(id){
+
+    editStatus = document.getElementById('editstat').value;
+	
+	if(editStatus != 1){
+	document.getElementById(id).style.visibility = "visible";
+	}
+
+}  
+
+
+function hideEdit(id){
+	document.getElementById(id).style.visibility = "hidden";
+}
+
+
+function edit(spanid,val,column,id) {
+	imgid = "img_" + column + id; 
+	val = document.getElementById(imgid).title
+	document.getElementById(imgid).style.visibility = "hidden";
+	document.getElementById('editstat').value = 1 ; 
+			
+	var floatValues = new Array('list_amount','paid_amount','earned_amount',
+	'legal_fee_amount', 'legal_fee_amount_earned_us', 'legal_fee_amount_earned_client','legal_total_amount_earned', 
+	'court_cost_fee', 'attorney_fee' , 'collection_fee', 'principal_paid', 'total_paid','aces_list_amount', 'aces_paid_amount',
+	'small_balance','medium_balance','large_balance','controlled_cost_accounts','controlled_cost_accounts');
+
+	integerValues = new Array('sales_rep_id','age','client_id','small_balance','medium_balance','large_balance','aces_es1', 'aces_es2' , 'aces_es3' , 'aces_esf');
+	
+	var inFloat = floatValues.indexOf(column);
+	var inInt 	= integerValues.indexOf(column);
+	
+	
+	if(inFloat > 0){
+		document.getElementById(spanid).innerHTML = "<input type='text' value=\"" + val +"\"  id=\"txt_" + id +"\" onkeypress='return numbersonly(this, event,true)' /><input type='button' value='Save' class='flatinput' onclick='ajaxSave(\"" + column + "\",\"" + id + "\")' style='margin-left:10px' >";
+	}else if(inInt > 0){
+		document.getElementById(spanid).innerHTML = "<input type='text' value=\"" + val +"\"  id=\"txt_" + id +"\" onkeypress='return numbersonly(this, event,false)' /><input type='button' value='Save' class='flatinput' onclick='ajaxSave(\"" + column + "\",\"" + id + "\")' style='margin-left:10px' >";
+	}else{
+		document.getElementById(spanid).innerHTML = "<input type='text' value=\"" + val +"\"  id=\"txt_" + id +"\" /><input type='button' value='Save' class='flatinput' onclick='ajaxSave(\"" + column + "\",\"" + id + "\")' style='margin-left:10px' >";
+	}
+	
+	
+}
+
+function ajaxSave(column, id){
+
+	txtid = "txt_" + id;
+	txtValue = document.getElementById(txtid).value
+	spanid = "span_" + column + id; 
+    imgid = "img_" + column + id; 
+	
+	$.post("<?php echo $this->baseUrl(); ?>/client/saveajax",{id:id,data:txtValue,colname:column},function(result){
+
+		if(column == 'client_name'){
+			document.getElementById(spanid).innerHTML = "<a href='<?php echo $this->baseUrl(); ?>/client/clienthome/id/" + id + "' > "+ result + "</a>";
+		}else{
+			document.getElementById(spanid).innerHTML = result;
+		}
+		
+		document.getElementById(imgid).title = result;
+		document.getElementById('editstat').value = 0 ; 
+
+	  });
+	  
+	  
+}
+
+
+function deleteRow(r, id)
+{
+
+	if(confirm("Are you Sure ? ")){
+	var i=r.parentNode.parentNode.rowIndex;
+	
+	$.post("<?php echo $this->baseUrl(); ?>/client/deleteajax",{id:id},function(result){
+		
+		document.getElementById('clientdatatable').deleteRow(i);
+			alert("Selected row is successfully deleted ! ");
+	  });
+	  
+	
+	}
+	
+}
+
+
+//for ie8 compatibility of indexOf function 
+if (!Array.prototype.indexOf) { 
+    Array.prototype.indexOf = function(obj, start) {
+         for (var i = (start || 0), j = this.length; i < j; i++) {
+             if (this[i] === obj) { return i; }
+         }
+         return -1;
+    }
+}
+
+
+
+$(document).ready(function()
+{
+		$("#clientdatatable").tablesorter(		
+				{ headers: { 30: { sorter: false },
+							 31: { sorter: false	}
+							}
+				},
+				
+				{ 
+        		// define a custom text extraction function 
+        		textExtraction: function(node) { 
+            	// extract data from markup and return it  
+            	return node.childNodes[0].childNodes[0].innerHTML; 
+        		} 
+    }
+	
+	
+		);
+	}
+);
+
+
+</script>
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center"  >
+	<tr>
+		<td  height="30px"   valign="middle"  >
+			
+<div class="message" id="message"   ><?php echo $this->message; ?></div>
+
+<div class="breadcrumb" > <a href="<?php echo $this->baseUrl(); ?>/home" > Home </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/project" >  Projects  </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/project/projecthome/id/<?php echo $this->project_id ; ?>" > <?php echo $this->project_name ; ?> </a>
+>  Customer Data </div>	
+            						
+<table border="0" cellspacing=0 cellpadding=2 width=100% >
+<tr>
+	<td width="80%"  style="padding-right:20px" class="adminsubhead" >
+    	Customer Data
+    </td>
+	<td width=20% align="right">
+	
+	<a href="<?php echo $this->baseUrl(); ?>/client/newclient/prid/<?php echo  $this->project_id ; ?>"><img src="<?php echo $this->baseUrl(); ?>/public/images/btnAdd.gif"   border="0"   width="28px" height="27px"  /></a>
+	<a href="<?php echo $this->baseUrl(); ?>/client/importclient/id/<?php echo $this->project_id; ?>"><img src="<?php echo $this->baseUrl(); ?>/public/images/importcsv.gif" width="28px" height="27px"   border="0"    /></a>
+	<a href="<?php echo $this->baseUrl(); ?>/group/index/id/<?php echo $this->project_id; ?>"><img src="<?php echo $this->baseUrl(); ?>/public/images/icon-48-user.png" width="28px" height="27px"   border="0"  style="border:1px solid #cccccc "   /></a>
+</td>	
+</tr>
+
+
+</table>
+									
+</td>
+</tr>	
+
+
+<tr>
+<td valign="middle"  >
+									
+<div id="search" style="padding:10px 0 10px 0;"  >
+
+<form name="search"	 action="<?php echo $this->baseUrl(); ?>/client/index/id/<?php echo $this->project_id; ?>" method="post"  style="margin:0"  onsubmit="return validateSearch()">
+						
+<table width="100%" height="40px"  cellpadding="0" cellspacing="0" border="0" id="lightouterborder" >
+<tr>
+<td width="20%" class="dvtCellLabel"><img src="<?php echo $this->baseUrl(); ?>/public/images/basicsearch.gif"></td>
+<td width="20%" class="dvtCellLabel" align="center" ><input type="text" name="search_text" class="controltext" style="width:98%" > </td>
+<td width="20%" class="dvtCellLabel" >
+<select name="search_option" id="fop1" class="controltext" style="width:90%"   >
+<option value="">Select Option</option>
+<option value="e">Equals</option>
+<option value="n">Not equal to</option>
+<option value="l">Like</option>
+</select>
+</td>
+<td width="20%" class="dvtCellLabel"><b>In</b>&nbsp;
+
+<select name="search_field"  class="controltext" style="width:90%" >
+<option label="Client Name" value="client_name" >Client Name</option>
+<option label="Client Id" value="client_id" >Client Id</option>
+</select>
+
+<td width="20%" class="dvtCellLabel">
+<input type="submit"  name="search" value="Search Now"  class="flatinput1"  style="width:98%"  ></td>
+</tr>
+</table>
+
+</form>		
+
+</div>
+							
+</td></tr>
+
+
+
+<tr>
+<td height="200" valign="top"  align="center"   >
+								
+<form id="frmCustomerList" name="frmUserList" action="#" method="post" onsubmit="return validate()" >
+								
+<table border=0 cellspacing=1 cellpadding=0 width="100%" class="lvtBg">
+	<tr> <td>
+    
+      
+				<table   border="0"  cellspacing=0 cellpadding=2 width=100% class="small">
+			    <tr>
+		        	<td   align="left" >
+					<?php 
+							echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml',array('params' => $this->params)  ); 
+							echo $this->paginator->firstItemNumber; 
+							$totalRecords =  $this->paginator->getTotalItemCount(); 
+					?>
+					<span>Page size: </span>
+		        	<select name="page_size" onchange="selectPageSize(this)">
+			        	<?
+			        	foreach($this->page_sizes as $i){	
+			        		echo '<option value="'.$this->url(array_merge($this->params,array('page' => null, 'page_size'=>$i)) ).($i == $this->params[page_size] ? '" selected="selected' : '').'">'.$i.'</option>';
+			        	}
+			        	?>
+		        	</select>                    
+                    <input id="editstat" type="hidden"  />
+                    
+					</td>
+       		    </tr>
+				</table>
+		        
+<div   style="width:1300px;height:400px;overflow:auto;"> 
+
+
+<table cellpadding="0" cellspacing="1" border="0" id="clientdatatable" width="95%" class="tablesorter lvt small" >
+
+<thead>
+<tr class="bluehead" >
+	<th  > # </th>
+	<th  width="150px" >Client Name </th>
+	<th  width="150px" >Client Id</th>
+	<th  width="150px"  >Client Id Group </th>
+	<th  align="left" >Status</th>
+	<th  align="left"  >Sales Rep ID</th>
+    
+    
+    <th  >List Amount </th>
+	<th  align="left" >Paid Amount</th>
+	<th  align="left"  >Earned Amount</th>
+    
+    <th  >Age</th>
+	<th  align="left" >Small Balance</th>
+	<th  align="left"  >Medilum Balance</th>
+    
+    <th  >Large Balance </th>
+    <th  align="left" >Controlled Cost Acc.</th>
+        
+	<th  >Leg Fee Amnt</th>
+    <th  align="left" >Leg Fee Earned Us</th>
+    <th  >Leg Fee Earned Client</th>
+	<th  >Leg Total Amount Earned</th>
+    <th  align="left" >Court Cost Fee</th>
+    
+    <th  >Attorney Fee</th>
+	<th  >Collection Fee</th>
+    <th  align="left" >Principal Paid</th>
+    <th  >Total Paid</th>
+	<th  >Avg. Age CC</th>
+
+    
+    <th>Aces Es1</th>
+	<th>Aces Es2</th>
+    <th>Aces Es3</th>
+    <th>Aces Esf</th>
+	<th>Aces List Amount</th>
+    <th>Aces Paid Amount</th>
+
+	<th  align="center" width="59" style="text-align:center;padding-right:5px" >Edit </th>
+	<th  align="center" width="59" style="text-align:center;padding-right:5px" >Delete</th>
+</tr>
+</thead>
+
+
+
+
+<tbody >		
+        				
+<?php
+
+
+
+
+$i = 1;
+foreach($this->paginator as $record){
+
+if($i%2==1){
+	$tr = 'class="eventr"';
+} else {
+	$tr = 'class="oddtr"';
+}
+
+
+$ace_id = $record->ace_id;
+
+$prime_id = $record->prime_id;
+
+if($ace_id > 0){
+	$aces_status_image = 'tick.png'; 
+}else{
+	$aces_status_image = 'publish_r.png'; 
+}
+
+if($prime_id > 0){
+	$prime_status_image = 'tick.png'; 
+}else{
+	$prime_status_image = 'publish_r.png'; 
+}
+
+?>
+
+<tr id="tr_<?php echo $record->proj_client_id; ?>" <?php echo $tr ;?> >
+	<td width="20"><?php echo $i; ?></td>
+	<td  onmouseout="hideEdit('img_client_name<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_client_name<?php echo $record->proj_client_id; ?>');"   >
+        <span  id="span_client_name<?php echo $record->proj_client_id; ?>"  >
+        <a  href="<?php echo $this->baseUrl(); ?>/client/clienthome/id/<?php echo $record->proj_client_id; ?>" ><?php echo $this->escape($record->client_name);  ?></a>
+        </span>
+        
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_client_name<?php echo $record->proj_client_id; ?>"   title="<?php echo addslashes($this->escape($record->client_name)) ; ?>"
+        onclick="edit('span_client_name<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->client_name))   ?>','client_name','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    </td>
+	<td align="left" onmouseout="hideEdit('img_client_id<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_client_id<?php echo $record->proj_client_id; ?>');"   >
+	
+        <span  id="span_client_id<?php echo $record->proj_client_id; ?>"  >
+            <?php echo $this->escape($record->client_id);  ?>
+        </span>
+        
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_client_id<?php echo $record->proj_client_id; ?>" title="<?php echo addslashes($this->escape($record->client_id)) ; ?>"
+        onclick="edit('span_client_id<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->client_id))   ?>','client_id','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    
+    </td>
+	<td align="left" onmouseout="hideEdit('img_client_id_group<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_client_id_group<?php echo $record->proj_client_id; ?>');" >
+		 <span  id="span_client_id_group<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->client_id_group);  ?>
+         </span>
+         
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_client_id_group<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->client_id_group)) ; ?>"
+        onclick="edit('span_client_id_group<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->client_id_group))   ?>','client_id_group','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    
+    </td>
+	<td onmouseout="hideEdit('img_status<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_status<?php echo $record->proj_client_id; ?>');"  >
+		 <span  id="span_status<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->status);  ?>
+         </span>
+         
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_status<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->status)) ; ?>"
+        onclick="edit('span_status<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->status))   ?>','status','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    
+    </td>
+	<td onmouseout="hideEdit('img_sales_rep_id<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_sales_rep_id<?php echo $record->proj_client_id; ?>');"   >
+		
+        <span  id="span_sales_rep_id<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->sales_rep_id);  ?> 
+    	</span>
+        
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_sales_rep_id<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->sales_rep_id)) ; ?>"
+        onclick="edit('span_sales_rep_id<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->sales_rep_id))   ?>','sales_rep_id','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+
+        
+    </td>
+	<td onmouseout="hideEdit('img_list_amount<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_list_amount<?php echo $record->proj_client_id; ?>');"   >
+		 <span  id="span_list_amount<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->list_amount);  ?> 
+         </span>
+            
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_list_amount<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->list_amount)) ; ?>"
+        onclick="edit('span_list_amount<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->list_amount))   ?>','list_amount','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    
+    </td>
+	<td onmouseout="hideEdit('img_paid_amount<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_paid_amount<?php echo $record->proj_client_id; ?>');"  >
+		
+        <span  id="span_paid_amount<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->paid_amount);  ?> 
+    	</span>
+    
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_paid_amount<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->paid_amount)) ; ?>"
+        onclick="edit('span_paid_amount<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->paid_amount))   ?>','paid_amount','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    
+    </td>
+	<td align="left" onmouseout="hideEdit('img_earned_amount<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_earned_amount<?php echo $record->proj_client_id; ?>');" >
+	
+    		<span  id="span_earned_amount<?php echo $record->proj_client_id; ?>"  >
+    		<?php echo $this->escape($record->earned_amount);  ?> 
+            </span>
+            
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_earned_amount<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->earned_amount)) ; ?>"
+        onclick="edit('span_earned_amount<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->earned_amount))   ?>','earned_amount','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+            
+    </td>
+	<td align="left" onmouseout="hideEdit('img_age<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_age<?php echo $record->proj_client_id; ?>');"  >
+        
+        <span  id="span_age<?php echo $record->proj_client_id; ?>"  >
+        	<?php echo $this->escape($record->age);  ?>
+        </span>
+    
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_age<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->age)) ; ?>"
+        onclick="edit('span_age<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->age))   ?>','age','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    
+    </td>
+	<td onmouseout="hideEdit('img_small_balance<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_small_balance<?php echo $record->proj_client_id; ?>');" >
+		<span  id="span_small_balance<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->small_balance);  ?>
+        </span>
+
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_small_balance<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->small_balance)) ; ?>"
+        onclick="edit('span_small_balance<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->small_balance))   ?>','small_balance','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    
+    </td>
+	<td align="left" onmouseout="hideEdit('img_medium_balance<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_medium_balance<?php echo $record->proj_client_id; ?>');" >
+		<span  id="span_medium_balance<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->medium_balance);  ?>
+    	</span>
+         
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_medium_balance<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->medium_balance)) ; ?>"
+        onclick="edit('span_medium_balance<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->medium_balance))   ?>','medium_balance','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+         
+    </td>
+    <td align="left" onmouseout="hideEdit('img_large_balance<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_large_balance<?php echo $record->proj_client_id; ?>');" >
+		<span  id="span_large_balance<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->large_balance);  ?>
+    	</span>
+        
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_large_balance<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->large_balance)) ; ?>"
+        onclick="edit('span_large_balance<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->large_balance))   ?>','large_balance','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+        
+    </td>
+    
+    <td onmouseout="hideEdit('img_controlled_cost_accounts<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_controlled_cost_accounts<?php echo $record->proj_client_id; ?>');" >
+		<span  id="span_controlled_cost_accounts<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->controlled_cost_accounts);  ?>
+	    </span>   
+        
+        <img  id="img_controlled_cost_accounts<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->controlled_cost_accounts)) ; ?>"  height="12" style="cursor:pointer;visibility:hidden;" 
+        onclick="edit('span_controlled_cost_accounts<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->controlled_cost_accounts))   ?>','controlled_cost_accounts','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    </td>
+    
+	<td onmouseout="hideEdit('img_legal_fee_amount<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_legal_fee_amount<?php echo $record->proj_client_id; ?>');"  >
+		<span  id="span_legal_fee_amount<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->legal_fee_amount);  ?>
+       </span>
+
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_legal_fee_amount<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->legal_fee_amount)) ; ?>"
+        onclick="edit('span_legal_fee_amount<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->legal_fee_amount))   ?>','legal_fee_amount','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    
+    </td>
+	<td align="left"  onmouseout="hideEdit('img_legal_fee_amount_earned_us<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_legal_fee_amount_earned_us<?php echo $record->proj_client_id; ?>');"  >
+    	<span  id="span_legal_fee_amount_earned_us<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->legal_fee_amount_earned_us);  ?>
+        </span>
+        
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_legal_fee_amount_earned_us<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->legal_fee_amount_earned_us)) ; ?>"
+        onclick="edit('span_legal_fee_amount_earned_us<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->legal_fee_amount_earned_us))   ?>','legal_fee_amount_earned_us','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+        
+    </td>
+    <td align="left" onmouseout="hideEdit('img_legal_fee_amount_earned_client<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_legal_fee_amount_earned_client<?php echo $record->proj_client_id; ?>');"  >
+		<span  id="span_legal_fee_amount_earned_client<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->legal_fee_amount_earned_client);  ?>
+        </span>   
+        
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_legal_fee_amount_earned_client<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->legal_fee_amount_earned_client)) ; ?>"
+        onclick="edit('span_legal_fee_amount_earned_client<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->legal_fee_amount_earned_client))   ?>','legal_fee_amount_earned_client','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+        
+    </td>
+	<td onmouseout="hideEdit('img_legal_total_amount_earned<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_legal_total_amount_earned<?php echo $record->proj_client_id; ?>');" >
+		<span  id="span_legal_total_amount_earned<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->legal_total_amount_earned);  ?>
+    	</span>
+        
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_legal_total_amount_earned<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->legal_total_amount_earned)) ; ?>"
+        onclick="edit('span_legal_total_amount_earned<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->legal_total_amount_earned))   ?>','legal_total_amount_earned','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    
+    </td>
+	<td align="left" onmouseout="hideEdit('img_court_cost_fee<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_court_cost_fee<?php echo $record->proj_client_id; ?>');" >
+		<span  id="span_court_cost_fee<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->court_cost_fee);  ?>
+         </span>
+        
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_court_cost_fee<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->court_cost_fee)) ; ?>"
+        onclick="edit('span_court_cost_fee<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->court_cost_fee))   ?>','court_cost_fee','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+        
+    </td>
+    
+    <td align="left" onmouseout="hideEdit('img_attorney_fee<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_attorney_fee<?php echo $record->proj_client_id; ?>');" >
+		<span  id="span_attorney_fee<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->attorney_fee);  ?>
+        </span>
+        
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_attorney_fee<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->attorney_fee)) ; ?>"
+        onclick="edit('span_attorney_fee<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->attorney_fee))   ?>','attorney_fee','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+        
+    </td>
+	<td onmouseout="hideEdit('img_collection_fee<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_collection_fee<?php echo $record->proj_client_id; ?>');" >
+		<span  id="span_collection_fee<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->collection_fee);  ?>
+    	</span>
+         
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_collection_fee<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->collection_fee)) ; ?>"
+        onclick="edit('span_collection_fee<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->collection_fee))   ?>','collection_fee','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+         
+    </td>
+	<td align="left" onmouseout="hideEdit('img_principal_paid<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_principal_paid<?php echo $record->proj_client_id; ?>');" >
+		
+        <span  id="span_principal_paid<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->principal_paid);  ?> 
+       </span>
+       
+        <img  height="12" style="cursor:pointer;visibility:hidden;" id="img_principal_paid<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->principal_paid)) ; ?>"
+        onclick="edit('span_principal_paid<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->principal_paid))   ?>','principal_paid','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    
+    </td>
+    <td align="left" onmouseout="hideEdit('img_total_paid<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_total_paid<?php echo $record->proj_client_id; ?>');" >
+	
+    	<span  id="span_total_paid<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->total_paid);  ?>
+        </span>    
+
+        <img  id="img_total_paid<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->total_paid)) ; ?>"  height="12" style="cursor:pointer;visibility:hidden;" 
+        onclick="edit('span_total_paid<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->total_paid))   ?>','total_paid','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    
+    </td>
+	<td onmouseout="hideEdit('img_average_age_acc<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_average_age_acc<?php echo $record->proj_client_id; ?>');" >
+		<span  id="span_average_age_acc<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->average_age_acc);  ?>
+	    </span>   
+        
+        <img  id="img_average_age_acc<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->average_age_acc)) ; ?>"  height="12" style="cursor:pointer;visibility:hidden;" 
+        onclick="edit('span_average_age_acc<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->average_age_acc))   ?>','average_age_acc','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+        
+        
+    </td>
+	
+  
+    <td  onmouseout="hideEdit('img_aces_es1<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_aces_es1<?php echo $record->proj_client_id; ?>');" >
+		<span  id="span_aces_es1<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->aces_es1);  ?>
+        </span> 
+        
+        <img  id="img_aces_es1<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->aces_es1)) ; ?>"  height="12" style="cursor:pointer;visibility:hidden;" 
+        onclick="edit('span_aces_es1<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->aces_es1))   ?>','aces_es1','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+        
+    </td>
+	<td  onmouseout="hideEdit('img_aces_es2<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_aces_es2<?php echo $record->proj_client_id; ?>');"  >
+		<span  id="span_aces_es2<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->aces_es2);  ?>
+    	</span> 
+        
+        <img  id="img_aces_es2<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->aces_es2)) ; ?>"  height="12" style="cursor:pointer;visibility:hidden;" 
+        onclick="edit('span_aces_es2<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->aces_es2))   ?>','aces_es2','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+        
+    </td>
+	<td  onmouseout="hideEdit('img_aces_es3<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_aces_es3<?php echo $record->proj_client_id; ?>');"  >
+		<span  id="span_aces_es3<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->aces_es3);  ?> 
+        </span> 
+    
+        <img  id="img_aces_es3<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->aces_es3)) ; ?>"  height="12" style="cursor:pointer;visibility:hidden;" 
+        onclick="edit('span_aces_es3<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->aces_es3))   ?>','aces_es3','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    
+    </td>
+    <td onmouseout="hideEdit('img_aces_esf<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_aces_esf<?php echo $record->proj_client_id; ?>');"  >
+		<span  id="span_aces_esf<?php echo $record->proj_client_id; ?>"  >
+			<?php echo $this->escape($record->aces_esf);  ?>
+        </span> 
+        
+        <img  id="img_aces_esf<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->aces_esf)) ; ?>"  height="12" style="cursor:pointer;visibility:hidden;" 
+        onclick="edit('span_aces_esf<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->aces_esf))   ?>','aces_esf','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    
+    </td>
+	<td onmouseout="hideEdit('img_aces_list_amount<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_aces_list_amount<?php echo $record->proj_client_id; ?>');"  >
+		<span  id="span_aces_list_amount<?php echo $record->proj_client_id; ?>"  >
+		<?php echo $this->escape($record->aces_list_amount);  ?>
+        </span> 
+
+        <img  id="img_aces_list_amount<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->aces_list_amount)) ; ?>"  height="12" style="cursor:pointer;visibility:hidden;" 
+        onclick="edit('span_aces_list_amount<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->aces_list_amount))   ?>','aces_list_amount','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+     </td>
+	<td onmouseout="hideEdit('img_aces_paid_amount<?php echo $record->proj_client_id; ?>');"  onmouseover="displayEdit('img_aces_paid_amount<?php echo $record->proj_client_id; ?>');" >
+		
+        <span  id="span_aces_paid_amount<?php echo $record->proj_client_id; ?>"  >
+		<?php echo $this->escape($record->aces_paid_amount);  ?> 
+        </span>
+         
+        <img  id="img_aces_paid_amount<?php echo $record->proj_client_id; ?>"  title="<?php echo addslashes($this->escape($record->aces_paid_amount)) ; ?>"  height="12" style="cursor:pointer;visibility:hidden;" 
+        onclick="edit('span_aces_paid_amount<?php echo $record->proj_client_id; ?>', '<?php echo addslashes($this->escape($record->aces_paid_amount))   ?>','aces_paid_amount','<?php echo $record->proj_client_id; ?>') ;"  src='<?php echo $this->baseUrl(); ?>/public/images/edit.png' />
+    
+    </td>
+  
+    
+	<td align="center" ><a href="<?php echo $this->baseUrl(); ?>/client/newclient/id/<?php echo $record->proj_client_id; ?>" >Edit</a></td>
+	<td align="center"  ><a href='javascript:'  onclick="deleteRow(this,<?php echo $record->proj_client_id; ?>)" >Delete</a></td>
+</tr>	
+						
+<?php
+$i++; 
+}
+	if($totalRecords == 0){
+	echo '<tr bgcolor=white class=message ><td colspan=8 align=center>There is no client is active ! </td></tr>';
+	}
+?>
+	</tbody>		
+ </table>
+
+             
+</div>
+
+
+		</td>
+	</tr>
+</table>							
+		
+		
+		</form>
+
+		</td>
+	</tr>
+</table>
+						

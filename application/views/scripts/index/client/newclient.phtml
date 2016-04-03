@@ -1,0 +1,305 @@
+
+<script language="javascript">
+
+function validateClient(){
+
+	formControl = document.frmNewClient
+
+	if(!combocheck(formControl.ddClient,'Client',""))
+	{
+	return false
+	}
+		
+	if(!emptycheck(formControl.txtClientName,'Client Name',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtClientId,'Client Id',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtClientIdGroup,'Client Id Group',""))
+	{
+		return false
+	}
+	
+	if(!emptycheck(formControl.txtStatus,'Status',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtSalesRepId,'Sales Rep Id',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtListAmount,'List Amount',""))
+	{
+		return false
+	}
+	
+	if(!emptycheck(formControl.txtPaidAmount,'Paid Amount',""))
+	{
+		return false
+	}
+
+/*
+	if(!emptycheck(formControl.txtCcOtherDirectCost,'Other Direct Costs - CC',""))
+	{
+		return false
+	}
+
+
+	if(!emptycheck(formControl.txtIndirectCost,'Indirect Cost',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtTotalCompFee,'Total Company Fees Collected',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtLegalExpense,'Total Legal Expense',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtLegalEarned,'Total Legal Earned',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtNoOfActiveClients,'Number of Active Clients',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtSmallBalanceAccCost,'Small Balance Account Costs',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtFeeIncomeYear,'Total Fee Income for the Year',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtFeeIncomeYear,'Total Fee Income for the Year',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtTotalAcesAccounts,'Total Number of ACES Accounts',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtAcesLaborCost,'Labor Costs - ACES',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtAcesBenefitCost,'Benefit Costs - ACES',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtAcesStatementCost,'Statement Cost - ACES',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtAcesOtherDirectCost,'Other Direct Costs  - ACES',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtAcesIndirectCost,'Indirect Costs  - ACES',""))
+	{
+		return false
+	}
+
+	if(!emptycheck(formControl.txtAcesTotalCompFee,'Total Company Fees Collected',""))
+	{
+		return false
+	}
+*/
+}
+</script>
+
+<form name="frmNewClient" action="<?php echo $this->baseUrl(); ?>/client/save" method="post"  onsubmit="return validateClient()"  > 
+					
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr>
+		<td  valign="top"  align="center"  >
+			
+			<div id="ajaxloading" style="display:none" > <img src="images/ajaxload.gif" /></div>
+																		
+<table class="tableHeading" border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td class="big" width="25%" align="left" ><strong>New Client</strong></td>
+		<td class="message" align="center" > <?php echo  $this->message; ?> </td>
+	</tr></tbody>
+</table>
+                                            
+											
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+	<td class="dvtCellLabel" align="right"  > <span class="redfont" > * </span>  Project  </td>
+	<td class="dvtCellInfo" align="left" colspan="3" >
+
+		<select name="ddClient"  class="ddcontrol" style="width:505px" >
+			<option value="" >Select one client</option>
+			<?php
+				foreach($this->projects as $projects){
+			?>
+			<option value="<?php echo $projects->project_id; ?>" <?php if($this->clientinfo[$this->proj_client_id]['project_id'] ==  $projects->project_id) {echo "selected" ; } ?>  ><?php echo $projects->project_name; ?></option>
+			<?php
+				}
+			?>
+		</select>
+		
+	
+	</td>    
+</tr>
+<tr>
+	<td class="dvtCellLabel" align="right"  > <span class="redfont" > * </span>  Client Name  </td>
+	<td class="dvtCellInfo" align="left" colspan="3" >
+		<input type="text"  name="txtClientName" value="<?php echo $this->escape($this->clientinfo[$this->proj_client_id]['client_name']);  ?>"  id="txtClientName" class="textcontrol1"   style="width:500px"  />
+	</td>    
+</tr>
+<tr>
+	<td class="dvtCellLabel" align="right"  ><span  class="redfont" > * </span>Client Id</td>
+	<td class="dvtCellInfo" align="left" >
+		
+		<input type="text"  name="txtClientId" value="<?php echo $this->escape($this->clientinfo[$this->proj_client_id]['client_id']);  ?>"   id="txtClientId" class="textcontrol1" onKeyPress="return numbersonly(this, event,false)"    />
+		
+	</td>
+	<td class="dvtCellLabel label" align="right"  ><span style="color:#FF0000" > * </span>Client Id Group</td>
+	<td class="dvtCellInfo" align="left" ><input type="text"  name="txtClientIdGroup"  id="txtClientIdGroup"  value="<?php echo $this->escape($this->clientinfo[$this->proj_client_id]['client_id_group']);  ?>"  class="textcontrol1" onKeyPress="return numbersonly(this, event,false)"  /> </td>    
+</tr>
+
+
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Status </td>
+	<td class="dvtCellInfo" align="left" >&nbsp;<input name="txtStatus" id="txtStatus"  class="textcontrol1" value="<?php echo $this->escape($this->clientinfo[$this->proj_client_id]['status']);  ?>"   type="text"  /></td>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Sales Rep Id</td>
+	<td class="dvtCellInfo" align="left" ><input type="text"  value="<?php echo $this->escape($this->clientinfo[$this->proj_client_id]['sales_rep_id']);  ?>"   name="txtSalesRepId"  id="txtSalesRepId" class="textcontrol1"   /> </td>
+</tr>
+
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>List Amount </td> 
+	<td class="dvtCellInfo" align="left" >&nbsp;<input  name="txtListAmount" id="txtListAmount"  class="textcontrol1"  value="<?php echo $this->escape($this->clientinfo[$this->proj_client_id]['list_amount']);  ?>"   type="text" onKeyPress="return numbersonly(this, event,true)"  /></td>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Paid Amount</td>
+	<td class="dvtCellInfo" align="left" ><input type="text" name="txtPaidAmount" id="txtPaidAmount"   value="<?php echo $this->escape($this->clientinfo[$this->proj_client_id]['paid_amount']);  ?>"  class="textcontrol1" /> 
+	</td>
+</tr>
+
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Earned Amount </td>
+	<td class="dvtCellInfo" align="left" >&nbsp;<input class="textcontrol1" type="text" name="txtEarnedAmount" id="txtEarnedAmount"  value="<?php echo $this->data[$this->projectId][prime_benefit_cost];  ?>"  onKeyPress="return numbersonly(this, event,true)" /></td>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Age </td>
+	<td class="dvtCellInfo" align="left" > <input type="text"   name="txtAge" id="txtAge"   value="<?php echo $primeBenefitCostPerCustomer; ?>"   class="textcontrol1"   /> 
+	</td>    
+</tr>
+         
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Small Balance </td>
+	<td class="dvtCellInfo" align="left" ><input name="txtSmallBalance" id="txtSmallBalance"  class="textcontrol1" type="text" value="<?php echo $this->data[$this->projectId][cc_med_benefit_cost];  ?>"  onKeyPress="return numbersonly(this, event,true)"  /></td> 
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Medium Balance </td>
+	<td class="dvtCellInfo" align="left" ><input type="text" name="txtSmallBalance" id="txtMediumBalance"  value="<?php echo $ccBenefitCostPerCustomer; ?>" class="textcontrol1"   /> 
+	</td>
+</tr>
+
+
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Large Balance </td>
+	<td class="dvtCellInfo" align="left" ><input class="textcontrol1"  name="txtLargeBalance" id="txtLargeBalance"    value="<?php echo $this->data[$this->projectId][prime_statement_cost]; ?>" type="text"onKeyPress="return numbersonly(this, event,true)"  /></td>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Legal Fee Amount</td>
+	<td class="dvtCellInfo" align="left" ><input class="textcontrol1"  name="txtLegalFeeAmount" id="txtLegalFeeAmount"  value="<?php echo $this->data[$this->projectId][sm_med_cont_aces_stmnt_cost]; ?>" type="text"  onKeyPress="return numbersonly(this, event,true)" /></td>
+</tr>
+       
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Legal Fee Amount <br/> Earned US</td>
+	<td class="dvtCellInfo" align="left" >&nbsp;<input  name="txtLegalFeeAmountEarnedUs" id="txtLegalFeeAmountEarnedUs"   class="textcontrol1" value="<?php echo $this->data[$this->projectId][prime_other_direct_cost]; ?>"  type="text" onKeyPress="return numbersonly(this, event,true)"  /></td>
+	<td class="dvtCellLabel" align="right" >Legal Fee Amount <br/> Earned Client</td>
+	<td class="dvtCellInfo" align="left" ><input  name="txtLegalFeeAmountEarnedClient"  id="txtLegalFeeAmountEarnedClient"  type="text"  value="<?php echo $primeOtherDirectCostPerCustomer; ?>" class="textcontrol1"   /> 
+	</td>
+</tr>
+ 
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Legal Total Amount Earned </td>
+	<td class="dvtCellInfo" align="left" >&nbsp;<input  name="txtLegalTotalAmountEarned"  id="txtLegalTotalAmountEarned"  class="textcontrol1"  value="<?php echo $this->data[$this->projectId][cc_other_direct_cost]; ?>"  type="text"  onKeyPress="return numbersonly(this, event,true)" /></td>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Aces Es1</td>
+	<td class="dvtCellInfo" align="left" ><input type="text"  name="txtAcesEs1"  id="txtAcesEs1" value="<?php echo $ccOtherDirectCostPerCustomer; ?>"   class="textcontrol1"   /> 
+	</td>
+</tr>
+                                        
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Aces Es2 </td>
+	<td class="dvtCellInfo" align="left" ><input name="txtAcesEs1"  id="txtAcesEs1" value="<?php echo $this->data[$this->projectId][indirect_cost]; ?>"  class="textcontrol1"  type="text"  onKeyPress="return numbersonly(this, event,true)"  /></td>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Aces Es2</td>
+	<td class="dvtCellInfo" align="left" ><input name="txtAcesEs2" id="txtAcesEs2" value="<?php echo $this->data[$this->projectId][total_comp_fee_collected]; ?>" class="textcontrol1"  type="text"  onKeyPress="return numbersonly(this, event,true)"  /></td>
+</tr>
+										
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Aces Esf</td>
+	<td class="dvtCellInfo" align="left" ><input  name="txtAcesEsf" id="txtAcesEsf"  value="<?php echo $this->data[$this->projectId][total_legal_expense]; ?>" class="textcontrol1"  type="text"  onKeyPress="return numbersonly(this, event,true)"  /></td>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Aces List Amount </td>
+	<td class="dvtCellInfo" align="left" ><input name="txtAcesListAmount" id="txtAcesListAmount" value="<?php echo $this->data[$this->projectId][total_legal_earned]; ?>"  class="textcontrol1" type="text"  onKeyPress="return numbersonly(this, event,true)" /></td>
+</tr>
+										
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Aces Paid Amount </td>
+	<td class="dvtCellInfo" align="left" ><input name="txtAcesPaidAmount" id="txtAcesPaidAmount"   value="<?php echo $this->data[$this->projectId][active_client_no]; ?>" class="textcontrol1"  type="text" onKeyPress="return numbersonly(this, event,false)"  /></td>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Sales Bonus</td>
+	<td class="dvtCellInfo" align="left" >
+	
+		<select class="ddcontrolsmall"  name="ddSalesBonus" >
+			<option <?php if($this->data[$this->projectId][sales_bonus_id] == 5){ echo "selected";  } ?>  >5</option>
+			<option <?php if($this->data[$this->projectId][sales_bonus_id] == 10){ echo "selected";  } ?> >10</option>
+			<option <?php if($this->data[$this->projectId][sales_bonus_id] == 15){ echo "selected";  } ?> >15</option>
+			<option <?php if($this->data[$this->projectId][sales_bonus_id] == 20){ echo "selected";  } ?> >20</option>
+		</select>
+		
+	</td>
+</tr>
+
+<tr>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span>Small Balance Account Costs </td>
+	<td class="dvtCellInfo" align="left" ><input name="txtSmallBalAccCost" id="txtSmallBalAccCost"  value="<?php echo $this->data[$this->projectId][small_bal_acc_cost]; ?>" class="textcontrol1"  type="text"  onKeyPress="return numbersonly(this, event,true)" /></td>
+	<td class="dvtCellLabel" align="right" ><span  class="redfont" > * </span> Total Fee Income <br> for the Year</td>
+	<td class="dvtCellInfo" align="left" ><input name="txtTotalFeeIncomeForYr" id="txtTotalFeeIncomeForYr"  class="textcontrol1"  value="<?php echo $this->data[$this->projectId][total_fee_income_for_the_year]; ?>" type="text"  onKeyPress="return numbersonly(this, event,true)"/></td>    
+</tr>
+									  
+
+</table>
+																		
+
+        
+<table width="95%" border="0"  cellspacing="0" cellpadding="0"> 
+<tr>
+	<td colspan="3" align="center"  class="comment"  ><span style="color:#FF0000" >* </span>  mandatory   &nbsp;
+	<input class="flatinput" type="submit" name="newlease" value="Save" />&nbsp;<input class="flatinput" type="reset" name="Submit" value="Reset" /></td>
+</tr>
+
+<tr>
+	<td width="30%"  >&nbsp;</td>
+	<td >&nbsp;</td>
+	<td>&nbsp;</td>
+</tr>
+
+</table>	
+
+<input type="hidden" name="id" value="<?php echo $this->proj_client_id ; ?>" /> 
+
+</td>
+</tr>
+</table>
+
+
+</form> 
+						

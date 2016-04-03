@@ -1,0 +1,481 @@
+<link href="<?php echo $this->baseUrl(); ?>/public/stylesheet/style.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jquery-latest.js" type="text/javascript" ></script>
+<script src="<?php echo $this->baseUrl(); ?>/public/jsscripts/jquery/jquery.tablesorter.js" type="text/javascript" ></script>
+
+
+<script language="javascript">
+
+
+function toggleSelect(state,relCheckName) {
+	if (getObj(relCheckName)) {
+		if (typeof(getObj(relCheckName).length)=="undefined") {
+			getObj(relCheckName).checked=state
+		} else {
+			for (var i=0;i<getObj(relCheckName).length;i++)
+				getObj(relCheckName)[i].checked=state
+		}
+	}
+}
+
+function getObj(n,d) {
+
+  var p,i,x; 
+
+  if(!d)
+
+      d=document;
+
+   
+   if(n != undefined)
+   {
+	   if((p=n.indexOf("?"))>0&&parent.frames.length) {
+
+		   d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);
+
+	   }
+   }
+
+
+
+  if(!(x=d[n])&&d.all)
+
+      x=d.all[n];
+
+ 
+
+  for(i=0;!x&&i<d.forms.length;i++)
+
+      x=d.forms[i][n];
+
+ 
+
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++)
+
+      x=getObj(n,d.layers[i].document);
+
+ 
+
+  if(!x && d.getElementById)
+
+      x=d.getElementById(n);
+
+
+
+  return x;
+
+}
+
+
+
+
+function confirmDelete(id){
+
+	if(confirm("Are you Sure ? "))
+		window.location.href='<?php echo $this->baseUrl();?>/project/delete/id/' + id
+}
+
+
+
+function selectAlluser(){
+Frm = document.frmUserList
+controllength = Frm.selected_id.length
+
+	if(Frm.selectall.checked == true){	
+		for(i=0;i<controllength;i++){
+		Frm.selected_id[i].checked = true
+		}
+	}
+	else
+	{
+		for(i=0;i<controllength;i++){
+		Frm.selected_id[i].checked = false
+		}
+	}
+
+}
+
+function selectAtleastOne(){
+Frm = document.frmUserList
+flag = 0;
+controllength = Frm.selected_id.length
+		for(i=0;i<controllength;i++){
+			if(Frm.selected_id[i].checked == true){
+				flag = 1;
+				break;
+			}
+		}
+		
+	if(flag == 0){
+	alert('Please select atleast one teacher!')
+	return false
+	}
+	else if(flag == 1)
+	{
+				if(confirm('Are you sure?')){
+					Frm.submit();
+				}
+
+	}
+}
+
+
+function validateSearch()
+{
+	if(document.search.search_text.value == ''){
+		document.search.search_text.focus()
+		alert('Please enter search text ! ')
+		return false;
+	}
+	if(document.search.search_option.selectedIndex == 0){
+		document.search.search_option.focus()
+		alert('Please select option!')
+		return false;
+	}
+
+}
+
+$(document).ready(function()
+{
+		$("#myTable").tablesorter(		
+				{ headers: { 0: { sorter: false }
+
+							}
+				}
+		);
+	}
+);
+
+
+function add_data_to_relatedlist_incal(id,name)
+{
+
+
+
+	var idval = window.opener.document.frmgroups.contactidlist.value;
+	var nameval = window.opener.document.frmgroups.contactlist.value;
+
+
+	if(idval != '')
+	{
+		if(idval.indexOf(id) != -1)
+                {
+                        window.opener.document.frmgroups.contactidlist.value = idval;
+                        window.opener.document.frmgroups.contactlist.value = nameval;
+                }
+                else
+                {
+                        window.opener.document.frmgroups.contactidlist.value = idval+';'+id;
+			if(name != '')
+                	{
+				// this has been modified to provide delete option for Contacts in Calendar
+				//this function is defined in script.js ------- Jeri
+				window.opener.addOption(id,name);
+                	}
+
+                }
+	}
+	else
+	{
+		
+		window.opener.document.frmgroups.contactidlist.value = id;
+		if(name != '') {
+			window.opener.addOption(id,name);
+		}
+
+	}
+}
+
+
+function addOption(lvalue,ltext)	
+{
+	var optObj = document.createElement('OPTION')
+	if (browser_ie) optObj.innerText = ltext;
+        else if(browser_nn4 || browser_nn6) optObj.text = ltext;
+	else optObj.text = ltext;
+	optObj.value = lvalue;
+	document.getElementById('parentid').appendChild(optObj);
+}
+
+//Function added for Mass select in Popup - Philip
+function SelectAll(mod,parmod)
+{
+
+ x = document.selectall.selected_id.length;
+ x = x*1
+ 
+    idstring = "";
+	namestr = "";
+					y=0;
+					for(i = 0; i < x ; i++)
+					{
+							if(document.selectall.selected_id[i].checked)
+							{
+									idstring = document.selectall.selected_id[i].value +";"+idstring;
+							y=y+1;
+							}
+				  
+				   }
+				
+
+    if(document.selectall.selected_id != undefined)
+    {
+        x = document.selectall.selected_id.length;
+	var y=0;
+        idstring = "";
+	namestr = "";
+
+        if ( x == undefined)
+        {
+
+        }
+        else
+        {
+                y=0;
+                for(i = 0; i < x ; i++)
+                {
+                        if(document.selectall.selected_id[i].checked)
+                        {
+                                idstring = document.selectall.selected_id[i].value +";"+idstring;
+						if(parmod == 'Calendar')
+                                {
+                                        idval = document.selectall.selected_id[i].value;
+                                        namestr = document.getElementById('calendarCont'+idval).innerHTML+"\n"+namestr;
+                                }
+                  		y=y+1;
+                        }
+                }
+				
+				
+	}
+	
+	
+
+	if (y != 0)
+        {
+        	document.selectall.idlist.value=idstring;
+        }
+        else
+        {
+                alert("Please select atleast one client !");
+                return false;
+        }
+        if(confirm('Would you like to add seleted users  ?' ))
+        {
+		if(parmod == 'Calendar')
+                {
+
+				
+			//this blcok has been modified to provide delete option for contact in Calendar
+			idval = window.opener.document.frmgroups.contactidlist.value;
+			if(idval != '')
+			{
+				var avalIds = new Array();
+				avalIds = idstring.split(';');
+
+				var selectedIds = new Array();	
+				selectedIds = idval.split(';');
+
+				for(i=0; i < (avalIds.length-1); i++)
+				{
+					var rowFound=false;
+					for(k=0; k < selectedIds.length; k++)
+					{
+						if (selectedIds[k]==avalIds[i])
+						{
+							rowFound=true;
+							break;
+						}
+
+					}
+					if(rowFound != true)
+					{
+						idval = idval+';'+avalIds[i];
+						window.opener.document.frmgroups.contactidlist.value = idval;
+                        var str=document.getElementById('calendarCont'+avalIds[i]).innerHTML;
+						window.opener.addOption(avalIds[i],str);
+					}
+				}
+			}
+			else
+			{
+				window.opener.document.frmgroups.contactidlist.value = idstring;
+				var temp = new Array();
+				temp = namestr.split('\n');
+
+				var tempids = new Array();
+				tempids = idstring.split(';');
+
+				for(k=0; k < temp.length; k++)
+				{
+					window.opener.addOption(tempids[k],temp[k]);
+				}
+			}
+			//end
+                }
+                else
+                {
+			opener.document.location.href="index.php?module="+module+"&parentid="+entity_id+"&action=updateRelations&destination_module="+mod+"&idlist="+idstring+"&parenttab="+parenttab;
+		}
+                self.close();
+        }
+	else
+        {
+                return false;
+        }
+    }
+}
+
+
+
+
+
+</script>
+
+
+<style>
+
+
+
+</style>
+
+
+<table width="740px" border="0" cellpadding="0" cellspacing="0" align="center"  >
+    
+<tr>
+	<td  height="30px" valign="middle"  >
+
+                                <div class="message" id="message"  style="text-align:center"><?php echo $this->message; ?></div>
+                                
+<div class="breadcrumb" > <a href="<?php echo $this->baseUrl(); ?>/home" > Home </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/project" >  Projects  </a>  >
+<a href="<?php echo $this->baseUrl(); ?>/project/projecthome/id/<?php echo $this->project_id ; ?>" > <?php echo $this->project_name ; ?> </a>
+>  New Group </div>  	
+									
+</td>
+</tr>	
+
+<tr>
+<td valign="middle"  >
+									
+<div id="search" style="padding:0;"  >
+
+<form name="search"	 action="<?php echo $this->baseUrl(); ?>/group/clientpopup" method="post"  style="margin:0"  onsubmit="return validateSearch()">
+						
+<table width="100%" height="40px"  cellpadding="0" cellspacing="0" border="0" id="lightouterborder" >
+<tr>
+<td width="20%" class="dvtCellLabel" align="right" ><img src="<?php echo $this->baseUrl(); ?>/public/images/basicsearch.gif"  ></td>
+<td width="20%" class="dvtCellLabel" align="left" ><input type="text" name="search_text" class="controltext" style="width:98%" > </td>
+<td width="20%" class="dvtCellLabel" >
+<select name="search_option" id="fop1" class="controltext" style="width:98%" >
+<option value="">Select Option</option>
+<option value="e">Equals</option>
+<option value="n">Not equal to</option>
+<option value="l">Like</option>
+</select>
+</td>
+<td width="20%" class="dvtCellLabel"><b>In</b>&nbsp;
+<select name="search_field"  class="controltext" style="width:90%" >
+<option label="Client Name" value="client_name" >Client Name</option>
+<option label="Client Id" value="client_id" >Client Id</option>
+</select>
+<td width="20%" class="dvtCellLabel" align="left" >
+<input type="submit"  name="search" value="Search Now"  class="flatinput1" style="width:98%"  ></td>
+</tr>
+</table>
+
+</form>		
+
+</div>
+							
+</td></tr>	
+
+<tr>
+<td height="200" valign="top"  align="center"   >
+								
+<form id="selectall" name="selectall" action="app/massteachersdelete.php" method="post" onsubmit="return validate()" >
+								
+<table border=0 cellspacing=1 cellpadding=0 width=100% class="lvtBg">
+	<tr><td>
+		        
+				<table   border="0"  cellspacing=0 cellpadding=2 width=100% class="small">
+			    <tr>
+		        	<td   align="left" >
+                    
+                    <input class="flatinput controltext" type="button" onclick="if(SelectAll('Contacts','Calendar')) window.close();" value="Select Clients" style="float:left;margin-right:5px" />
+                    
+					<?php 
+							echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml',array('params' => $this->params)  ); 
+							echo $this->paginator->firstItemNumber; 
+					?>
+                    
+                    
+                    
+					</td>
+       		    </tr>
+				</table>
+			
+
+<table border=0  cellspacing=1 cellpadding="2" width=100%  id="myTable" class="tablesorter lvt small"  >
+<thead>
+
+<tr  class="bluehead">
+	<th class="lvtCol bluesubhead" width="10px" style="padding-right:3px " > 
+    	<input type="checkbox" class="select"  onclick="toggleSelect(this.checked,'selected_id')" />
+    </th>
+	<th width="326" class="lvtCol bluesubhead"> Client Name </th>
+	<th width="150"  class="lvtCol bluesubhead"  >Client Id</th>
+	</tr>
+</thead>
+			
+            			
+<?php
+
+$totalRecords =  $this->paginator->getTotalItemCount(); 
+
+
+$i = 1;
+foreach($this->paginator as $record)
+
+{
+
+if($i%2==1){
+	$tr = 'class="eventr"';
+} else {
+	$tr = 'class="oddtr"';
+}
+
+?>
+
+<tr <?php echo $tr ;?>  >
+	<td width="10px" ><input type="checkbox" class="select" onclick="toggleSelectAll(this.name,"select_all")" value="<?php echo $record->proj_client_id;  ?>" name="selected_id" /></td>
+	<td><a   id="calendarCont<?php echo $record->proj_client_id;  ?>" onclick="add_data_to_relatedlist_incal('<?php echo $record->proj_client_id;  ?>','<?php echo $record->client_name;  ?> - <?php echo $record->client_id;  ?>');" language="javascript"  href="javascript:window.close();"   ><?php echo $record->client_name;  ?></a></td>
+	<td  ><?php echo $record->client_id;  ?></td>
+	</tr>	
+						
+<?php
+$i++; 
+}
+	if($totalRecords == 0){
+	echo '<tr bgcolor=white class=message ><td colspan=8 align=center>There is no client is active ! </td></tr>';
+	}
+?>
+ </table>
+
+ </div>
+			 
+
+
+		</td>
+	</tr>
+</table>							
+		
+        
+        <input name="idlist" value="" type="hidden">
+        
+		
+		</form>
+
+		</td>
+	</tr>
+</table>
+						
